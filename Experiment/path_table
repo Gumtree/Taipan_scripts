@@ -1,0 +1,99 @@
+######################################################
+# Please do not use key words listed here
+#	axes
+# 	err, error
+#	location
+#	name
+#	ndim
+#	size
+#	shape
+# 	title
+#	units
+#	var
+#	norm_value
+#	norm_attr
+######################################################
+
+experiment_title = $entry/experiment/title
+user_name = $entry/user/name
+user_email = $entry/user/email
+user_phone = $entry/user/phone
+reactor_power = $entry/instrument/source/power
+suid = $entry/data/sics_suid
+dummy_motor = $entry/instrument/dummy_motor
+start_time = $entry/start_time
+end_time = $entry/end_time
+program_name = $entry/program_name
+sics_release = $entry/sics_release
+run_mode = $entry/run_mode
+
+dummy_s1 = $entry/instrument/dummy_s1
+vs1 = $entry/sample/vs1
+monitor_data = $entry/monitor/data
+bm1_counts = $entry/monitor/bm1_counts
+bm2_counts = $entry/monitor/bm2_counts
+bm2_time = $entry/monitor/bm2_time
+bm1_time = $entry/monitor/bm1_time
+bm_data = $entry/monitor/data
+bm_time = $entry/monitor/time
+bm_mode = $entry/monitor/mode
+bm_preset = $entry/monitor/preset
+
+m1 = $entry/instrument/crystal/m1
+m2 = $entry/instrument/crystal/m2
+a1 = $entry/instrument/crystal/a1
+ahfocus = $entry/instrument/crystal/ahfocus
+atilt = $entry/instrument/crystal/atilt
+atrans = $entry/instrument/crystal/atrans
+avfocus = $entry/instrument/crystal/avfocus
+mfilter = $entry/instrument/crystal/mfilter
+mhfocus = $entry/instrument/crystal/mhfocus
+mtilt = $entry/instrument/crystal/mtilt
+mtrans = $entry/instrument/crystal/mtrans
+mvfocus = $entry/instrument/crystal/mvfocus
+
+collimator = $entry/instrument/collimator/collimator
+
+a2 = $entry/instrument/detector/a2
+
+VS_left = $entry/instrument/slits/VS_left
+VS_right = $entry/instrument/slits/VS_right
+pa_bottom = $entry/instrument/slits/pa_bottom
+pa_left = $entry/instrument/slits/pa_left
+pa_top = $entry/instrument/slits/pa_top
+pa_right = $entry/instrument/slits/pa_right
+ps_bottom = $entry/instrument/slits/ps_bottom
+ps_left = $entry/instrument/slits/ps_left
+ps_top = $entry/instrument/slits/ps_top
+ps_right = $entry/instrument/slits/ps_right
+
+
+sample_name = $entry/sample/name
+sample_description = $entry/sample/description
+ef = $entry/sample/ef
+ei = $entry/sample/ei
+en = $entry/sample/en
+kf = $entry/sample/kf
+ki = $entry/sample/ki
+qh = $entry/sample/qh
+qk = $entry/sample/qk
+ql = $entry/sample/ql
+qm = $entry/sample/qm
+s1 = $entry/sample/s1
+s2 = $entry/sample/s2
+sgl = $entry/sample/sgl
+sgu = $entry/sample/sgu
+stl = $entry/sample/stl
+stu = $entry/sample/stu
+
+tc1_sample = $entry/sample/tc1/sensor/Tsample
+tc1_ctrl1 = $entry/sample/tc1/sensor/ctrlLp1_value
+tc1_ctrl2 = $entry/sample/tc1/sensor/ctrlLp2_value
+tc1_sensorA = $entry/sample/tc1/sensor/sensorValueA
+tc1_sensorB = $entry/sample/tc1/sensor/sensorValueB
+tc1_sensorC = $entry/sample/tc1/sensor/sensorValueC
+tc1_sensorD = $entry/sample/tc1/sensor/sensorValueD
+tc1_sensor1 = $entry/sample/tc1/sensor/value
+tc1_sensor2 = $entry/sample/tc1/sensor2/value
+tc1_sensor3 = $entry/sample/tc1/sensor3/value
+magnetic_field = $entry/sample/magnetic/magneticFieldTesla
