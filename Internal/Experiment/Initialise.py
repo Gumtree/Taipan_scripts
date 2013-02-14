@@ -9,11 +9,13 @@ from gumpy.nexus.fitting import Fitting, GAUSSIAN_FITTING
 from au.gov.ansto.bragg.nbi.ui.scripting import ConsoleEventHandler
 from org.eclipse.swt.widgets import Display
 from java.lang import Runnable
+import sys, os
+sys.path.append(str(os.path.dirname(get_project_path('Internal'))))
 from Experiment.lib import export
 from java.lang import System
 from java.io import File
 from time import strftime, localtime
-import traceback, sys
+import traceback
 import math
 
 __script__.title = 'Initialised'
@@ -34,6 +36,12 @@ def get_prof_value(name):
         value = str(value)
     return value
 
+
+try:
+    __dispose_all__(None)
+except:
+    pass
+
 __buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
 fi = File(__buffer_log_file__)
 if not fi.exists():
@@ -50,11 +58,6 @@ while sics.getSicsController() == None:
 
 time.sleep(1)
 print 'SICS connected'
-
-try:
-    __dispose_all__(None)
-except:
-    pass
 
 __scan_status_node__ = sics.getSicsController().findComponentController('/commands/scan/bmonscan/feedback/status')
 __scan_variable_node__ = sics.getSicsController().findComponentController('/commands/scan/bmonscan/scan_variable')
