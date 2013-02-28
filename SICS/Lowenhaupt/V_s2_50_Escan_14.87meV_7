@@ -1,0 +1,14 @@
+
+# (V)  s2 = -50 e_scan
+
+s2 fixed 1
+s1 fixed 1
+a1 fixed 1
+a2 fixed 1
+
+drive mhfocus 220
+
+runscan en -7 7 29 time 10
+
+
+

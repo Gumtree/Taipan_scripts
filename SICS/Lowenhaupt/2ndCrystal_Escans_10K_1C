@@ -1,0 +1,34 @@
+# Energy range 8-24 meV
+
+m2 softlowerlim 23
+s2 softlowerlim -100
+
+drive s2 -50
+drive qh 0.5 qk 0.5 ql 6 en 10.25
+runscan en 10.25 24 56 monitor 3000000
+
+drive s2 -50
+drive qh 0.2 qk 0.2 ql 7 en 9
+runscan en 9 24 61 monitor 3000000
+
+m2 softlowerlim 31
+s2 softlowerlim -120
+
+drive s2 -50
+drive qh 0.5 qk 0.5 ql 7 en 8
+runscan en 8 10 9 monitor 3000000
+
+m2 softlowerlim 23
+s2 softlowerlim -95
+
+drive s2 -50
+drive qh 0.5 qk 0.5 ql 7 en 10.25
+runscan en 10.25 24 56 monitor 3000000
+
+m2 softlowerlim 23
+s2 softlowerlim -98
+
+drive s2 -50
+drive qh 2 qk 2 ql 1 en 8
+runscan en 8 24 65 monitor 3000000
+

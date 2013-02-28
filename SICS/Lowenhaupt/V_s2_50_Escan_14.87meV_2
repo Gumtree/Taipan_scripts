@@ -1,0 +1,18 @@
+
+# (V)  s2 = -50 e_scan
+
+drive avfocus 0
+drive mhfocus 0
+
+s2 fixed -1
+
+m2 softlowerlim 17
+s2 softlowerlim -85
+
+drive s2 -50
+
+s2 fixed 1
+s1 fixed 1
+
+runscan en -2 2 17 time 10
+

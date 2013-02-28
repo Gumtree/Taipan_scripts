@@ -1,0 +1,13 @@
+
+# (007) Escan  NewUB repeat
+
+m2 softlowerlim 22
+s2 softlowerlim -90
+
+drive s2 -50
+drive qh 0 qk 0 ql 7 en 16
+runscan en 16 19 13 monitor 1500000
+
+
+
+

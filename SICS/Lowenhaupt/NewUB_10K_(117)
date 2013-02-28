@@ -1,0 +1,7 @@
+
+# Energy range 43-55 meV
+
+drive s2 -50
+drive qh 1 qk 1 ql 7 en 43
+runscan en 43 55 25 monitor 5000000
+

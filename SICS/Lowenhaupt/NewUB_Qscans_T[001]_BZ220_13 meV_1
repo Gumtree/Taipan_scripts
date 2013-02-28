@@ -1,0 +1,14 @@
+
+# TA q= [001] polarisation [110] (220) BZ
+
+m2 softlowerlim 28.5
+s2 softlowerlim -120
+
+
+
+# (220) en = 13 meV
+
+drive s2 -50
+
+drive qh 2 qk 2 ql 1.12 en 13
+runscan ql 1.12 1.5 20 monitor 1000000

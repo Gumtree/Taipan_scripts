@@ -1,0 +1,10 @@
+
+# (1.5 1.5 3) 8-22 meV; repeat of old (006)
+
+m2 softlowerlim 23
+s2 softlowerlim -95
+
+drive s2 -50
+drive qh 1.5 qk 1.5 ql 3 en 8
+runscan en 8 22 57 monitor 1500000
+

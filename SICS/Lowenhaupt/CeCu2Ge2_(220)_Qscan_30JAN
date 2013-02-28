@@ -1,0 +1,55 @@
+
+# Q_scan (220) BZ
+
+m2 softlowerlim 32.5
+s2 softlowerlim -120
+
+# (220) en = 4 meV
+drive en 4
+drive qh 1.8 qk 1.8 ql 0
+bmonscan clear
+bmonscan add qh 1.8 0.01 
+bmonscan add qk 1.8 0.01
+bmonscan run 41  monitor 3000000
+
+# (220) en = 7 meV
+drive en 7
+drive qh 1.8 qk 1.8 ql 0
+bmonscan clear
+bmonscan add qh 1.8 0.01 
+bmonscan add qk 1.8 0.01
+bmonscan run 41  monitor 3000000
+
+s2 softlowerlim -128
+
+#(008) en = 3 meV
+
+drive en 3
+drive qh 0 qk 0 ql 7.5
+runscan ql 7.5 8.0 51 monitor 3000000
+
+#(008) en = 5 meV
+
+drive en 5
+drive qh 0 qk 0 ql 7.3
+runscan ql 7.3 8.2 91 monitor 3000000
+
+#(008) en = 7 meV
+
+drive en 7
+drive qh 0 qk 0 ql 7.2
+runscan ql 7.2 7.8 61 monitor 3000000
+
+# (1.2 1.2 0) E scan
+
+m2 softlowerlim 23
+s2 softlowerlim -95
+drive qh 1.2 qk 1.2 ql 0
+runscan en 12 22 41 monitor 3000000
+
+# (1.4 1.4 0) E scan
+
+drive qh 1.4 qk 1.4 ql 0
+runscan en 12 22 41 monitor 3000000
+
+

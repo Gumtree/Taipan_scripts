@@ -1,0 +1,39 @@
+# (007) Escan
+
+m2 softlowerlim 23
+s2 softlowerlim -95
+
+drive s2 -50
+drive en 17
+drive qh 0 qk 0 ql 7
+runscan en 17 24 29 time 300
+
+runscan dummy_motor 0 5 6 time 60
+
+drive s2 -50
+drive en 17
+drive qh 0 qk 0 ql 6
+runscan en 17 24 29 time 300
+
+
+runscan dummy_motor 0 5 6 time 60
+
+m2 softlowerlim 17
+s2 softlowerlim -75
+
+drive s2 -50
+drive en 28
+drive qh 0 qk 0 ql 4
+runscan en 28 40 25 time 300
+
+runscan dummy_motor 0 5 6 time 60
+
+m2 softlowerlim 23
+s2 softlowerlim -95
+
+drive s2 -50
+drive en 17
+drive qh 0 qk 0 ql 6.5
+runscan en 17 24 29 time 300
+
+runscan dummy_motor 0 5 6 time 60

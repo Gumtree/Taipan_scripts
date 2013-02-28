@@ -1,0 +1,25 @@
+
+# Q_scan (220) BZ
+
+m2 softlowerlim 31
+s2 softlowerlim -120
+
+# (220) en = 9 meV
+
+drive qh 2 qk 2 ql 0 en 9
+bmonscan clear
+bmonscan add qh 2 0.01 
+bmonscan add qk 2 0.01
+bmonscan run 40  monitor 1000000
+
+# (220) en = 11 meV
+
+drive qh 2.1 qk 2.1 ql 0 en 11
+bmonscan clear
+bmonscan add qh 2.1 0.01 
+bmonscan add qk 2.1 0.01
+bmonscan run 35  monitor 1000000
+
+
+
+

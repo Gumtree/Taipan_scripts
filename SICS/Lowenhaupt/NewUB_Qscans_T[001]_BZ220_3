@@ -1,0 +1,28 @@
+
+# T q= [001] polarisation [110] (220) BZ
+
+m2 softlowerlim 28.5
+s2 softlowerlim -120
+
+drive s2 -50
+
+# (220) en = 9 meV
+
+drive s2 -50
+
+drive qh 2 qk 2 ql 0.6 en 9
+runscan ql 0.61 0.8 20 monitor 500000
+
+# (220) en = 11 meV
+
+drive s2 -50
+
+drive qh 2 qk 2 ql 0.7 en 11
+runscan ql 0.71 0.9 20 monitor 500000
+
+# (220) en = 13 meV
+
+drive s2 -50
+
+drive qh 2 qk 2 ql 0.8 en 13
+runscan ql 0.8 1.1 31 monitor 1000000

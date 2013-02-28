@@ -1,0 +1,8 @@
+
+# (Ni) (200)
+
+m2 softlowerlim 22
+s2 softlowerlim -90
+
+runscan s2 -80 -87 36 time 1
+

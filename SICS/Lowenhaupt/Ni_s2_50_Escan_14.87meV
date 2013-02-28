@@ -1,0 +1,9 @@
+
+# (Ni)  s2 = -50 e_scan
+
+m2 softlowerlim 17
+s2 softlowerlim -85
+
+drive s2 -50
+runscan en -2 2 17 time 5
+

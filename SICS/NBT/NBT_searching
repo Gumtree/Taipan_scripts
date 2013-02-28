@@ -1,0 +1,57 @@
+
+
+drive sgl 0 
+drive sgu 0
+
+drive s2 -74.4
+drive sgl 0
+bmonscan clear
+bmonscan add s1 90 -0.25
+bmonscan run 720 timer 2
+
+
+drive sgl 2 
+drive sgu 2
+
+drive s2 -74.4
+drive sgl 0
+bmonscan clear
+bmonscan add s1 90 -0.25
+bmonscan run 720 timer 2
+
+drive sgl -2 
+drive sgu -2
+
+drive s2 -74.4
+drive sgl 0
+bmonscan clear
+bmonscan add s1 90 -0.25
+bmonscan run 720 timer 2
+
+drive sgl -4 
+drive sgu -4
+
+drive s2 -74.4
+drive sgl 0
+bmonscan clear
+bmonscan add s1 90 -0.25
+bmonscan run 720 timer 2
+
+drive sgl 4 
+drive sgu 4
+
+drive s2 -74.4
+drive sgl 0
+bmonscan clear
+bmonscan add s1 90 -0.25
+bmonscan run 720 timer 2
+
+drive sgl 6 
+drive sgu 6
+
+drive s2 -74.4
+drive sgl 0
+bmonscan clear
+bmonscan add s1 90 -0.25
+bmonscan run 720 timer 2
+

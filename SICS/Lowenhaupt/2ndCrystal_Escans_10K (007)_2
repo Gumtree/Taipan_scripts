@@ -1,0 +1,12 @@
+
+
+# (007) Escan 2
+
+m2 softlowerlim 23
+s2 softlowerlim -95
+
+drive s2 -50
+drive en 15
+drive qh 0 qk 0 ql 7
+runscan en 15.25 25 40 monitor 3000000
+
