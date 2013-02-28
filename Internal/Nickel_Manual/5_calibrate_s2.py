@@ -12,7 +12,6 @@ import sys
 # script info
 __script__.title = 'Calibrate s2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = '4_s2_att.py'
 next_file = '6_fit_nonlinear.py'
@@ -36,7 +35,7 @@ sics.getDeviceController('ei').getValue(True)
 Ei = Par('float', sics.getValue('ei').getFloatData(), command = 'calc_peaks()')
 ei_old = Ei.value
 lmd = Par('float', 0)
-act_all = Act('run_all()', 'Scan All 6 Peaks')
+act_all = Act('run_all()', 'Scan All 6 Peaks Automatically')
 
 G1 = Group('Peak 1')
 peak_1 = Par('float', 0)

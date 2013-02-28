@@ -8,8 +8,6 @@ from java.io import File
 # script info
 __script__.title = 'Batch Export'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
-System.setProperty('sics.data.path', 'J:/data/current')
 __DATASOURCE__ = __register__.getDataSourceViewer()
 
 EXPERIMENT_ID_PNAME = 'taipan.experiment.id'

@@ -7,7 +7,6 @@ from gumpy.commons import sics
 # script info
 __script__.title = 'Alignment Finished'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = '9_scan_en.py'
 

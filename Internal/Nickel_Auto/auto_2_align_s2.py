@@ -9,7 +9,6 @@ from Experiment.lib import sicsext
 # script info
 __script__.title = 'Align s2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = 'auto_1_align_m1.py'
 next_file = 'auto_3_align_a2.py'

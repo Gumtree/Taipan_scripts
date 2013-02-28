@@ -10,7 +10,6 @@ from gumpy.commons import sics
 # script info
 __script__.title = 'Align m1 with m2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = 'Nickel_align.py'
 next_file = '2_align_s2.py'

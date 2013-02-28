@@ -8,7 +8,6 @@ from Experiment.lib import sicsext
 
 __script__.title = 'Calibrate s2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = 'auto_4_s2_att.py'
 next_file = 'auto_6_fit_nonlinear.py'

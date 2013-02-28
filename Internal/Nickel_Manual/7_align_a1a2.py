@@ -4,11 +4,11 @@ import time
 import math
 from gumpy.nexus.fitting import Fitting, GAUSSIAN_FITTING
 from gumpy.commons import sics
+from Experiment.lib import sicsext
 # Script control setup area
 # script info
 __script__.title = 'Align a1 and a2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = '6_fit_nonlinear.py'
 next_file = '8_scan_en.py'

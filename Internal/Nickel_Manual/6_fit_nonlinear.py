@@ -10,7 +10,6 @@ from java.lang import Double
 # script info
 __script__.title = 'Fit Two-Theta Curves'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = '5_calibrate_s2.py'
 next_file = '7_align_a1a2.py'

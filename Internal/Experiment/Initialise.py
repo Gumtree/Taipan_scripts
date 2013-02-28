@@ -20,7 +20,8 @@ import math
 
 __script__.title = 'Initialised'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
+#__script__.dict_path = get_absolute_path('/Experiment/path_table')
+Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
 #__data_folder__ = 'W:/data/current'
 __data_folder__ = 'Z:/testing/taipan'
 __export_folder__ = 'W:/data/current/reports'
@@ -59,6 +60,16 @@ while sics.getSicsController() == None:
 time.sleep(1)
 print 'SICS connected'
 
+__initialised__ = False
+__trial_count__ = 0
+while not __initialised__ and __trial_count__ < 100:
+    try:
+        sics.getSicsController().findComponentController('/commands/scan/bmonscan/feedback/status').getValue()
+        __initialised__ = True
+    except:
+        __trial_count__ += 1
+        time.sleep(0.2)
+        
 __scan_status_node__ = sics.getSicsController().findComponentController('/commands/scan/bmonscan/feedback/status')
 __scan_variable_node__ = sics.getSicsController().findComponentController('/commands/scan/bmonscan/scan_variable')
 __save_count_node__ = sics.getSicsController().findComponentController('/experiment/save_count')

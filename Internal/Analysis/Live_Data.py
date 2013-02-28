@@ -12,7 +12,6 @@ import sys
 # script info
 __script__.title = 'Taipan Live Data'
 __script__.version = '1.1'
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 
 # Make a new plot

@@ -9,7 +9,6 @@ from gumpy.commons import sics
 
 __script__.title = 'Align m1 with m2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 ALIGNMENT_ENERGY_PNAME = 'taipan.alignment.energy'
 previous_file = 'auto_Nickel_align.py'
@@ -118,7 +117,7 @@ def __run_script__(fns):
 def auto_run():
     run_action(act1)
     run_action(act2)
-    ic = confirm('Please confirm m1 zero offset to be ' + str(peak_pos.value) +'. Click on \'OK\' to '
+    ic = confirm('Please confirm m1 peak to be ' + str(peak_pos.value) +'. Click on \'OK\' to '
             + 'accept the offset. Or click on \'Cancel\' to pause here.')
     if ic:
         run_action(act3)

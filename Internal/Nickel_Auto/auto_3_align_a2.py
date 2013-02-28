@@ -8,7 +8,6 @@ from gumpy.commons import sics
 
 __script__.title = 'Align a2'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 previous_file = 'auto_2_align_s2.py'
 next_file = 'auto_4_s2_att.py'

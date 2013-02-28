@@ -24,7 +24,6 @@ UBMATRIX_PNAME = 'taipan.ubmatrix'
 # script info
 __script__.title = 'Experiment Setup'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
 
 g1 = Group('Experiment Setup')
 experiment_id = Par('int', 0)
