@@ -52,8 +52,9 @@ plot2_act1 = Act('plot2_fit_curve()', 'Gaussian Fit Plot2')
 plot2_peak_pos = Par('float', 'NaN')
 plot2_FWHM = Par('float', 'NaN')
 act_reset = Act('reset_fitting_plot2()', 'Remove Fitting')
+act_remove_all = Act('remove_all_curves()', 'Remove All Curves')
 g2.add(allow_duplication, act2, to_remove, act3, plot2_fit_min, plot2_fit_max, 
-       plot2_act1, plot2_peak_pos, plot2_FWHM, act_reset)
+       plot2_act1, plot2_peak_pos, plot2_FWHM, act_reset, act_remove_all)
 
 act4 = Act('put_peak_pos_to_plot3()', text = 'Add peak position to Plot3')
 peak_at = Par('string', '', options=[])
@@ -151,6 +152,15 @@ def reset_fitting_plot2():
             Plot2.remove_dataset(d)
     plot2_peak_pos.value = Double.NaN
     plot2_FWHM.value = Double.NaN
+    
+def remove_all_curves():
+    global Plot2
+    Plot2.clear()
+    plot2_fit_min.value = Double.NaN
+    plot2_fit_max.value = Double.NaN
+    plot2_peak_pos.value = Double.NaN
+    plot2_FWHM.value = Double.NaN
+    to_remove.options = []
     
 def import_to_plot2():
     global Plot2
