@@ -1,0 +1,236 @@
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000
+
+hset /sics/tc1/heater/heaterRange 4
+run tc1_driveable 12
+wait 600
+
+
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000
+
+
+hset /sics/tc1/heater/heaterRange 4
+run tc1_driveable 16
+wait 600
+
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000
+
+
+hset /sics/tc1/heater/heaterRange 5
+run tc1_driveable 20
+wait 600
+
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000
+
+
+hset /sics/tc1/heater/heaterRange 5
+run tc1_driveable 24
+wait 600
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000
+
+hset /sics/tc1/heater/heaterRange 5
+run tc1_driveable 28
+wait 600
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000
+
+hset /sics/tc1/heater/heaterRange 5
+run tc1_driveable 32
+wait 600
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.5 qk 0.5 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 2
+runscan en 2 3 2 monitor 1800000
+
+drive qh 0.42 qk 0.58 ql 0 en 4
+runscan en 4 10 4 monitor 1800000
+
+drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000drive qh 0.48 qk 0.52 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.48 0.004
+bmonscan add qk 0.52 -0.004
+bmonscan run 11 monitor 360000

@@ -80,7 +80,7 @@ except:
     pass
 sact = Act('start_calibration()', 'Start Calibration ->')
 def start_calibration():
-    set_prof_value(ALIGNMENT_ENERGY_PNAME, Ei_setup.value)
+    set_prof_value(ALIGNMENT_ENERGY_PNAME, str(Ei_setup.value))
     if not Nickel_mounted.value:
         print 'Error: please mount the Nickel sample first.'
     elif not attenuation_set.value:

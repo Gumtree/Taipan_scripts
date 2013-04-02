@@ -1,0 +1,5 @@
+drive qh 0.4 qk 0.6 ql 0 en 0
+bmonscan clear
+bmonscan add qh 0.4 0.02
+bmonscan add qk 0.6 -0.02
+bmonscan run 11 monitor 360000
