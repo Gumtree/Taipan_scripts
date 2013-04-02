@@ -46,20 +46,6 @@ horizontal_collimation = Par('string', '')
 vertical_collimation = Par('string', '')
 apply = Act('apply_values()', 'Apply Change to Current Experiment Only')
 
-def get_prof_value(name):
-    value = __UI__.getPreference(name)
-    if value == None:
-        value = ''
-    else:
-        value = str(value)
-    return value
-
-def set_prof_value(name, value):
-    if value == None:
-        value = ''
-    __UI__.setPreference(name, value)
-    
-    
 g1.add(experiment_id, proposal_id, experiment_title, user_name, \
        local_contact, monochromator, analyzer, sense, \
        collimation, sample_name, sample_type, sample_mosaic, \
@@ -120,7 +106,7 @@ def apply_values():
         if eid_value != experiment_id.value:
             set_prof_value(EXPERIMENT_ID_PNAME , str(experiment_id.value))
             eid_value = experiment_id.value
-            slog('Creating new experiment with ID to: ' + eid_value)
+            slog('Creating new experiment with ID to: ' + str(eid_value))
         if pid_value != proposal_id.value:
             set_prof_value(PROPOSAL_ID_PNAME , str(proposal_id.value))
             pid_value = proposal_id.value
@@ -182,6 +168,7 @@ def apply_values():
             vco_value != vertical_collimation.value
             slog('Change vertical collimation setup to: ' + vco_value)
         print 'Experiment configuration values saved.'
+        save_pref()
     except:
         traceback.print_exc(file = sys.stdout)
     

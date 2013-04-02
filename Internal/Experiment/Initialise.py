@@ -37,6 +37,13 @@ def get_prof_value(name):
         value = str(value)
     return value
 
+def set_prof_value(name, value):
+    if value == None:
+        value = ''
+    __UI__.setPreference(name, value)
+    
+def save_pref():
+    __UI__.savePreferenceStore()
 
 try:
     __dispose_all__(None)
@@ -252,19 +259,6 @@ def update_buffer_log_folder():
     __history_logger__ = open(__history_log_file__, 'a')
 
 
-def get_prof_value(name):
-    value = __UI__.getPreference(name)
-    if value == None:
-        value = ''
-    else:
-        value = str(value)
-    return value
-
-def set_prof_value(name, value):
-    if value == None:
-        value = ''
-    __UI__.setPreference(name, value)
-    
 def __export__(fn):
     if fn.__contains__('/'):
         items = fn.split('/')
@@ -295,6 +289,9 @@ def __export__(fn):
     export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
 
 def __run_script__(dss):
+    pass
+
+def __dataset_added__(dsn):
     pass
 
 __m2_status__ = 'OK'

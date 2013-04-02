@@ -137,6 +137,7 @@ def scan_peak(id):
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + spara + ', 0, \'call_back()\')')
     time.sleep(2)
     pos_index.value = id + 1
+    peak_pos.value = pos
     fit_curve(axis_min.value, axis_max.value)
     __scan_filenames__[id] = Plot1.ds[0].location
 #    if id == 3:
@@ -181,6 +182,7 @@ def load_scan():
         print 'Error: please select index between 1 and 6.'
         return
     fname = __scan_filenames__[id - 1]
+    peak_pos.value = eval('peak_' + str(id) + '.value')
     if fname:
         __std_run_script__([str(fname)])
     else:

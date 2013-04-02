@@ -26,7 +26,7 @@ g3 = Group('Plot3')
 #g4 = Group('Plot4')
 data_name = Par('string', 'bm2_counts', \
                options = ['bm1_counts', 'bm2_counts'])
-normalise = Par('bool', True)
+normalise = Par('bool', False)
 axis_name = Par('string', 'suid')
 auto_fit = Par('bool', False)
 pause = Par('bool', not __newfile_enabled__, command = 'set_newfile_enabled()')
@@ -363,6 +363,12 @@ def __run_script__(dss):
                 axis = simpledata.SimpleData([axis])
             if data.size > axis.size:
                 data = data[:axis.size]
+            for i in xrange(data.size):
+                if math.fabs(data[i]) > 1e8 :
+                    data[i] = float('NaN')
+            for i in xrange(axis.size):
+                if math.fabs(axis[i]) > 1e8:
+                    axis[i] = float('NaN')
             ds2 = Dataset(data, axes=[axis])
             ds2.title = ds.id
             Plot1.set_dataset(ds2)
