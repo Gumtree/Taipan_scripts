@@ -386,6 +386,11 @@ def __run_script__(dss):
             
 #    print '**** done ****'
     
+def __dataset_added__(dsn):
+    global __run_script__
+    if __script__.title == 'Taipan Live Data':
+        __run_script__(dsn)
+
 def __dispose__():
     global Plot1
     global Plot2
