@@ -28,12 +28,13 @@ data_name = Par('string', 'bm2_counts', \
                options = ['bm1_counts', 'bm2_counts'])
 normalise = Par('bool', False)
 axis_name = Par('string', 'suid')
+axis_lock = Par('bool', False, command = 'lock_axis()')
 auto_fit = Par('bool', False)
 pause = Par('bool', not __newfile_enabled__, command = 'set_newfile_enabled()')
 def set_newfile_enabled():
     global __newfile_enabled__
     __newfile_enabled__ = not pause.value
-g1.add(data_name, normalise, axis_name, auto_fit, pause)
+g1.add(data_name, axis_name, axis_lock, normalise, auto_fit, pause)
 
 fit_min = Par('float', 'NaN')
 fit_max = Par('float', 'NaN')
@@ -66,6 +67,12 @@ g3.add(act4, peak_at, act5)
 #act7 = Act('', 'remove_fitting_curve()', 'Remove selected fitting')
 #g4.add(act6, curve_fit, act7)
 
+def lock_axis():
+    if axis_lock.value :
+        axis_name.enabled = False
+    else:
+        axis_name.enabled = True
+    
 def fit_curve():
     global Plot1
     ds = Plot1.ds
