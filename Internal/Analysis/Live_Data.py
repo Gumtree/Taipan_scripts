@@ -363,6 +363,9 @@ def __run_script__(dss):
                 if niter.next() <= 0:
                     niter.set_curr(1)
                 data = data / norm * avg
+            if not ds.axes is None and len(ds.axes) > 0: 
+                if not axis_lock.value:
+                    axis_name.value = ds.axes[0].name
             axis = ds[str(axis_name.value)]
             if not hasattr(data, 'size') :
                 data = simpledata.SimpleData([data])
