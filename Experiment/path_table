@@ -26,6 +26,7 @@ end_time = $entry/end_time
 program_name = $entry/program_name
 sics_release = $entry/sics_release
 run_mode = $entry/run_mode
+run_number = $entry/data/run_number
 
 dummy_s1 = $entry/instrument/dummy_s1
 vs1 = $entry/sample/vs1

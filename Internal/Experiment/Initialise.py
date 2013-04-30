@@ -22,28 +22,12 @@ __script__.title = 'Initialised'
 __script__.version = ''
 #__script__.dict_path = get_absolute_path('/Experiment/path_table')
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-__data_folder__ = 'W:/data/current'
-#__data_folder__ = 'Z:/testing/taipan'
+#__data_folder__ = 'W:/data/current'
+__data_folder__ = 'Z:/testing/taipan'
 __export_folder__ = 'W:/data/current/reports'
 __diffscan_device__ = None
 __diffscan_range__ = []
 System.setProperty('sics.data.path', __data_folder__)
-
-def get_prof_value(name):
-    value = __UI__.getPreference(name)
-    if value == None:
-        value = ''
-    else:
-        value = str(value)
-    return value
-
-def set_prof_value(name, value):
-    if value == None:
-        value = ''
-    __UI__.setPreference(name, value)
-    
-def save_pref():
-    __UI__.savePreferenceStore()
 
 try:
     __dispose_all__(None)
@@ -53,7 +37,7 @@ except:
 __buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
 fi = File(__buffer_log_file__)
 if not fi.exists():
-    if not fi.mkdir():
+    if not fi.mkdirs():
         print 'Error: failed to make directory: ' + __buffer_log_file__
 __history_log_file__ = __buffer_log_file__ + '/History.txt'
 __buffer_log_file__ += '/LogFile.txt'
@@ -251,7 +235,7 @@ def update_buffer_log_folder():
     __buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
     fi = File(__buffer_log_file__)
     if not fi.exists():
-        if not fi.mkdir():
+        if not fi.mkdirs():
             print 'Error: failed to make directory: ' + __buffer_log_file__
     __history_log_file__ = __buffer_log_file__ + '/History.txt'
     __buffer_log_file__ += '/LogFile.txt'
@@ -268,19 +252,19 @@ def __export__(fn):
     exp_folder = __export_folder__ + '/exp' + exp_id
     fi = File(exp_folder)
     if not fi.exists():
-        if not fi.mkdir():
+        if not fi.mkdirs():
             print 'Error: failed to make directory: ' + exp_folder
             return
     ILL_folder = exp_folder + '/ILLfiles'
     exp_folder += '/Datafiles'
     fi = File(exp_folder)
     if not fi.exists():
-        if not fi.mkdir():
+        if not fi.mkdirs():
             print 'Error: failed to make directory: ' + exp_folder
             return
     fi = File(ILL_folder)
     if not fi.exists():
-        if not fi.mkdir():
+        if not fi.mkdirs():
             print 'Error: failed to make directory: ' + ILL_folder
             return
     
