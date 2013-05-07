@@ -411,16 +411,24 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
 #        text.append('Finished at ' + str(ds['end_time']))
         titles = '  PNT'
         axes_titles = []
+        to_skip = []
         if axes != None:
             for axis in axes:
                 at = axis.title
                 axes_titles.append(at)
                 titles += ('%(item)12s' % {'item' : at})
+            if len(axes) > 0 and axes[0] != None:
+                axis0 = axes[0]
+                for i in xrange(axis0.size) :
+                    if math.fabs(axis0[i]) > 1e8:
+                        to_skip.append(i)
         for tit in config.MULTI_ITEMS:
             if not axes_titles.__contains__(tit[0]) :
                 titles += ('%(item)12s' % {'item' : tit[0]})
         text.append(titles + '\n')
         for i in xrange(ds.size):
+            if to_skip.__contains__(i):
+                continue
             line = ('%(item)5s' % {'item' : str(i + 1)})
             if axes != None:
                 for axis in axes:
