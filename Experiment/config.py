@@ -76,9 +76,9 @@ MULTI_ITEMS = [['q', 'qm', '.4f'],
                ['TC1_sensorB', 'tc1_sensorB', '.4f'],
                ['TC1_sensorC', 'tc1_sensorC', '.4f'],
                ['TC1_sensorD', 'tc1_sensorD', '.4f'],
-               ['TC1_sensor1', 'tc1_sensor1', '.4f'],
-               ['TC1_sensor2', 'tc1_sensor2', '.4f'],
-               ['TC1_sensor3', 'tc1_sensor3', '.4f'],
+               ['TC_sensor1', 'tc_sensor1', '.4f'],
+               ['TC_sensor2', 'tc_sensor2', '.4f'],
+               ['TC_sensor3', 'tc_sensor3', '.4f'],
                ]
 
 ILL_ITEMS = [['M1', 'm1', 4],
