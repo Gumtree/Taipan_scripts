@@ -1,0 +1,23 @@
+m2 softlowerlim 32.5
+s2 softlowerlim -120
+
+#(006) en = 3 meV
+
+drive en 3.05
+drive qh 0 qk 0 ql 5.8 en 3
+runscan ql 5.7 6.3 61 monitor 1000000
+
+
+#(006) en = 5 meV
+
+drive en 5.05
+drive qh 0 qk 0 ql 5.7 en 5
+runscan ql 5.6 6.4 41 monitor 1000000
+
+#(006) en = 7 meV
+
+drive en 7.05
+drive qh 0 qk 0 ql 5.7 en 7
+runscan ql 5.5 6.5 51 monitor 1000000
+
+

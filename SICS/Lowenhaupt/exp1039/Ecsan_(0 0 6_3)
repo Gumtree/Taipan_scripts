@@ -1,0 +1,9 @@
+# (0 0 6.3) E scans 
+
+m2 softlowerlim 23
+s2 softlowerlim -105
+
+
+drive qh 0 qk 0 ql 6.3 en -2
+runscan en -2 6 33 monitor 1500000
+

@@ -1,0 +1,10 @@
+
+# (0 0 6.3)  40-65 meV
+
+m2 softlowerlim 17
+s2 softlowerlim -85
+
+drive s2 -50
+drive qh 0 qk 0 ql 6.3 en 40
+runscan en 40.5 65 50 monitor 3000000
+

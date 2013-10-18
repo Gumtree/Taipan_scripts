@@ -1,0 +1,29 @@
+# drive ps_right -15  ps_left -15 ps_top -30 ps_bottom -30
+
+# drive pa_right -15  pa_left -15 pa_top -30 pa_bottom -30
+
+
+m2 softlowerlim 31
+s2 softlowerlim -110
+
+# drive m1 20.446
+# drive m2 40.924
+
+# drive ef 14.87
+# drive atrans 20
+# drive a1 0 a2 0
+# hold a1 1 a2 1 atrans 1
+
+drive ei 14.87
+drive atrans 20
+drive a1 0 a2 0
+drive atrans 19
+a1 fixed 1
+a2 fixed 1
+
+runscan s2 -31.5 -35.5 41 time 1
+runscan s2 -36.875 -40.875 41 time 1
+runscan s2 -54.15 -58.15 41 time 1
+runscan s2 -63.9 -73.4 96 time 1
+runscan s2 -80.45 -86.45 61 time 1
+

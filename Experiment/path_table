@@ -100,4 +100,6 @@ tc_sensor3 = $entry/sample/tc1/sensor3/value
 tc_sensor1 = $entry/sample/tc9/sensor/value
 tc_sensor2 = $entry/sample/tc9/sensor2/value
 tc_sensor3 = $entry/sample/tc9/sensor3/value
+tc_sensor1 = $entry/sample/tc2/Sensor/value
+DilutTempReading =  $entry/sample/magnetic/DilutTempReading
 magnetic_field = $entry/sample/magnetic/fieldSetPoint

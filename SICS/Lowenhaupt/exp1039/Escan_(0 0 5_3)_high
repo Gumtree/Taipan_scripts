@@ -1,0 +1,19 @@
+
+# (0 0 5.3)  25-55 meV
+
+m2 softlowerlim 17
+s2 softlowerlim -85
+
+m2 fixed -1
+m1 fixed -1 
+
+drive s2 -50
+drive qh 0 qk 0 ql 5.3 en 25
+runscan en 25 55 61 monitor 3000000
+
+# (0 0 5.3)  25-60 meV 
+
+drive s2 -50
+drive qh 0 qk 0 ql 5.5 en 25
+runscan en 25 60 71 monitor 3000000
+

@@ -1,0 +1,14 @@
+# (0 0 l) scan
+drive qh 0 qk 0 ql 1.4
+drive s1 -106
+runscan ql 1.4 8.4 200 time 60
+#
+# (hh0) scan
+drive qh 0.4 qk 0.4 ql 0
+drive s1 -20
+mscan qh 0.4 0.005 qk 0.4 0.005 200 time 60
+#
+# (hh3) scan
+drive qh 1.4 qk 1.4 ql 3
+drive s1 -77
+mscan qh 1.4 -0.005 qk 1.4 -0.005 200 time 60

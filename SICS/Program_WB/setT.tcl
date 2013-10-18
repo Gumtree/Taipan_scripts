@@ -1,4 +1,4 @@
 
 # set temperature
-hset /sics/tc1/sensor/setpoint1 5
+hset /sics/tc1/sensor/setpoint1 1.1
 

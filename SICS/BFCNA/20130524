@@ -1,0 +1,13 @@
+m2 softlowerlim 31
+s2 softlowerlim -120
+
+drive qh 1 qk 0 ql 1 en 2
+runscan en 2 10 9 monitor 3000000
+
+
+
+hset /sics/tc1/sensor/setpoint1 2.5
+wait 600
+
+drive qh 1 qk 0 ql 1 en 2
+runscan en 2 10 9 monitor 3000000

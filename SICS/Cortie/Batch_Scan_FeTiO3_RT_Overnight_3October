@@ -1,0 +1,16 @@
+runscan s2 -66 -100 301 time 15
+
+OxfordSetHs ON
+Wait (120)
+OxfordSetField 0
+Wait (3200)
+OxfordSetHS OFF
+
+run tc9_driveable 40
+wait (1200)
+runscan s2 -20 -100 801 time 15
+
+run tc9_driveable 130
+wait (1200)
+
+runscan s2 -20 -100 801 time 15

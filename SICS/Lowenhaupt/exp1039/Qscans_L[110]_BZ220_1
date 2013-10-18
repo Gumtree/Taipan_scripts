@@ -1,0 +1,49 @@
+
+# Q_scan L[110] (2+q, 2+q, 0) BZ
+
+m2 softlowerlim 32.5
+s2 softlowerlim -116
+
+m2 fixed -1
+m1 fixed -1 
+
+#(220) en = 3 meV
+
+drive en 3.05
+drive qh 1.8 qk 1.8 ql 0 en 3
+m2 fixed 1
+m1 fixed 1
+bmonscan clear
+bmonscan add qh 1.8 0.01 
+bmonscan add qk 1.8 0.01
+bmonscan run 41  monitor 500000
+m2 fixed -1
+m1 fixed -1
+
+#(220) en = 5 meV
+
+drive en 5.05
+drive qh 1.7 qk 1.7 ql 0 en 5
+m2 fixed 1
+m1 fixed 1
+bmonscan clear
+bmonscan add qh 1.7 0.01 
+bmonscan add qk 1.7 0.01
+bmonscan run 55  monitor 500000
+m2 fixed -1
+m1 fixed -1
+
+#(220) en = 6 meV
+
+drive en 7.05
+drive qh 1.7 qk 1.7 ql 0 en 6
+m2 fixed 1
+m1 fixed 1
+bmonscan clear
+bmonscan add qh 1.7 0.01 
+bmonscan add qk 1.7 0.01
+bmonscan run 59  monitor 1000000
+m2 fixed -1
+m1 fixed -1
+
+

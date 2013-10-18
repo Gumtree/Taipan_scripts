@@ -1,0 +1,9 @@
+
+
+
+drive qh 0.9 qk 0.9 ql 0
+bmonscan clear
+bmonscan add qh 0.9 0.01
+bmonscan add qk 0.9 0.01
+bmonscan run 21 timer 1
+
