@@ -1,0 +1,11 @@
+
+# Q_scan T[001] (q, q, 6) BZ
+
+m2 softlowerlim 31
+s2 softlowerlim -116
+
+#(006) en = 1 meV
+
+drive en 2
+drive en 1
+mscan qh 0.691 0.01 qk 0.691 0.01 ql 6 0 30 monitor 500000

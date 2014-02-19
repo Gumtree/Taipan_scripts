@@ -1,0 +1,21 @@
+
+
+# Q_scan (q, q, 3) en = 0 meV
+
+mscan qh -0.1 0.01 qk -0.1 0.01 ql 3 0 111 monitor 100000
+
+
+# Q_scan (q, q, 5) en = 0 meV
+
+mscan qh -0.1 0.01 qk -0.1 0.01 ql 5 0 111 monitor 100000
+
+
+# Q_scan (q, q, 3.5) en = 0 meV
+
+mscan qh -0.1 0.01 qk -0.1 0.01 ql 3.5 0 111 monitor 100000
+
+
+# Q_scan (q, q, 4.5) en = 0 meV
+
+mscan qh -0.1 0.01 qk -0.1 0.01 ql 4.5 0 111 monitor 100000
+

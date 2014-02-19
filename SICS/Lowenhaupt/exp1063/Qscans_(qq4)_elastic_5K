@@ -1,0 +1,9 @@
+
+
+
+
+# Q_scan T[001] (q, q, 4) BZ
+
+#(004) en = 0 meV
+
+mscan qh -0.1 0.01 qk -0.1 0.01 ql 4 0 111 monitor 100000

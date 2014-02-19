@@ -1,0 +1,29 @@
+
+TA
+# Q_scan (1+q,1+q,2-6q)  en=4-10 meV
+
+m2 softlowerlim 31
+s2 softlowerlim -116
+
+drive en 4
+mscan qh 0.8 0.01 qk 0.8 0.01 ql 3.2 -0.06 41 monitor 500000
+
+drive en 5
+mscan qh 0.8 0.01 qk 0.8 0.01 ql 3.2 -0.06 41 monitor 500000
+
+drive en 6
+mscan qh 0.8 0.01 qk 0.8 0.01 ql 3.2 -0.06 41 monitor 1000000
+
+drive en 7
+mscan qh 0.7 0.01 qk 0.7 0.01 ql 3.8 -0.06 61 monitor 1000000
+
+drive en 8
+mscan qh 0.7 0.01 qk 0.7 0.01 ql 3.8 -0.06 61 monitor 1000000
+
+drive en 9
+mscan qh 0.7 0.01 qk 0.7 0.01 ql 3.8 -0.06 61 monitor 1000000
+
+drive en 10
+mscan qh 0.7 0.01 qk 0.7 0.01 ql 3.8 -0.06 61 monitor 1000000
+
+

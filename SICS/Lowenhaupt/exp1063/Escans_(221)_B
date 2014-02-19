@@ -1,0 +1,13 @@
+
+# E_scan at Q=(2, 2, 1.5)
+
+m2 softlowerlim 17
+s2 softlowerlim -75
+
+drive en 52
+drive qh 2 qk 2 ql 1
+runscan en 50 25.5 50 monitor 2000000
+
+
+
+

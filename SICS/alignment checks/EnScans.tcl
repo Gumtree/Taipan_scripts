@@ -1,11 +1,16 @@
+s2 fixed -1
 drive s2 -50
 s2 fixed 1
 
-drive mvfocus 127
-drive avfocus 140
+drive mvfocus 125 mhfocus 220
+drive avfocus 125 ahfocus 0
 
 drive ef 14.87 
 drive ei 14.87
+runscan en -4 4 41 time 5
+
+drive mvfocus 125 mhfocus 155
+drive avfocus 125 ahfocus 80
 runscan en -4 4 41 time 5
 
 drive mvfocus 142

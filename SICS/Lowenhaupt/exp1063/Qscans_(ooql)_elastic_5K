@@ -1,0 +1,24 @@
+
+
+# Q_scan (0, 0, 3+q) en = 0 meV
+
+drive qh 0 qk 0 ql 3
+runscan ql 2.8 3.2 21 time 1
+
+
+# Q_scan (0, 0, 4+q) en = 0 meV
+
+drive qh 0 qk 0 ql 4
+runscan ql 3.8 4.2 21 time 1
+
+# Q_scan (0, 0, 5+q) en = 0 meV
+
+drive qh 0 qk 0 ql 5
+runscan ql 4.8 5.2 21 time 1
+
+
+# Q_scan (0, 0, 6+q) en = 0 meV
+
+drive qh 0 qk 0 ql 6
+runscan ql 5.8 6.2 21 time 1
+

@@ -1,4 +1,4 @@
-# m2 error
+a2 softupperlim# m2 error
 m2 send MG RUNF
 m2 send RUNF=0
 
@@ -16,6 +16,8 @@ runscan en  1    11 41 time 30
 
 # two parameters scan
 
+mscan a1 18 0.2 a2 36 0.4 21 time 1 force true
+mscan a1 18.46 0.2 a2 36.92 0.4 21 time 2
 bmonscan clear
 bmonscan add s1 20 0.1
 bmonscan add s2 40 0.2
@@ -30,6 +32,7 @@ setpos s2 value
 
 # measure same point
 
+runscan dummy_motor 1 100 101 time 5
 runscan dummy_motor 1 100 101 time 5
 
 #  read values

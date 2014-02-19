@@ -1,4 +1,6 @@
+s2 fixed -1
 drive s2 -40
+s2 fixed 1
 #mount vanadium rod
 drive ei 14.87
 drive ef 14.87
@@ -14,7 +16,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -43,7 +45,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -72,7 +74,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -101,7 +103,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -130,7 +132,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -159,7 +161,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -188,7 +190,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -217,7 +219,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -246,7 +248,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -275,7 +277,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -304,7 +306,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -333,7 +335,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -362,7 +364,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -391,7 +393,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -420,7 +422,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -449,7 +451,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -478,7 +480,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -507,7 +509,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -536,7 +538,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -565,7 +567,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -594,7 +596,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -623,7 +625,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -652,7 +654,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220
@@ -681,7 +683,7 @@ drive mvfocus 50
 drive mhfocus 220
 drive avfocus 0
 drive ahfocus 0
-runscan mhfocus -70 220 100 time 5
+runscan mhfocus 0 220 100 time 5
 
 drive mvfocus 50
 drive mhfocus 220

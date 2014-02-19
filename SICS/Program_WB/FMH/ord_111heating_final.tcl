@@ -52,6 +52,46 @@ runscan dummy_motor 1 20 60 monitor 12000
 runscan dummy_motor 1 20 60 monitor 12000
 runscan dummy_motor 1 20 60 monitor 12000
 
+hset /sics/tc1/sensor/setpoint1 90
+# 2 min
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+
+hset /sics/tc1/sensor/setpoint1 93
+# 2 min
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+
+hset /sics/tc1/sensor/setpoint1 96
+# 2 min
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+
+hset /sics/tc1/sensor/setpoint1 99
+# 2 min
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+
+hset /sics/tc1/sensor/setpoint1 102
+# 2 min
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+runscan dummy_motor 1 20 60 monitor 12000
+
 
 hset /sics/tc1/sensor/setpoint1 105
 # 2 min
