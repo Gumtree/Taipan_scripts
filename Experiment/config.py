@@ -79,6 +79,7 @@ MULTI_ITEMS = [['q', 'qm', '.4f'],
                ['TC_sensor1', 'tc_sensor1', '.4f'],
                ['TC_sensor2', 'tc_sensor2', '.4f'],
                ['TC_sensor3', 'tc_sensor3', '.4f'],
+               ['TC_sensor4', 'tc_sensor4', '.4f'],
                ['Mix_Chamber', 'DilutTempReading', '.4f'],
                ]
 

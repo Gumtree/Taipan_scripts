@@ -1,6 +1,6 @@
 
 
-OxfordSetField 10
+OxfordSetField 5
 wait 120
 OxfordSetHS ON
 wait 60

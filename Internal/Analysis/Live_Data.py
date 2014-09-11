@@ -25,7 +25,7 @@ g2 = Group('Plot2')
 g3 = Group('Plot3')
 #g4 = Group('Plot4')
 data_name = Par('string', 'bm2_counts', \
-               options = ['bm1_counts', 'bm2_counts'])
+               options = ['bm1_counts', 'bm2_counts', 'total_counts'])
 normalise = Par('bool', False)
 axis_name = Par('string', 'suid')
 axis_lock = Par('bool', False, command = 'lock_axis()')

@@ -39,6 +39,7 @@ bm_data = $entry/monitor/data
 bm_time = $entry/monitor/time
 bm_mode = $entry/monitor/mode
 bm_preset = $entry/monitor/preset
+total_counts = $entry/instrument/detector/total_counts
 
 m1 = $entry/instrument/crystal/m1
 m2 = $entry/instrument/crystal/m2
@@ -95,6 +96,10 @@ tc1_sensorB = $entry/sample/tc1/sensor/sensorValueB
 tc1_sensorC = $entry/sample/tc1/sensor/sensorValueC
 tc1_sensorD = $entry/sample/tc1/sensor/sensorValueD
 tc1_sensorA = $entry/sample/tc1/sensorA/value
+tc1_sensorA = $entry/sample/tc1/sensor/sensorValueA
+tc1_sensorB = $entry/sample/tc1/sensor/sensorValueB
+tc1_sensorC = $entry/sample/tc1/sensor/sensorValueC
+tc1_sensorD = $entry/sample/tc1/sensor/sensorValueD
 tc_sensor1 = $entry/sample/tc1/sensor/value
 tc_sensor2 = $entry/sample/tc1/sensor2/value
 tc_sensor3 = $entry/sample/tc1/sensor3/value
@@ -104,5 +109,16 @@ tc_sensor3 = $entry/sample/tc9/sensor3/value
 tc_sensor1 = $entry/sample/tc2/Sensor/value
 tc_sensor1 = $entry/sample/tc9/Loop1/sensor
 tc_sensor2 = $entry/sample/tc9/Loop2/sensor
+tc1_sensorA = $entry/sample/tc9/Loop1/sensor
+tc1_sensorB = $entry/sample/tc9/Loop2/sensor
+tc1_sensorC = $entry/sample/tc9/Loop3/sensor
+tc1_sensorD = $entry/sample/tc9/Loop4/sensor
+tc_sensor1 = $entry/sample/tc2/Sensor/value
+tc_sensor1 = $entry/sample/tc3/sensor/sensorValueA
+tc_sensor2 = $entry/sample/tc3/sensor/sensorValueB
+tc_sensor3 = $entry/sample/tc3/sensor/sensorValueC
+tc_sensor4 = $entry/sample/tc3/sensor/sensorValueD
+
 DilutTempReading =  $entry/sample/magnetic/DilutTempReading
 magnetic_field = $entry/sample/magnetic/fieldSetPoint
+

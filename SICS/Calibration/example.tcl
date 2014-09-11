@@ -10,6 +10,9 @@ hget /sics/tc1/heater/heaterRange
 # set heater to 100W
 hset /sics/tc1/heater/heaterRange 5
 
+# view temperaure from data window
+data_name     tc_sensor1
+
 # energy scans
 runscan en -2     2 33 monitor  400000
 runscan en  1    11 41 time 30
@@ -36,7 +39,7 @@ runscan dummy_motor 1 100 101 time 5
 runscan dummy_motor 1 100 101 time 5
 
 #  read values
-drive qh 2  
+drive qh 2  a
 set s1p [Splitreply [s1]]
 set start [expr $s1p -2]
 set stop [expr $s1p +2]

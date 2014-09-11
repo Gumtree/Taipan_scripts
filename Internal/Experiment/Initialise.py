@@ -210,10 +210,10 @@ class __SaveCountListener__(DynamicControllerListenerAdapter):
         newCount = int(newValue.getStringData());
         if newCount != self.saveCount:
             self.saveCount = newCount;
-            try:
-                axis_name.value = __scan_variable_node__.getValue().getStringData()
-            except:
-                pass
+#            try:
+#                axis_name.value = __scan_variable_node__.getValue().getStringData()
+#            except:
+#                pass
             try:
                 checkFile = File(__file_name_node__.getValue().getStringData());
                 checkFile = File(__data_folder__ + "/" + checkFile.getName());

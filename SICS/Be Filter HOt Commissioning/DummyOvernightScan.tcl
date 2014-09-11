@@ -1,0 +1,10 @@
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
+runscan dummy_motor -5 5 11 time 1200
