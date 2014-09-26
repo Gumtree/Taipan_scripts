@@ -141,6 +141,20 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
         for tit in config.MULTI_ITEMS:
             if not axes_titles.__contains__(tit[0]) :
                 text += ('%(item)12s' % {'item' : tit[0]})
+        comps = []
+        items = ds.__iNXdata__.getDataItemList()
+        for item in items:
+            target = item.getAttribute('target')
+            if target :
+                if target.getStringValue().__contains__('sample'):
+                    comps.append(item)
+                    sn = item.getShortName()
+                    if len(sn) > 2:
+                        if sn.__contains__('SP') :
+                            sn = sn[:2] + sn[2:].replace('SP', '_Setpoint')
+                        elif sn[2:].__contains__('S') :
+                            sn = sn[:2] + sn[2:].replace('S', '_Sensor')
+                    text += ('%(item)16s' % {'item' : sn})
         nf.write(text + '\n')
         for i in xrange(ds.size):
             if to_skip.__contains__(i):
@@ -167,10 +181,14 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                             text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
                     except:
                         text += ('%(item)12s' % {'item' : '0.0000'})
+            for comp in comps:
+                data = comp.getData()
+                text += ('%(item)16.4f' % {'item' : data.getFloat(data.getIndex().set(i))})
             nf.write(text + '\n')
         nf.close()
         ds.close()
     except:
+        traceback.print_exc(file = sys.stdout)
         nf.close()
         ds.close()
         print 'failed to process: ' + input_path
@@ -425,6 +443,20 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
         for tit in config.MULTI_ITEMS:
             if not axes_titles.__contains__(tit[0]) :
                 titles += ('%(item)12s' % {'item' : tit[0]})
+        comps = []
+        items = ds.__iNXdata__.getDataItemList()
+        for item in items:
+            target = item.getAttribute('target')
+            if target :
+                if target.getStringValue().__contains__('sample'):
+                    comps.append(item)
+                    sn = item.getShortName()
+                    if len(sn) > 2:
+                        if sn.__contains__('SP') :
+                            sn = sn[:2] + sn[2:].replace('SP', '_Setpoint')
+                        elif sn[2:].__contains__('S') :
+                            sn = sn[:2] + sn[2:].replace('S', '_Sensor')
+                    titles += ('%(item)16s' % {'item' : sn})
         text.append(titles + '\n')
         for i in xrange(ds.size):
             if to_skip.__contains__(i):
@@ -451,6 +483,9 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
                             line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
                     except:
                         line += ('%(item)12s' % {'item' : '0.0000'})
+            for comp in comps:
+                data = comp.getData()
+                line += ('%(item)16.4f' % {'item' : data.getFloat(data.getIndex().set(i))})
             text.append(line + '\n')
         nf.writelines(text)
         nf.flush()
@@ -462,6 +497,7 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
         print 'failed to process: ' + nfn
         traceback.print_exc(file=sys.stdout)
     print nfn + ' exported'
+    
     
 def format(value, digit, width):
     return ('%(item)' + str(width) + 's') % {'item' : (('%(val).' + str(digit) + 'f') % {'val' : value})}
