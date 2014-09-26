@@ -270,6 +270,7 @@ def __export__(fn):
     
     df.datasets.clear()
     export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)
+    df.datasets.clear()
     export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
 
 def __run_script__(dss):
