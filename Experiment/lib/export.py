@@ -25,6 +25,7 @@ VERTICALCOLLIMATION_PNAME = 'taipan.verticalcollimation'
 
 def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
     from Experiment import config
+    from Experiment.lib.common import __get_axis_name__
     f = File(input_path)
     fsn = f.getName()
     fid = int(fsn[3:10])
@@ -106,7 +107,8 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                     text += ''
             elif item[0] == 'def_x':
                 try:
-                    text += ds.axes[0].title
+#                    text += ds.axes[0].title
+                    text += __get_axis_name__(axes)
                 except:
                     text += ''
             else:
@@ -185,13 +187,12 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                 data = comp.getData()
                 text += ('%(item)16.4f' % {'item' : data.getFloat(data.getIndex().set(i))})
             nf.write(text + '\n')
+#    except:
+#        traceback.print_exc(file = sys.stdout)
+#        print 'failed to process: ' + input_path
+    finally:
         nf.close()
         ds.close()
-    except:
-        traceback.print_exc(file = sys.stdout)
-        nf.close()
-        ds.close()
-        print 'failed to process: ' + input_path
     print nfn + ' exported'
     
 def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
@@ -489,13 +490,20 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
             text.append(line + '\n')
         nf.writelines(text)
         nf.flush()
+#        nf.close()
+#        ds.close()
+#    except:
+#        nf.close()
+#        ds.close()
+#        print 'failed to process: ' + nfn
+#        traceback.print_exc(file=sys.stdout)
+#    except:
+#        print 'failed to process: ' + nfn
+#        traceback.print_exc(file=sys.stdout)
+    finally:
         nf.close()
         ds.close()
-    except:
-        nf.close()
-        ds.close()
-        print 'failed to process: ' + nfn
-        traceback.print_exc(file=sys.stdout)
+
     print nfn + ' exported'
     
     

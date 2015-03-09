@@ -1,3 +1,8 @@
+# enable
+#tasub autofocus 1 
+#disable
+#tasub autofocus 0
+
 ahfocus fixed -1
 mhfocus fixed -1
 tasub const kf

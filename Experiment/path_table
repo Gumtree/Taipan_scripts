@@ -87,6 +87,9 @@ sgl = $entry/sample/sgl
 sgu = $entry/sample/sgu
 stl = $entry/sample/stl
 stu = $entry/sample/stu
+ephi = $entry/sample/euler_phi
+echi = $entry/sample/euler_chi
+eom = $entry/sample/euler_omega
 
 tc1_sample = $entry/sample/tc1/sensor/Tsample
 tc1_ctrl1 = $entry/sample/tc1/sensor/ctrlLp1_value

@@ -1,0 +1,33 @@
+#mscan qh 0.470 0.001 qk 0.470 0.001 ql -0.508  0.001 2 monitor 1152000
+#mscan qh 0.495 0.001 qk 0.495 0.001 ql -0.483  0.001 2 monitor 1152000
+
+#mscan qh 0.470 0.001 qk 0.470 0.001 ql  0.508 -0.001 4 monitor 1152000
+#mscan qh 0.495 0.001 qk 0.495 0.001 ql  0.483 -0.001 4 monitor 1152000
+
+#mscan qh 0.497 0.001 qk 0.497 0.001 ql -0.481  0.001 2 monitor 1152000
+#mscan qh 0.468 0.001 qk 0.468 0.001 ql -0.510  0.001 2 monitor 1152000
+
+#mscan qh 0.466 0.001 qk 0.466 0.001 ql -0.512  0.001 2 monitor 1152000
+
+# resolution ellipsoid
+
+#mscan qh 0.49 0.001 qk 0.49 0.001 ql -0.51  0.001 21 monitor 115200
+#mscan qh 0.49 0.001 qk 0.49 0.001 ql -0.49 -0.001 21 monitor 115200
+
+#mscan qh 0.49 0.001 qk 0.49 0.001 ql  0.49  0.001 21 monitor 1152000
+#mscan qh 0.49 0.001 qk 0.49 0.001 ql  0.51 -0.001 21 monitor 1152000
+
+#mscan qh 0.495 0.0005 qk 0.495 0.0005 ql -0.505  0.0005 21 monitor 115200
+#mscan qh 0.495 0.0005 qk 0.495 0.0005 ql -0.495 -0.0005 21 monitor 115200
+
+
+#mscan qh 0.49 0.001 qk 0.49 0.001 ql -0.49 -0.001 21 monitor 115200
+
+#drive ql -0.5
+#mscan qh 0.495 0.0005 qk 0.495 0.0005 21 time 5
+
+#drive qh 0.5 qk 0.5
+#runscan ql -0.495 -0.505 21 time 5
+                                                              
+mscan qh 0.486 0.001 qk 0.486 0.001 ql -0.486 -0.001 4 monitor 57600
+mscan qh 0.508 0.001 qk 0.508 0.001 ql -0.508 -0.001 3 monitor 57600

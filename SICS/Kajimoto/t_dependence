@@ -1,0 +1,111 @@
+#drive tc1_driveable 10
+#wait 60
+
+#drive qh 0 qk 1 ql 0 en 0
+#runscan qh -0.3 -0.6 61 time 10
+
+#drive tc1_driveable 15
+#wait 60
+
+#drive qh 0 qk 1 ql 0
+#runscan qh -0.3 -0.6 61 time 10
+
+#drive tc1_driveable 20
+#wait 60
+
+#drive qh 0 qk 1 ql 0
+#runscan qh -0.3 -0.6 61 time 10
+
+#drive tc1_driveable 25
+#wait 60
+
+#drive qh 0 qk 1 ql 0
+#runscan qh -0.3 -0.6 61 time 10
+
+#drive tc1_driveable 30
+#wait 60
+
+#drive qh 0 qk 1 ql 0
+#runscan qh -0.3 -0.6 61 time 10
+
+drive tc1_driveable 35
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 40
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 45
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 50
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 55
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 60
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 65
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 70
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 75
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 80
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 85
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 90
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 95
+wait 60
+
+drive qh 0 qk 1 ql 0
+runscan qh -0.3 -0.6 31 time 10
+
+drive tc1_driveable 100
+wait 60
+

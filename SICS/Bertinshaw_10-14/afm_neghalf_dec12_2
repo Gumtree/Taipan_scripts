@@ -1,0 +1,12 @@
+#drive qh 0.5 qk 0.5 ql 0.5
+#mscan qh 0.49 0.001 qk 0.49 0.001 21 time 5
+
+#drive qh 0.5 qk 0.5 ql 0.5
+#runscan ql 0.49 0.51 21 time 5
+
+#mscan qh 0.474 0.001 qk 0.474 0.001 ql  0.504 -0.001 21 monitor 1120000
+#mscan qh 0.474 0.001 qk 0.474 0.001 ql -0.504  0.001 21 monitor 1120000
+#mscan qh 0.476 0.001 qk 0.476 0.001 ql  0.502 -0.001 21 monitor 1120000
+
+mscan qh 0.474 0.001 qk 0.474 0.001 ql -0.504  0.001 21 monitor 1120000
+

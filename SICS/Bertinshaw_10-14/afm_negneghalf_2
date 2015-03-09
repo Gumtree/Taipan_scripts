@@ -1,0 +1,9 @@
+drive qh 0.5 qk 0.5 ql -0.5
+drive   qh  0.502  qk  0.502
+runscan ql -0.492 -0.52 29 monitor 189000
+drive   qh  0.503  qk  0.503
+runscan ql -0.492 -0.52 29 monitor 189000
+drive   qh  0.504  qk  0.504
+runscan ql -0.492 -0.52 29 monitor 189000
+drive   qh  0.505  qk  0.505
+runscan ql -0.492 -0.52 29 monitor 189000

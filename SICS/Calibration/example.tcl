@@ -1,6 +1,7 @@
-a2 softupperlim# m2 error
+runscan a2 softupperlim# m2 error
 m2 send MG RUNF
 m2 send RUNF=0
+
 
 # set temperature
 hset /sics/tc1/sensor/setpoint1 20
@@ -9,8 +10,11 @@ hset /sics/tc1/heater/heaterRange 1
 hget /sics/tc1/heater/heaterRange
 # set heater to 100W
 hset /sics/tc1/heater/heaterRange 5
+runscan s1 
+#drive tc1_driveable 272
+run tc1_temp7_setpoint 300
 
-# view temperaure from data window
+# view temperature from data window
 data_name     tc_sensor1
 
 # energy scans
@@ -33,17 +37,27 @@ m2 softlowerlim 22
 
 setpos s2 value
 
+broadcast text
+title    text
+
 # measure same point
 
+runscan dummy_motor 1 9 10 time 60
 runscan dummy_motor 1 100 101 time 5
-runscan dummy_motor 1 100 101 time 5
-
+ei
 #  read values
 drive qh 2  a
 set s1p [Splitreply [s1]]
 set start [expr $s1p -2]
 set stop [expr $s1p +2]
 runscon $start $stop 41 time 5
+
+m2 absenc
+m2 send mg_tp`
+mhfocus send mg4095&_tp`
+
+Driving    m1 from   20.467 to   20.465
+Driving    m2 from   40.933 to   40.929
 
 
 

@@ -268,10 +268,29 @@ def __export__(fn):
             print 'Error: failed to make directory: ' + ILL_folder
             return
     
+#    df.datasets.clear()
+#    export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)
+#    df.datasets.clear()
+#    export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
+
     df.datasets.clear()
-    export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)
+    try:
+        export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)
+    except:
+        try:
+            export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)
+        except:
+            traceback.print_exc()
+            traceback.print_exc(file = __buffer_logger__)
     df.datasets.clear()
-    export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
+    try:
+        export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
+    except:
+        try:
+            export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
+        except:
+            traceback.print_exc()
+            traceback.print_exc(file = __buffer_logger__)
 
 def __run_script__(dss):
     pass

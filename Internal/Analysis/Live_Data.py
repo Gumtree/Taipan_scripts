@@ -344,6 +344,7 @@ def __run_script__(dss):
     global Plot1
     global Plot2
     global Plot3
+    from Experiment.lib.common import __get_axis_name__
     if (dss is None or len(dss) == 0) :
         log('no input datasets\n')
     else :
@@ -363,9 +364,11 @@ def __run_script__(dss):
                 if niter.next() <= 0:
                     niter.set_curr(1)
                 data = data / norm * avg
-            if not ds.axes is None and len(ds.axes) > 0: 
-                if not axis_lock.value:
-                    axis_name.value = ds.axes[0].name
+#            if not ds.axes is None and len(ds.axes) > 0: 
+#                if not axis_lock.value:
+#                    axis_name.value = ds.axes[0].name
+            if not axis_lock.value and not ds.axes is None and len(ds.axes) > 0:
+                axis_name.value = __get_axis_name__(ds.axes)
             axis = ds[str(axis_name.value)]
             if not hasattr(data, 'size') :
                 data = simpledata.SimpleData([data])

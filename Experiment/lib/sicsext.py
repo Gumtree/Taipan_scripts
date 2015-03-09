@@ -50,7 +50,7 @@ def runscan(type, scan_variable, scan_start, scan_increment, NP, mode, preset, c
             time.sleep(0.1)
             print 'IDLE'
             counter += 0.1
-            if (counter >= 3):
+            if (counter >= 10):
                 timeOut = True
                 print 'Time out on running scan'
                 break

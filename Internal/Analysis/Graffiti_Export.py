@@ -92,9 +92,23 @@ def batch_export():
         fsn = f.getName()
 #        count = int(fsn[3:10])
 #        new_fname = 'TAIPAN_exp' + ('%(value)04d' % {'value':eid}) + '_scan' + ('%(value)04d' % {'value':count}) + '.dat'
-        export.graffiti_export(df, loc, exp_folder, eid, get_prof_value)
+
         df.datasets.clear()
-        export.ILL_export(df, loc, ILL_folder, eid, get_prof_value)
+        try:
+            export.graffiti_export(df, loc, exp_folder, eid, get_prof_value)
+        except:
+            traceback.print_exc()
+            traceback.print_exc(file = __buffer_logger__)
+        df.datasets.clear()
+        try:
+            export.ILL_export(df, loc, ILL_folder, eid, get_prof_value)
+        except:
+            traceback.print_exc()
+            traceback.print_exc(file = __buffer_logger__)
+
+#        export.graffiti_export(df, loc, exp_folder, eid, get_prof_value)
+#        df.datasets.clear()
+#        export.ILL_export(df, loc, ILL_folder, eid, get_prof_value)
     print 'done'
         
         
