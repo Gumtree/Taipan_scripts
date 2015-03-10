@@ -21,6 +21,7 @@ import math
 __script__.title = 'Initialised'
 __script__.version = ''
 #__script__.dict_path = get_absolute_path('/Experiment/path_table')
+DatasetFactory.__cache_enabled__ = False
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
 __data_folder__ = 'W:/data/current'
 #__data_folder__ = 'Z:/testing/taipan'
