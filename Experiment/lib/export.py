@@ -107,9 +107,10 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                     text += ''
             elif item[0] == 'def_x':
                 try:
-#                    text += ds.axes[0].title
                     text += __get_axis_name__(axes)
+                    print text
                 except:
+                    traceback.print_exc()
                     text += ''
             else:
                 if item[1] != None:
@@ -142,6 +143,16 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                         to_skip.append(i)
         for tit in config.MULTI_ITEMS:
             if not axes_titles.__contains__(tit[0]) :
+                text += ('%(item)12s' % {'item' : tit[0]})
+        pol_enabled = False
+        try:
+            pol_field = ds['pol_field']
+            if pol_field != None:
+                pol_enabled = True
+        except:
+            pass
+        if pol_enabled :
+            for tit in config.POLARISER_ITEMS:
                 text += ('%(item)12s' % {'item' : tit[0]})
         comps = []
         items = ds.__iNXdata__.getDataItemList()
@@ -183,6 +194,16 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                             text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
                     except:
                         text += ('%(item)12s' % {'item' : '0.0000'})
+            if pol_enabled :
+                for tit in config.POLARISER_ITEMS:
+                    if not axes_titles.__contains__(tit[0]) :
+                        try:
+                            if ds.size == 1:
+                                text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]]})})
+                            else:
+                                text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
+                        except:
+                            text += ('%(item)12s' % {'item' : '0.0000'})
             for comp in comps:
                 data = comp.getData()
                 text += ('%(item)16.4f' % {'item' : data.getFloat(data.getIndex().set(i))})
@@ -490,6 +511,10 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
             text.append(line + '\n')
         nf.writelines(text)
         nf.flush()
+#    except:
+#        print 'failed to process: ' + nfn
+#        traceback.print_exc(file=sys.stdout)
+#    finally:
 #        nf.close()
 #        ds.close()
 #    except:
@@ -503,7 +528,34 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
     finally:
         nf.close()
         ds.close()
-
+    print nfn + ' exported'
+    
+def HMM_intensity_export(ds, bm1_counts, exp_folder, eid, get_prof_value, masks):
+    from Experiment import config
+    title = ds.title
+    new_fname = title[:title.index('.')] + '.xye'
+    nfn = exp_folder + '/' + new_fname
+    if len(ds.axes) > 0:
+        axis = ds.axes[-1]
+    else:
+        axis = simpledata.arange(ds.size)
+    nf = open(nfn, 'w')
+    try:
+        text = []
+        text.append('* id=' + str(title) + '\n')
+        text.append('* masks=' + masks + '\n')
+        text.append('* ' + axis.title + '\ttotal_counts\tsigma\tmonitor\n')
+        for i in xrange(ds.size):
+            line = ('%(x).4f\t%(y)d\t%(e).1f\t%(bm)d' % {'x' : axis[i], 'y' : ds[i], \
+                                                       'e' : ds.err[i], 'bm' : bm1_counts[i]})
+            text.append(line + '\n')
+        nf.writelines(text)
+        nf.flush()
+    except:
+        print 'failed to process: ' + nfn
+        traceback.print_exc(file=sys.stdout)
+    finally:
+        nf.close()
     print nfn + ' exported'
     
     

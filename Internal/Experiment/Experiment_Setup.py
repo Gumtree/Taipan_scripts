@@ -18,6 +18,7 @@ SCATTERINGPLANE_PNAME = 'taipan.scatteringplane'
 LATTICECONSTANTS_PNAME = 'taipan.latticeconstants'
 HORIZONTALCOLLIMATION_PNAME = 'taipan.horizontalcollimation'
 VERTICALCOLLIMATION_PNAME = 'taipan.verticalcollimation'
+ENABLEPOLARISER_PNAME = 'taipan.enablepolariser'
 UBMATRIX_PNAME = 'taipan.ubmatrix'
 
 # Script control setup area
@@ -44,13 +45,14 @@ lattice_constants = Par('string', '')
 ubmatrix = Par('string', '')
 horizontal_collimation = Par('string', '')
 vertical_collimation = Par('string', '')
+enable_polariser = Par('bool', False)
 apply = Act('apply_values()', 'Apply Change to Current Experiment Only')
 
 g1.add(experiment_id, proposal_id, experiment_title, user_name, \
        local_contact, monochromator, analyzer, sense, \
        collimation, sample_name, sample_type, sample_mosaic, \
        scattering_plane, lattice_constants, ubmatrix, \
-       horizontal_collimation, vertical_collimation, apply)
+       horizontal_collimation, vertical_collimation, enable_polariser, apply)
 
 try:
     experiment_id.value = int(__UI__.getPreference(EXPERIMENT_ID_PNAME))
@@ -75,6 +77,7 @@ try:
     ubmatrix.value = get_prof_value(UBMATRIX_PNAME)
     horizontal_collimation.value = get_prof_value(HORIZONTALCOLLIMATION_PNAME)
     vertical_collimation.value = get_prof_value(VERTICALCOLLIMATION_PNAME)
+    enable_polariser.value = bool(get_prof_value(ENABLEPOLARISER_PNAME))
 except:
     traceback.print_exc(file = sys.stdout)
 eid_value = experiment_id.value
@@ -94,6 +97,7 @@ lco_value = lattice_constants.value
 ubm_value = ubmatrix.value
 hco_value = horizontal_collimation.value
 vco_value = vertical_collimation.value
+pol_value = enable_polariser.value
 
 creation_status = Par('bool', False)
 new_it = Act('create_new()', 'Create New Experiment and Apply Changes')
@@ -101,7 +105,7 @@ new_it = Act('create_new()', 'Create New Experiment and Apply Changes')
 def apply_values():
     global eid_value, pid_value, ett_value, una_value, lct_value, mch_value, \
             ana_value, sen_value, clm_value, sna_value, sty_value, smo_value, \
-            spl_value, lco_value, ubm_value, hco_value, vco_value
+            spl_value, lco_value, ubm_value, hco_value, vco_value, pol_value
     try:
         if eid_value != experiment_id.value:
             set_prof_value(EXPERIMENT_ID_PNAME , str(experiment_id.value))
@@ -165,8 +169,15 @@ def apply_values():
             slog('Change horizontal collimation setup to: ' + hco_value)
         if vco_value != vertical_collimation.value:
             set_prof_value(VERTICALCOLLIMATION_PNAME , vertical_collimation.value)
-            vco_value != vertical_collimation.value
+            vco_value = vertical_collimation.value
             slog('Change vertical collimation setup to: ' + vco_value)
+        if pol_value != enable_polariser.value:
+            set_prof_value(ENABLEPOLARISER_PNAME , str(enable_polariser.value))
+            pol_value = enable_polariser.value
+            if pol_value :
+                slog('Set polariser enabled')
+            else:
+                slog('Set polariser disabled')
         print 'Experiment configuration values saved.'
         save_pref()
     except:

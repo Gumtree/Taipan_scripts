@@ -2,6 +2,7 @@ from java.lang import System
 from gumpy.nexus.fitting import Fitting, GAUSSIAN_FITTING
 from Experiment.lib import export
 import math
+import traceback
 from java.io import File
 
 # Script control setup area

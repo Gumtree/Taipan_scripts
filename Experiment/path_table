@@ -112,9 +112,6 @@ tc_sensor3 = $entry/sample/tc9/sensor3/value
 tc_sensor1 = $entry/sample/tc2/Sensor/value
 tc_sensor1 = $entry/sample/tc9/Loop1/sensor
 tc_sensor2 = $entry/sample/tc9/Loop2/sensor
-tc_sensor1 = $entry/sample/tc1/Loop1/sensor
-tc_sensor2 = $entry/sample/tc1/Loop2/sensor
-tc_sensor3 = $entry/sample/tc1/Loop3/sensor
 tc1_sensorA = $entry/sample/tc9/Loop1/sensor
 tc1_sensorB = $entry/sample/tc9/Loop2/sensor
 tc1_sensorC = $entry/sample/tc9/Loop3/sensor
@@ -127,4 +124,37 @@ tc_sensor4 = $entry/sample/tc3/sensor/sensorValueD
 
 DilutTempReading =  $entry/sample/magnetic/DilutTempReading
 magnetic_field = $entry/sample/magnetic/fieldSetPoint
+
+ana_amp = $entry/instrument/he3/analyser/amplitude
+ana_field = $entry/instrument/he3/analyser/field
+ana_freq = $entry/instrument/he3/analyser/freq
+ana_phase = $entry/instrument/he3/analyser/phase
+ana_spin = $entry/instrument/he3/analyser/spin
+ana_time2 = $entry/instrument/he3/analyser/time2
+ana_tstamp = $entry/instrument/he3/analyser/timestamp
+
+ast_amp = $entry/instrument/he3/analyser_start/amplitude
+ast_field = $entry/instrument/he3/analyser_start/field
+ast_freq = $entry/instrument/he3/analyser_start/freq
+ast_phase = $entry/instrument/he3/analyser_start/phase
+ast_spin = $entry/instrument/he3/analyser_start/spin
+ast_time2 = $entry/instrument/he3/analyser_start/time2
+ana_tstamp = $entry/instrument/he3/analyser_start/timestamp
+
+pol_amp = $entry/instrument/he3/analyser/amplitude
+pol_field = $entry/instrument/he3/analyser/field
+pol_freq = $entry/instrument/he3/analyser/freq
+pol_phase = $entry/instrument/he3/analyser/phase
+pol_spin = $entry/instrument/he3/analyser/spin
+pol_time2 = $entry/instrument/he3/analyser/time2
+pol_tstamp = $entry/instrument/he3/analyser/timestamp
+
+pst_amp = $entry/instrument/he3/polariser_start/amplitude
+pst_field = $entry/instrument/he3/polariser_start/field
+pst_freq = $entry/instrument/he3/polariser_start/freq
+pst_phase = $entry/instrument/he3/polariser_start/phase
+pst_spin = $entry/instrument/he3/polariser_start/spin
+pst_time2 = $entry/instrument/he3/polariser_start/time2
+pna_tstamp = $entry/instrument/he3/polariser_start/timestamp
+
 

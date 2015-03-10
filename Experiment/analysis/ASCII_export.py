@@ -7,7 +7,7 @@ from java.io import File
 # script info
 __script__.title = 'Batch Export'
 __script__.version = ''
-__script__.dict_path = gumtree_root + '/Experiment/path_table'
+__script__.dict_path = get_absolute_path('/Experiment/path_table')
 System.setProperty('sics.data.path', 'W:/data/current')
 __DATASOURCE__ = __register__.getDataSourceViewer()
 
