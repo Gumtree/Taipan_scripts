@@ -108,7 +108,6 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
             elif item[0] == 'def_x':
                 try:
                     text += __get_axis_name__(axes)
-                    print text
                 except:
                     traceback.print_exc()
                     text += ''
