@@ -15,6 +15,7 @@
 ######################################################
 
 experiment_title = $entry/experiment/title
+file_name = $entry/experiment/file_name
 user_name = $entry/user/name
 user_email = $entry/user/email
 user_phone = $entry/user/phone
@@ -156,5 +157,4 @@ pst_phase = $entry/instrument/he3/polariser_start/phase
 pst_spin = $entry/instrument/he3/polariser_start/spin
 pst_time2 = $entry/instrument/he3/polariser_start/time2
 pna_tstamp = $entry/instrument/he3/polariser_start/timestamp
-
 
