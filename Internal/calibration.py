@@ -1843,6 +1843,8 @@ def load_model():
         slog('failed to load model from file ' + str(model_file.value))
         return
     slog('model loaded from file ' + str(model_file.value))
+    if not cal_model is None and not cal_model.path is None:
+        model.path = cal_model.path
     cal_model = model
     if not math.isnan(model.Ei) :
         rEi.value = model.Ei
