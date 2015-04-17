@@ -21,7 +21,7 @@ sics.getDeviceController('ei').getValue(True)
 sics.getDeviceController('en').getValue(True)
 ei = Par('float', sics.getValue('ei').getFloatData())
 en = Par('float', sics.getValue('en').getFloatData())
-scan = Par('string', '0, 0.25, 17, \'timer\', 1')
+scan = Par('string', '-2, 0.25, 17, \'timer\', 1')
 act2 = Act('scan_en()', 'Scan on en') 
 def scan_en():
     aname = 'en'

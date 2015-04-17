@@ -27,8 +27,8 @@ __fit_focus__ = dict()
 NaN = float('nan')
 
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-#__data_folder__ = 'W:/data/current'
-__data_folder__ = 'Y:/testing/taipan'
+__data_folder__ = 'W:/data/current'
+#__data_folder__ = 'Y:/testing/taipan'
 __export_folder__ = 'W:/data/current/reports'
 __pickle_file__ = __export_folder__ + '/CalibrationModel_' + strftime("%y%m%d%H%M%S") + '.pkl'
 #System.setProperty('sics.data.path', __data_folder__)
@@ -173,6 +173,14 @@ class CalibrationModel:
             traceback.print_exc(__writer__)
         finally:
             file.close()
+
+__buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
+fi = File(__buffer_log_file__)
+if not fi.exists():
+    if not fi.mkdirs():
+        print 'Error: failed to make directory: ' + __buffer_log_file__
+__buffer_log_file__ += '/LogCalib.txt'
+__buffer_logger__ = open(__buffer_log_file__, 'a')
     
 print 'Waiting for SICS connection'
 while sics.getSicsController() == None:
@@ -369,7 +377,10 @@ def __dispose_all__(event):
     global __scan_status_node__
     global __save_count_node__
     global __saveCountListener__
+    global __buffer_log_file__
     __save_count_node__.removeComponentListener(__saveCountListener__)
+    if __buffer_log_file__ != None :
+        __buffer_log_file__.close()
 
 __dispose_listener__ = __Dispose_Listener__()
 __dispose_listener__.widgetDisposed = __dispose_all__
@@ -398,6 +409,13 @@ def __dataset_selected__(datasets):
         __INFOTEXT__.appendText(des)
     
 def slog(text):
+    global __buffer_logger__
+    try:
+        tsmp = strftime("[%Y-%m-%d %H:%M:%S]", localtime())
+        __buffer_logger__.write(tsmp + ' ' + text + '\n')
+        __buffer_logger__.flush()
+    except:
+        print 'failed to log'
     logln(text)
     
 pa_left = Par('float', -2)
@@ -525,7 +543,7 @@ def drive_Ei():
     sics.execute('sgu fixed -1')
     m1_old.value = sicsext.getStableValue('m1').getFloatData()
     m2_old.value = sicsext.getStableValue('m2').getFloatData()
-    en_en.value = sicsext.getStableValue('en').getFloatData()
+#    en_en.value = sicsext.getStableValue('en').getFloatData()
 
 rscan_m1 = Par('string', '')
 rscan_m1.title = 'align m1'
@@ -1775,9 +1793,9 @@ sics.getDeviceController('ei').getValue(True)
 sics.getDeviceController('en').getValue(True)
 #en_ei = Par('float', sics.getValue('ei').getFloatData())
 #en_ei.title = 'Ei'
-en_en = Par('float', sics.getValue('en').getFloatData())
-en_en.title = 'En'
-en_scan = Par('string', '0, 0.25, 17, \'timer\', 1')
+en_mode = Par('string', 'kf', options = ['kf', 'ki'])
+en_mode.title = 'mode'
+en_scan = Par('string', '-2, 0.25, 17, \'timer\', 1')
 en_scan.title = ' scan En'
 en_act = Act('scan_en()', 'Run Scan') 
 en_file = Par('string,' '')
@@ -1795,6 +1813,8 @@ def scan_en():
         pass
     axis_name.value = aname
     reset_fit()
+    slog('tasub const ' + en_mode.value)
+    sics.execute('tasub const ' + en_mode.value)
     sicsext.call_back = __load_experiment_data__
     slog('scan ' + aname + ', ' + en_scan.value)
     sics.execute('s2 fixed 1')
@@ -1819,7 +1839,7 @@ def load_en_file():
     else:
         slog('no available file')
     
-Gen.add(en_en, en_scan, en_act, en_file, en_afile, en_peak)
+Gen.add(en_mode, en_scan, en_act, en_file, en_afile, en_peak)
 
 model_file = Par('file', '', command = 'load_model()')
 model_file.title = 'Load Model File:'
