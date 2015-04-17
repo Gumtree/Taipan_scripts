@@ -27,8 +27,8 @@ __fit_focus__ = dict()
 NaN = float('nan')
 
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-__data_folder__ = 'W:/data/current'
-#__data_folder__ = 'Y:/testing/taipan'
+#__data_folder__ = 'W:/data/current'
+__data_folder__ = 'Y:/testing/taipan'
 __export_folder__ = 'W:/data/current/reports'
 __pickle_file__ = __export_folder__ + '/CalibrationModel_' + strftime("%y%m%d%H%M%S") + '.pkl'
 #System.setProperty('sics.data.path', __data_folder__)
@@ -961,10 +961,11 @@ def calc_peaks():
             exec('scan_arg' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 56, \'timer\', 1"')
         elif i == 5:
             exec('scan_arg' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 61, \'timer\', 1"')
-try:
-    calc_peaks()
-except:
-    slog('calculation is out of range.')
+    
+    if rEi.value < 15 :
+        en_scan.value = '-2, 0.25, 17, \'timer\', 1'
+    else :
+        en_scan.value = '-4, 0.5, 17, \'timer\', 1'
 
 def update_peak_file(id):
     __scan_filenames__[id - 1] = str(__data_folder__ + '/' + eval('scan_file' + str(id) + '.value'))
@@ -1803,6 +1804,11 @@ en_file.title = 'file:'
 en_afile = Act('load_en_file()', 'view >>')
 en_peak = Par('float', NaN)
 en_peak.title = 'peak:'
+
+try:
+    calc_peaks()
+except:
+    slog('calculation is out of range.')
 
 def scan_en():
     aname = 'en'
