@@ -158,3 +158,5 @@ pst_spin = $entry/instrument/he3/polariser_start/spin
 pst_time2 = $entry/instrument/he3/polariser_start/time2
 pna_tstamp = $entry/instrument/he3/polariser_start/timestamp
 
+m1_counts = $entry/instrument/crystal/m1_counts
+m1_steps = $entry/instrument/crystal/m1_steps

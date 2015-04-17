@@ -1,0 +1,132 @@
+
+
+
+hset /sics/tc1/sensor/setpoint1 5
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 4.5
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 4.0
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.9
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.8
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.7
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.6
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.5
+wait 60
+
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.4
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.3
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.2
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 3.0
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 2.8
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+
+hset /sics/tc1/sensor/setpoint1 2.6
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+
+hset /sics/tc1/sensor/setpoint1 2.4
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+
+
+hset /sics/tc1/sensor/setpoint1 2.2
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 2.0
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 1.8
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+hset /sics/tc1/sensor/setpoint1 1.5
+wait 60
+mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0.95 0.0025 qk 0 0 ql 1 0 en 0 0 41 time 1
+
+
+
+

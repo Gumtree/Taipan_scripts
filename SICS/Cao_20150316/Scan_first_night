@@ -1,0 +1,53 @@
+
+
+
+
+
+
+
+title " QH scan @ E=4meV"
+mscan qh 0.6 0.02 qk 0  0 ql 0 0 en 4 0 41 monitor  1200000
+
+title " QL scan @ E=4meV"
+mscan qh 1 0 qk 0  0 ql -1 0.04 0 en 4 0 51 monitor  1200000
+
+title " QH scan @ E=2meV"
+mscan qh 0.6 0.02 qk 0  0 ql 0 0 en 2 0 41 monitor  1200000
+
+title " E scan @ q=1.1"
+mscan qh 1.1 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  1200000
+
+title " E scan @ q=1.2"
+mscan qh 1.2 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  1200000
+
+
+
+title " E scan @ q=1.1"
+mscan qh 1.05 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  1200000
+
+title " E scan @ q=1.2"
+mscan qh 1.15 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  1200000
+
+title " Bragg (100)"
+mscan qh 0.95 0.0025 qk 0  0 ql 0 0 en 0 0 41 time 1
+
+
+title " Bragg (004)"
+mscan qh 0 0 qk 0  0 ql 3.9 0.005 en 0 0 41 time 1
+
+
+title " E scan @ q=1.05"
+mscan qh 1.05 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  2400000
+
+title " E scan @ q=1.15"
+mscan qh 1.15 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  2400000
+
+
+
+title " QH scan @ E=4meV"
+mscan qh 0.6 0.02 qk 0  0 ql 0 0 en 6 0 41 monitor  2400000
+
+title " QH scan @ E=2meV"
+mscan qh 0.6 0.02 qk 0  0 ql 0 0 en 8 0 41 monitor  2400000
+
+

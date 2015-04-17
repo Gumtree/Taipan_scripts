@@ -40,7 +40,7 @@ setpos s2 value
 broadcast text
 title    text
 
-# measure same point
+# measure the same point
 
 runscan dummy_motor 1 9 10 time 60
 runscan dummy_motor 1 100 101 time 5
@@ -56,10 +56,13 @@ m2 absenc
 m2 send mg_tp`
 mhfocus send mg4095&_tp`
 
-Driving    m1 from   20.467 to   20.465
-Driving    m2 from   40.933 to   40.929
+# Driving    m1 from   20.467 to   20.465
+# Driving    m2 from   40.933 to   40.929
 
+pa_left homerun 0
+pa_left homerun 1
 
+drive pa_left -15 pa_right -15 pa_top -30 pa_bottom -30
 
 
 

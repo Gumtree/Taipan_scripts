@@ -1,0 +1,37 @@
+
+drive qh 0.95 qk 0 ql 0 en 0
+runscan qh 0.95 1.05 41 time 5
+
+
+
+drive qh 0 qk 0 ql 3.95 en 0
+runscan ql 3.95 4.05 41 time 5
+
+
+
+drive qh 0.5 qk 0 ql 0 en 2
+
+
+runscan qh 0.5 1.5  41 monitor 600000
+
+
+
+drive qh 0.95 qk 0 ql 0 en 0
+runscan qh 0.95 1.05 41 time 5
+
+
+
+drive qh 0 qk 0 ql 3.95 en 0
+runscan ql 3.95 4.05 41 time 5
+
+drive qh 0.5 qk 0 ql 0 en 4
+runscan qh 0.5 1.5  41 monitor 600000
+
+
+
+drive qh 0.95 qk 0 ql 0 en 0
+runscan qh 0.95 1.05 41 time 5
+
+
+drive qh 0 qk 0 ql 3.95 en 0
+runscan ql 3.95 4.05 41 time 5

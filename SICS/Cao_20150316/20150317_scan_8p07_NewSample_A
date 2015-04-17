@@ -1,0 +1,66 @@
+
+
+
+
+
+
+mscan qh 0.95 0.0025 qk 0  0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0 0 qk 0  0 ql 3.9 0.005 en 0 0 41 time 1
+
+title QL scan @ E=3.5meV
+mscan qh 1 0 qk 0 0 ql -1.4 0.08 en 3.5 0 36 monitor 1200000
+
+
+
+title "new sample E scan @ q=1.3   ef=8.07meV"
+mscan qh 1.3 0 qk 0  0 ql 0 0 en -1 0.25 41 monitor  1200000
+
+
+title "new sample E scan @ ql=1.5   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.5 0 en -1 0.25 41 monitor  1200000
+
+title "new sample E scan @ qh=1.0 ql=0.6   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 0.6 0 en -1 0.25 41 monitor  1200000
+
+
+
+title "new sample E scan @ qh=1.0 ql=1.5   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.5 0 en -1 0.25 41 monitor  1200000
+
+
+title "new sample E scan @ qh=1.0 ql=1.6   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.6 0 en -1 0.25 41 monitor  1200000
+
+
+title "new sample E scan @ qh=1.0 ql=1.7   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.7 0 en -1 0.25 41 monitor  1200000
+
+title "new sample E scan @ qh=1.0 ql=1.8   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.8 0 en -1 0.25 41 monitor  1200000
+
+
+title "new sample E scan @ qh=1.0 ql=1.9   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.9 0 en -1 0.25 41 monitor  1200000
+
+
+
+title "new sample E scan @ qh=1.0 ql=2.0   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 2.0 0 en -1 0.25 41 monitor  1200000
+
+
+
+mscan qh 0.95 0.0025 qk 0  0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0 0 qk 0  0 ql 3.9 0.005 en 0 0 41 time 1
+
+title "new sample E scan @ qh=1.0 ql=1.0   ef=8.07meV"
+mscan qh 1.0 0 qk 0  0 ql 1.0 0 en -1 0.25 41 monitor  1200000
+
+
+title QL scan @ E=2meV
+mscan qh 1 0 qk 0 0 ql -1.4 0.08 en 2 0 36 monitor 1200000
+
+title  QH scan @ E=2.0meV
+mscan qh 0.5 0.04 qk 0 0 ql 0 0 en 2 0 36 monitor 1200000
+

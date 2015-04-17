@@ -1,0 +1,67 @@
+
+
+
+
+
+#mscan qh 0.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+drive ei 14.87 ef 14.87
+drive s2 -70 s1 0
+runscan m1 19.465 21.465 21 time 1
+
+
+
+mscan qh 1.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+
+mscan qh 0 0 qk 0 0 ql 3.9 0.005 en 0 0 41 time 1
+
+mscan qh 1.0 0 qk 0 0 ql 0.2 0 en -1 0.25 41 monitor 1200000
+
+mscan qh 1.0 0 qk 0 0 ql -0.2 0 en -1 0.25 41 monitor 1200000
+
+mscan qh 0.7 0.05 qk 0 0 ql 0 0 en 1.0 0 61 monitor 1200000
+
+drive ei 14.87 ef 14.87
+drive s2 -70 s1 0
+runscan m1 19.465 21.465 21 time 1
+
+
+
+mscan qh 1.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0 0 qk 0 0 ql 3.9 0.005 en 0 0 41 time 1
+
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 0.5 0 61 monitor 1200000
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 0.75 0 61 monitor 1200000
+
+mscan qh 1.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+
+mscan qh 0 0 qk 0 0 ql 3.9 0.005 en 0 0 41 time 1
+
+
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 1.0 0 61 monitor 1200000
+
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 1.25 0 61 monitor 1200000
+
+
+drive ei 14.87 ef 14.87
+drive s2 -70 s1 0
+runscan m1 19.465 21.465 21 time 1
+
+mscan qh 1.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+mscan qh 0 0 qk 0 0 ql 3.9 0.005 en 0 0 41 time 1
+
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 1.5 0 61 monitor 1200000
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 1.75 0 61 monitor 1200000
+
+mscan qh 1.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+mscan qh 0 0 qk 0 0 ql 3.9 0.005 en 0 0 41 time 1
+
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 2.25 0 61 monitor 1200000
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 2.5 0 61 monitor 1200000
+
+
+
+
+

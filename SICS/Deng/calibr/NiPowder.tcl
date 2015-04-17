@@ -1,5 +1,4 @@
-m2 softlowerlim 23
-s2 softlowerlim -95
+
 
 runscan s2 -31 -36 21 time 1 force true
 runscan s2 -36 -41 21 time 1  force true

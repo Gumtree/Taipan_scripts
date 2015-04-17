@@ -1,0 +1,29 @@
+drive s2 -52.4
+drive sgl 0
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
+
+drive sgl -4
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
+
+drive sgl 4
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
+
+drive sgl -8
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
+
+drive sgl 8
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
+
+
+drive sgl 9.5
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
+
+drive sgl -9.5
+runscan s1 -20 0 41 time 1
+runscan s1 -90 90 361 time 1
