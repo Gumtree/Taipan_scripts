@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+
+title QH scan near (001) En=2meV  1p5K
+mscan qh 0 0 qk 0 0 ql  0.7 0.02 en 2.0 0 51 monitor 600000
+
+title Escan near (001) qh=0.2  1p5K
+mscan qh 0.2 0 qk 0 0 ql 1 0 en -1 0.5 41 monitor 600000
+title Escan near (100) qh=0.0  1p5K
+mscan qh 0 0 qk 0 0 ql 1 0 en -1 0.25 41 monitor 600000
+title Escan near (100) qh=-0.2  1p5K
+mscan qh -0.2 0 qk 0 0 ql 1 0 en -1 0.25 41 monitor 600000
+
+ 
+title QH scan near (001) En=4meV  1p5K
+mscan qh 0 0 qk 0 0 ql  0.7 0.02 en 4.0 0 51 monitor 600000
+
+
+ 
+title QH scan near (001) En=8meV  1p5K
+mscan qh 0 0 qk 0 0 ql  0.7 0.02 en 8.0 0 51 monitor 1200000
+
+
+
+title Escan near (101) qh=0.2  1p5K
+mscan qh 1 0 qk 0 0 ql 1 0 en -1 0.5 31 monitor 600000
+
+
+
+
+title Escan near (201) qh=0.2  1p5K
+mscan qh 2 0 qk 0 0 ql 1 0 en -1 0.5 63 monitor 1200000
+
+
+
+
+
+
+
+
+
+
+
+

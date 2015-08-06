@@ -368,7 +368,8 @@ def __run_script__(dss):
 #                if not axis_lock.value:
 #                    axis_name.value = ds.axes[0].name
             if not axis_lock.value and not ds.axes is None and len(ds.axes) > 0:
-                axis_name.value = __get_axis_name__(ds.axes)
+#                axis_name.value = __get_axis_name__(ds.axes)
+                axis_name.value = ds.axes[0].name
             axis = ds[str(axis_name.value)]
             if not hasattr(data, 'size') :
                 data = simpledata.SimpleData([data])

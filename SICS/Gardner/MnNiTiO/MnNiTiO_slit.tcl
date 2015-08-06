@@ -1,0 +1,13 @@
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 
+runscan s2 -39 -47 41 monitor 25000 

@@ -1,0 +1,58 @@
+
+wait 60
+hset /sics/tc1/sensor/setpoint1 150
+wait 1200
+
+title QL scan near (101) En=1.0meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 1.0 0 31 monitor 600000
+
+title QL scan near (101) En=1.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 1.5 0 31 monitor 600000
+
+
+title QL scan near (101) En=3meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 3.0 0 31 monitor 600000
+
+
+title QL scan near (101) En=5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 5.0 0 31 monitor 600000
+
+title QL scan near (101) En=6meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 6.0 0 31 monitor 600000
+
+title QL scan near (101) En=7meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.0 0 31 monitor 600000
+
+
+title QL scan near (101) En=2.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 2.5 0 31 monitor 600000
+
+
+title QL scan near (101) En=3.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 3.5 0 31 monitor 600000
+
+title QL scan near (101) En=4.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 4.5 0 31 monitor 600000
+
+title QL scan near (101) En=5.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 5.5 0 31 monitor 600000
+
+title QL scan near (101) En=6.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 6.5 0 31 monitor 600000
+
+title QL scan near (101) En=8.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 8.5 0 31 monitor 600000
+
+title QL scan near (101) En=9meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 9 0 31 monitor 600000
+
+title QL scan near (101) En=9.5meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 9.5 0 31 monitor 600000
+
+title QL scan near (101) En=10meV  150K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 10 0 31 monitor 600000
+
+
+
+
+

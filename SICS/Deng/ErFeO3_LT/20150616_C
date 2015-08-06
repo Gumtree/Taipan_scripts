@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+title QH scan near (101) En=8meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 8.0 0 51 monitor 1200000
+
+title QH scan near (101) En=8meV  1p5K
+mscan qh 0.7 0.02 qk 0 0 ql  1 0 en 8.0 0 51 monitor 1200000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

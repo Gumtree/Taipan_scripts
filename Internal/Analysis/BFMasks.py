@@ -17,6 +17,7 @@ __script__.numColumns = 1
 SAVED_MASK_PRFN = 'BeFilter.savedMasks'
 SAVED_INC_MASK_PRFN = 'BeFilter.savedIncMasks'
 SAVED_EXC_MASK_PRFN = 'BeFilter.savedExcMasks'
+EXPERIMENT_ID_PNAME = 'taipan.experiment.id'
 DS = None
 __new_xAxis__ = simpledata.arange(-0.5, 30, 1, float)
 
@@ -226,7 +227,7 @@ def batch_export():
         if not fi.mkdir():
             print 'Error: failed to make directory: ' + path
             return
-    eid = int(experiment_id.value)
+    eid = int(get_pref_value(EXPERIMENT_ID_PNAME))
     exp_folder = path + '/exp' + str(eid)
     fi = File(exp_folder)
     if not fi.exists():

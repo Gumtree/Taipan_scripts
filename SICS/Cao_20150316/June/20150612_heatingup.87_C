@@ -1,0 +1,20 @@
+
+
+
+
+hset /sics/tc1/sensor/setpoint1 50
+wait 60
+hset /sics/tc1/sensor/setpoint1 80
+wait 60
+hset /sics/tc1/sensor/setpoint1 120
+wait 60
+hset /sics/tc1/sensor/setpoint1 150
+wait 60
+hset /sics/tc1/sensor/setpoint1 180
+wait 60
+hset /sics/tc1/sensor/setpoint1 220
+wait 60
+hset /sics/tc1/sensor/setpoint1 250
+wait 60
+hset /sics/tc1/sensor/setpoint1 300
+

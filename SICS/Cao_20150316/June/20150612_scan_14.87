@@ -1,0 +1,43 @@
+
+
+
+
+
+
+title  Bragg Peak (100)
+mscan qh 0.95 0.005 qk 0 0 ql 0 0 en 0 0 21 time 1
+
+title  Bragg Peak (004)
+mscan qh 0 0 qk 0 0 ql 3.9 0.01 en 0 0 21 time 1
+
+
+
+
+title " QH scan @ E=2.5meV"
+mscan qh 0.42 0.04 qk 0 0 ql 0 0 en 2.5 0 30 monitor 1200000
+
+title QL scan @ E=2.0meV
+mscan qh 1 0 qk 0 0 ql -2 0.1 en 2 0 41 monitor 1200000
+
+
+
+title "E scan @ (1 0 1.5) "
+mscan qh 1.0 0 qk 0 0 ql 1.5 0 en -1 0.25 41 monitor 2400000
+
+title "E scan @ (1 0 1.6) "
+mscan qh 1.0 0 qk 0 0 ql 1.6 0 en 2 0.25 29 monitor 2400000
+
+title "E scan @ (1 0 1.7) "
+mscan qh 1.0 0 qk 0 0 ql 1.7 0 en 2 0.25 29 monitor 2400000
+
+title "E scan @ (1 0 1.8) "
+mscan qh 1.0 0 qk 0 0 ql 1.8 0 en 2 0.25 29 monitor 2400000
+
+
+title "E scan @ (1 0 1.9) "
+mscan qh 1.0 0 qk 0 0 ql 1.9 0 en 2 0.25 29 monitor 2400000
+
+title "E scan @ (1 0 2.0) "
+mscan qh 1.0 0 qk 0 0 ql 2.0 0 en -1 0.25 41 monitor 2400000
+
+

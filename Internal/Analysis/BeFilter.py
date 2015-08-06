@@ -17,6 +17,7 @@ __script__.numColumns = 1
 SAVED_MASK_PRFN = 'BeFilter.savedMasks'
 SAVED_INC_MASK_PRFN = 'BeFilter.savedIncMasks'
 SAVED_EXC_MASK_PRFN = 'BeFilter.savedExcMasks'
+EXPERIMENT_ID_PNAME = 'taipan.experiment.id'
 DS = None
 __new_xAxis__ = simpledata.arange(-0.5, 30, 1, float)
 
@@ -161,7 +162,7 @@ g3 = Group('Plot3')
 data_name = Par('string', 'total_counts', \
                options = ['bm1_counts', 'bm2_counts', 'total_counts'])
 data_name.title = 'Select Data'
-normalise = Par('bool', False)
+normalise = Par('bool', True)
 axis_name = Par('string', 'suid')
 axis_name.title = 'Select Axis'
 axis_lock = Par('bool', False, command = 'lock_axis()')
@@ -180,7 +181,7 @@ peak_pos = Par('float', 'NaN')
 FWHM = Par('float', 'NaN')
 fit.add(fit_min, fit_max, act1, peak_pos, FWHM)
 
-allow_duplication = Par('bool', False)
+allow_duplication = Par('bool', True)
 act2 = Act('import_to_plot2()', text = 'Import Data Files to Plot2')
 to_remove = Par('string', '', options=[])
 act3 = Act('remove_curve()', 'Remove selected curve')
@@ -207,6 +208,68 @@ reg_list = Par('string', '')
 g3.add(plot3_idx, reg_enabled, reg_list)
 
 load_mask_prof()
+
+g5 = Group('Export')
+exp_act = Act('batch_export()', 'Batch Export')
+g5.add(exp_act)
+
+def batch_export():
+    from Experiment import config
+    dss = __DATASOURCE__.getSelectedDatasets()
+    if dss is None or len(dss) == 0:
+        print 'Please select one or more files to export.'
+        return
+    path = selectSaveFolder()
+    if path == None:
+        return
+    fi = File(path)
+    if not fi.exists():
+        if not fi.mkdir():
+            print 'Error: failed to make directory: ' + path
+            return
+    eid = int(get_pref_value(EXPERIMENT_ID_PNAME))
+    exp_folder = path + '/exp' + str(eid)
+    fi = File(exp_folder)
+    if not fi.exists():
+        if not fi.mkdir():
+            print 'Error: failed to make directory: ' + exp_folder
+            return
+    HMM_folder = exp_folder + '/HMMfiles'
+    fi = File(HMM_folder)
+    if not fi.exists():
+        if not fi.mkdir():
+            print 'Error: failed to make directory: ' + HMM_folder
+            return
+    
+    count = 0
+    for dinfo in dss:
+        loc = dinfo.getLocation()
+        
+        ds = df[str(loc)]
+        if len(__exc_masks__) > 0:
+            res = copy(ds.get_reduced())
+            for mask in __exc_masks__:
+                res[:, mask[2]:mask[3], mask[0]:mask[1]] = 0
+        else :
+            res = ds.get_reduced()
+        if len(__inc_masks__) > 0:
+            r = dataset.instance(res.shape, dtype=int)
+            for mask in __inc_masks__:
+                r[:, mask[2]:mask[3], mask[0]:mask[1]] = res[:, mask[2]:mask[3], mask[0]:mask[1]]
+        else :
+            r = res
+        data = r.sum(0)
+        if not ds.axes is None and len(ds.axes) > 0: 
+            if not axis_lock.value:
+                axis_name.value = ds.axes[0].name
+        axis = ds[str(axis_name.value)]
+        ds2 = Dataset(data, axes=[axis])
+        ds2.title = ds.title
+
+#        count = int(fsn[3:10])
+#        new_fname = 'TAIPAN_exp' + ('%(value)04d' % {'value':eid}) + '_scan' + ('%(value)04d' % {'value':count}) + '.dat'
+        export.HMM_intensity_export(ds2, ds.bm1_counts, HMM_folder, eid, get_prof_value, reg_list.value)
+    print 'done'
 
 def jump_to_idx():
     global DS
@@ -347,12 +410,19 @@ def import_to_plot2():
                         break
         dname = str(data_name.value)
         data = ds[dname]
+        tname = None
         if dname == 'bm1_counts':
             tname = 'bm1_time'
-        else:
+        elif dname == 'bm2_counts':
             tname = 'bm2_time'
-        norm = ds[tname]
-        if normalise.value and norm != None and hasattr(norm, '__len__'):
+        elif dname == 'total_counts':
+            tname = 'bm1_counts'
+            
+        norm = None
+        if not tname is None:
+            norm = ds[tname]
+        if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
+            print 'normalised'
             avg = norm.sum() / len(norm)
             niter = norm.item_iter()
             if niter.next() <= 0:
@@ -544,12 +614,20 @@ def process(ds):
         axis = ds[str(axis_name.value)]
     else :
         data = ds[dname]
+        data = ds[dname]
+        tname = None
         if dname == 'bm1_counts':
             tname = 'bm1_time'
-        else:
+        elif dname == 'bm2_counts':
             tname = 'bm2_time'
-        norm = ds[tname]
-        if normalise.value and norm != None and hasattr(norm, '__len__'):
+        elif dname == 'total_counts':
+            tname = 'bm1_counts'
+            
+        norm = None
+        if not tname is None:
+            norm = ds[tname]
+        if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
+            print 'normalised with ' + tname
             avg = norm.sum() / len(norm)
             niter = norm.item_iter()
             if niter.next() <= 0:

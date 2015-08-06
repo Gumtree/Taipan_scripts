@@ -27,8 +27,8 @@ __fit_focus__ = dict()
 NaN = float('nan')
 
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-#__data_folder__ = 'W:/data/current'
-__data_folder__ = 'Y:/testing/taipan'
+__data_folder__ = 'W:/data/current'
+#__data_folder__ = 'Y:/testing/taipan'
 __export_folder__ = 'W:/data/current/reports'
 __pickle_file__ = __export_folder__ + '/CalibrationModel_' + strftime("%y%m%d%H%M%S") + '.pkl'
 #System.setProperty('sics.data.path', __data_folder__)

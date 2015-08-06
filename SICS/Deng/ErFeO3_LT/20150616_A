@@ -1,0 +1,47 @@
+
+
+
+
+
+
+
+title BraggPeak 200  1p5K
+mscan qh 1.95 0.0025 qk 0 0 ql 0 0 en 0 0 41 time 1
+title BraggPeak 004  1p5K
+mscan qh 0 0 qk 0 0 ql 3.9 0.005 en 0 0 41 time 1
+
+
+title Escan near (100) ql=0.2  1p5K
+mscan qh 1.0 0 qk 0 0 ql 0.2 0 en -1 0.25 41 monitor 600000
+title Escan near (100) ql=0.0  1p5K
+mscan qh 1.0 0 qk 0 0 ql 0.0 0 en -1 0.25 41 monitor 600000
+title Escan near (100) ql=-0.2  1p5K
+mscan qh 1.0 0 qk 0 0 ql -0.2 0 en -1 0.25 41 monitor 600000
+
+ 
+title QH scan near (100) En=2meV  1p5K
+mscan qh 0.7 0.05 qk 0 0 ql 0 0 en 2.0 0 61 monitor 600000
+
+
+
+
+
+title long QL scan near (100) En=2meV   1p5K
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 2 0 61 monitor 600000
+
+title long QL scan near (100) En=1meV 1p5K
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 1 0 61 monitor 600000
+
+title long QL scan near (100) En=3meV 1p5K
+mscan qh 1.0 0 qk 0 0 ql -1 0.05 en 3.0 0 61 monitor 600000
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+
+
+
+
+
+hset /sics/tc1/sensor/setpoint1 10
+
+wait 600
+
+
+title Escan near (101)  1p5K
+mscan qh 1 0 qk 0 0 ql 0.97 0 en -1 0.25 61 monitor 600000
+
+
+
+
+

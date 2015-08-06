@@ -1,0 +1,72 @@
+
+
+
+
+title QL scan near (101) En=1.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 1.5 0 31 monitor 600000
+
+
+ 
+title QL scan near (101) En=2.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 2.5 0 31 monitor 600000
+
+title QL scan near (101) En=3.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 3.5 0 31 monitor 600000
+
+title QL scan near (101) En=4.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 4.5 0 31 monitor 600000
+
+title QL scan near (101) En=5.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 5.5 0 31 monitor 600000
+
+title QL scan near (101) En=6.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 6.5 0 31 monitor 600000
+
+title QL scan near (101) En=7.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.5 0 31 monitor 600000
+
+title QL scan near (101) En=8.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 8.5 0 31 monitor 600000
+
+title QL scan near (101) En=9.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 9.5 0 31 monitor 600000
+
+title QL scan near (101) En=10.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 10.5 0 31 monitor 600000
+
+title QL scan near (101) En=11.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 11.5 0 31 monitor 600000
+
+title QL scan near (101) En=12.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 12.5 0 31 monitor 600000
+
+
+
+title QL scan near (101) En=13meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 13.0 0 31 monitor 600000
+
+title QL scan near (101) En=13.5meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 13.5 0 31 monitor 600000
+
+
+
+
+title QL scan near (101) En=15meV  1p5K
+mscan qh 3 0 qk 0 0 ql  0.7 0.02 en 15 0 31 monitor 1200000
+
+
+
+title QL scan near (101) En=20meV  1p5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 20 0 31 monitor 1200000
+
+
+
+
+
+
+
+
+
+
+
+

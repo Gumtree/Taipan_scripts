@@ -1,0 +1,12 @@
+
+
+
+
+
+
+
+
+
+title QL scan @ E=6.5meV
+mscan qh 1 0 qk 0 0 ql -2 0.1 en 6.5 0 41 monitor 600000
+

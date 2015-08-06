@@ -1,0 +1,51 @@
+
+
+hset /sics/tc1/sensor/setpoint1 60
+wait 300
+
+title QL scan near (101) En=8meV  60K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.5 0 31 monitor 600000
+
+
+title Escan near (101)  60K
+mscan qh 1 0 qk 0 0 ql 1.15 0 en -1 0.25 61 monitor 600000
+
+hset /sics/tc1/sensor/setpoint1 40
+wait 1200
+
+title QL scan near (101) En=8meV  40K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.5 0 31 monitor 600000
+
+title Escan near (101)  40K
+mscan qh 1 0 qk 0 0 ql 1.15 0 en -1 0.25 61 monitor 600000
+
+
+hset /sics/tc1/sensor/setpoint1 20
+wait 1200
+
+title QL scan near (101) En=8meV  20K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.5 0 31 monitor 600000
+
+title Escan near (101)  20K
+mscan qh 1 0 qk 0 0 ql 1.15 0 en -1 0.25 61 monitor 600000
+
+
+hset /sics/tc1/sensor/setpoint1 10
+wait 1200
+
+title QL scan near (101) En=8meV  10K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.5 0 31 monitor 600000
+
+title Escan near (101)  10K
+mscan qh 1 0 qk 0 0 ql 1.15 0 en -1 0.25 61 monitor 600000
+
+
+hset /sics/tc1/sensor/setpoint1 1.4
+wait 1200
+
+title QL scan near (101) En=8meV  1.5K
+mscan qh 1 0 qk 0 0 ql  0.7 0.02 en 7.5 0 31 monitor 600000
+
+title Escan near (101)  1.5K
+mscan qh 1 0 qk 0 0 ql 1.15 0 en -1 0.25 61 monitor 600000
+
