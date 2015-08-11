@@ -100,6 +100,7 @@ vco_value = vertical_collimation.value
 pol_value = enable_polariser.value
 
 creation_status = Par('bool', False)
+creation_status.enabled = False
 new_it = Act('create_new()', 'Create New Experiment and Apply Changes')
 
 def apply_values():
