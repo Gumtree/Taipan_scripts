@@ -45,7 +45,7 @@ def batch_export():
         loc = dinfo.getLocation()
         f = File(loc)
         fsn = f.getName()
-        ds = df[loc]
+        ds = df[str(loc)]
 #        count = int(fsn[3:10])
 #        new_fname = 'TAIPAN_exp' + ('%(value)04d' % {'value':eid}) + '_scan' + ('%(value)04d' % {'value':count}) + '.dat'
         export.HMM_intensity_export(ds, ds['bm1_counts'], HMM_folder, eid, get_pref_value, )

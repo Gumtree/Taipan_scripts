@@ -173,7 +173,18 @@ class CalibrationModel:
             traceback.print_exc(__writer__)
         finally:
             file.close()
+            
+    def __str__(self):
+        text = 'Calibration Model (' + self.path + ')\n'
+        text += 'Ei = ' + str(self.Ei) + '\n'
+        if not self.pre_m1_scan is None :
+            text += self.pre_m1_scan.title + ' = ' + str(self.pre_m1_scan.peak_pos) \
+                + self.pre_m1_scan.new_softzero
+            
 
+    def __repr__(self):
+        return self.__str__()
+    
 __buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
 fi = File(__buffer_log_file__)
 if not fi.exists():

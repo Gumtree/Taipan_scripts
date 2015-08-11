@@ -21,6 +21,7 @@ user_email = $entry/user/email
 user_phone = $entry/user/phone
 reactor_power = $entry/instrument/source/power
 suid = $entry/data/sics_suid
+time_of_flight = $entry/data/time_of_flight
 dummy_motor = $entry/instrument/dummy_motor
 start_time = $entry/start_time
 end_time = $entry/end_time
