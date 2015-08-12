@@ -182,6 +182,8 @@ FWHM = Par('float', 'NaN')
 fit.add(fit_min, fit_max, act1, peak_pos, FWHM)
 
 allow_duplication = Par('bool', True)
+normalise_all = Par('bool', True)
+normalise_all.title = 'Normalise All Curves'
 act2 = Act('import_to_plot2()', text = 'Import Data Files to Plot2')
 to_remove = Par('string', '', options=[])
 act3 = Act('remove_curve()', 'Remove selected curve')
@@ -192,7 +194,7 @@ plot2_peak_pos = Par('float', 'NaN')
 plot2_FWHM = Par('float', 'NaN')
 act_reset = Act('reset_fitting_plot2()', 'Remove Fitting')
 act_remove_all = Act('remove_all_curves()', 'Remove All Curves')
-g2.add(allow_duplication, act2, to_remove, act3, plot2_fit_min, plot2_fit_max, 
+g2.add(allow_duplication, normalise_all, act2, to_remove, act3, plot2_fit_min, plot2_fit_max, 
        plot2_act1, plot2_peak_pos, plot2_FWHM, act_reset, act_remove_all)
 
 #act4 = Act('put_peak_pos_to_plot3()', text = 'Add peak position to Plot3')
@@ -416,18 +418,19 @@ def import_to_plot2():
         elif dname == 'bm2_counts':
             tname = 'bm2_time'
         elif dname == 'total_counts':
-            tname = 'bm1_counts'
+            tname = 'detector_time'
             
         norm = None
         if not tname is None:
             norm = ds[tname]
-        if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
+        if normalise_all.value and tname != None and norm != None and hasattr(norm, '__len__'):
             print 'normalised'
             avg = norm.sum() / len(norm)
             niter = norm.item_iter()
             if niter.next() <= 0:
                 niter.set_curr(1)
-            data = data / norm * avg
+#            data = data / norm * avg
+            data = data / norm
         axis = ds[str(axis_name.value)]
         if data.size > axis.size:
             data = data[:axis.size]
@@ -621,7 +624,7 @@ def process(ds):
         elif dname == 'bm2_counts':
             tname = 'bm2_time'
         elif dname == 'total_counts':
-            tname = 'bm1_counts'
+            tname = 'detector_time'
             
         norm = None
         if not tname is None:

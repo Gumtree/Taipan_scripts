@@ -42,6 +42,7 @@ bm_time = $entry/monitor/time
 bm_mode = $entry/monitor/mode
 bm_preset = $entry/monitor/preset
 total_counts = $entry/instrument/detector/total_counts
+detector_time = $entry/instrument/detector/time
 
 m1 = $entry/instrument/crystal/m1
 m2 = $entry/instrument/crystal/m2
