@@ -529,8 +529,10 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
         ds.close()
     print nfn + ' exported'
     
-def HMM_intensity_export(ds, bm1_counts, exp_folder, eid, get_prof_value, masks):
+def HMM_intensity_export(ds, bm1_counts, detector_time, exp_folder, eid, get_prof_value, masks = None, org_ds = None):
     from Experiment import config
+    if org_ds is None:
+        org_ds = ds
     title = ds.title
     new_fname = title[:title.index('.')] + '.xye'
     nfn = exp_folder + '/' + new_fname
@@ -542,11 +544,17 @@ def HMM_intensity_export(ds, bm1_counts, exp_folder, eid, get_prof_value, masks)
     try:
         text = []
         text.append('* id=' + str(title) + '\n')
-        text.append('* masks=' + masks + '\n')
-        text.append('* ' + axis.title + '\ttotal_counts\tsigma\tmonitor\n')
+        if masks != None and len(masks) > 0:
+            text.append('* masks=' + masks + '\n')
+        if len(ds) == 1 :
+            det_time = [detector_time]
+        else :
+            det_time = detector_time
+        text.append('* ' + axis.title + '\ttotal_counts\tsigma\tmonitor\tdetector_time\torg_counts\n')
         for i in xrange(ds.size):
-            line = ('%(x).4f\t%(y)d\t%(e).1f\t%(bm)d' % {'x' : axis[i], 'y' : ds[i], \
-                                                       'e' : ds.err[i], 'bm' : bm1_counts[i]})
+            line = ('%(x).4f\t%(y)d\t%(e).1f\t%(bm)d\t%(dt).2f\t%(oc)d' % {'x' : axis[i], 'y' : ds[i], \
+                                                       'e' : ds.err[i], 'bm' : bm1_counts[i], \
+                                                       'dt' : det_time[i], 'oc' : org_ds[i]})
             text.append(line + '\n')
         nf.writelines(text)
         nf.flush()

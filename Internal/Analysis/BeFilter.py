@@ -5,6 +5,7 @@ from java.lang import System, Double
 from gumpy.nexus.fitting import Fitting, GAUSSIAN_FITTING
 from java.io import File
 from gumpy.commons import sics
+from Experiment.lib import export
 import math
 import traceback
 import sys
@@ -162,7 +163,13 @@ g3 = Group('Plot3')
 data_name = Par('string', 'total_counts', \
                options = ['bm1_counts', 'bm2_counts', 'total_counts'])
 data_name.title = 'Select Data'
-normalise = Par('bool', True)
+normalise = Par('bool', True, command = 'enable_normalise()')
+normalise.title = 'Enable Normalization'
+normalise_factor = Par('string', 'bm1_counts', options = ['detector_time', \
+                            'bm1_counts', 'bm1_time', 'bm2_time'])
+normalise_factor.title = 'Normalization Factor'
+def enable_normalise():
+    normalise_factor.enabled = normalise.value
 axis_name = Par('string', 'suid')
 axis_name.title = 'Select Axis'
 axis_lock = Par('bool', False, command = 'lock_axis()')
@@ -172,7 +179,7 @@ pause = Par('bool', not __newfile_enabled__, command = 'set_newfile_enabled()')
 def set_newfile_enabled():
     global __newfile_enabled__
     __newfile_enabled__ = not pause.value
-g1.add(data_name, axis_name, axis_lock, normalise, auto_fit, pause)
+g1.add(data_name, axis_name, axis_lock, normalise, normalise_factor, auto_fit, pause)
 
 fit_min = Par('float', 'NaN')
 fit_max = Par('float', 'NaN')
@@ -182,6 +189,7 @@ FWHM = Par('float', 'NaN')
 fit.add(fit_min, fit_max, act1, peak_pos, FWHM)
 
 allow_duplication = Par('bool', True)
+allow_duplication.title = 'Allow Duplication'
 normalise_all = Par('bool', True)
 normalise_all.title = 'Normalise All Curves'
 act2 = Act('import_to_plot2()', text = 'Import Data Files to Plot2')
@@ -248,19 +256,27 @@ def batch_export():
         loc = dinfo.getLocation()
         
         ds = df[str(loc)]
+        ods = ds.get_reduced()
+        isChanged = False
         if len(__exc_masks__) > 0:
-            res = copy(ds.get_reduced())
+            isChanged = True
+            res = copy(ods)
             for mask in __exc_masks__:
                 res[:, mask[2]:mask[3], mask[0]:mask[1]] = 0
         else :
-            res = ds.get_reduced()
+            res = ods
         if len(__inc_masks__) > 0:
+            isChanged = True
             r = dataset.instance(res.shape, dtype=int)
             for mask in __inc_masks__:
                 r[:, mask[2]:mask[3], mask[0]:mask[1]] = res[:, mask[2]:mask[3], mask[0]:mask[1]]
         else :
             r = res
         data = r.sum(0)
+        if isChanged:
+            org_ds = ods.sum(0)
+        else:
+            org_ds = data
         if not ds.axes is None and len(ds.axes) > 0: 
             if not axis_lock.value:
                 axis_name.value = ds.axes[0].name
@@ -270,7 +286,8 @@ def batch_export():
 
 #        count = int(fsn[3:10])
 #        new_fname = 'TAIPAN_exp' + ('%(value)04d' % {'value':eid}) + '_scan' + ('%(value)04d' % {'value':count}) + '.dat'
-        export.HMM_intensity_export(ds2, ds.bm1_counts, HMM_folder, eid, get_prof_value, reg_list.value)
+        export.HMM_intensity_export(ds2, ds.bm1_counts, ds.detector_time, HMM_folder, eid, get_prof_value, reg_list.value, \
+                                    org_ds = org_ds)
     print 'done'
 
 def jump_to_idx():
@@ -411,15 +428,36 @@ def import_to_plot2():
                         to_remove.options = rlist
                         break
         dname = str(data_name.value)
-        data = ds[dname]
+        if dname == 'total_counts' and reg_enabled.value and len(__inc_masks__) + len(__exc_masks__) > 0:
+            if len(__exc_masks__) > 0:
+                res = copy(ds.get_reduced())
+                for mask in __exc_masks__:
+                    res[:, mask[2]:mask[3], mask[0]:mask[1]] = 0
+            else :
+                res = ds.get_reduced()
+            if len(__inc_masks__) > 0:
+                r = dataset.instance(res.shape, dtype=int)
+                for mask in __inc_masks__:
+                    r[:, mask[2]:mask[3], mask[0]:mask[1]] = res[:, mask[2]:mask[3], mask[0]:mask[1]]
+            else :
+                r = res
+            data = r.sum(0)
+        else:
+            data = ds[dname]
         tname = None
-        if dname == 'bm1_counts':
-            tname = 'bm1_time'
-        elif dname == 'bm2_counts':
-            tname = 'bm2_time'
-        elif dname == 'total_counts':
-            tname = 'detector_time'
-            
+        if normalise_all.value :
+            if normalise.value :
+                tname = str(normalise_factor.value)
+            else :
+                if dname == 'bm1_counts':
+                    tname = 'bm1_time'
+                elif dname == 'bm2_counts':
+                    tname = 'bm2_time'
+                elif dname == 'total_counts':
+                    tname = 'detector_time'
+        else :
+            if normalise.value :
+                tname = str(normalise_factor.value)
         norm = None
         if not tname is None:
             norm = ds[tname]
@@ -611,6 +649,18 @@ def process(ds):
         else :
             r = res
         data = r.sum(0)
+        tname = None
+        tname = str(normalise_factor.value)
+        norm = None
+        if not tname is None:
+            norm = ds[tname]
+        if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
+            print 'normalised with ' + tname
+            avg = norm.sum() / len(norm)
+            niter = norm.item_iter()
+            if niter.next() <= 0:
+                niter.set_curr(1)
+            data = data / norm * avg
         if not ds.axes is None and len(ds.axes) > 0: 
             if not axis_lock.value:
                 axis_name.value = ds.axes[0].name
@@ -619,12 +669,13 @@ def process(ds):
         data = ds[dname]
         data = ds[dname]
         tname = None
-        if dname == 'bm1_counts':
-            tname = 'bm1_time'
-        elif dname == 'bm2_counts':
-            tname = 'bm2_time'
-        elif dname == 'total_counts':
-            tname = 'detector_time'
+        tname = str(normalise_factor.value)
+#        if dname == 'bm1_counts':
+#            tname = 'bm1_time'
+#        elif dname == 'bm2_counts':
+#            tname = 'bm2_time'
+#        elif dname == 'total_counts':
+#            tname = 'detector_time'
             
         norm = None
         if not tname is None:

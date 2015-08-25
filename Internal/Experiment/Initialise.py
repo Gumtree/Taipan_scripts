@@ -156,12 +156,13 @@ class __SaveListener__(DynamicControllerListenerAdapter):
         global __file_name_node__
         global __scan_status_node__
         try:
-            new_status = str(__scan_status_node__.getValue().getStringData())
-            if new_status == 'BUSY':
-                __file_name__ = str(__file_name_node__.getValue().getStringData())
+#            new_status = str(__scan_status_node__.getValue().getStringData())
+            new_status = newValue.getStringData()
+            __file_name__ = str(__file_name_node__.getValue().getStringData())
+#            if new_status == 'BUSY':
+#                __file_name__ = str(__file_name_node__.getValue().getStringData())
             if __cur_status__ == 'BUSY' and new_status == 'IDLE':
-                __file_name__ = str(__file_name_node__.getValue().getStringData())
-                __file_status__ = str(__file_status_node__.getValue().getStringData())
+#                __file_status__ = str(__file_status_node__.getValue().getStringData())
                 try:
                     __export__(__file_name__)
                     slog('Exported: ' + __file_name__)
@@ -269,11 +270,6 @@ def __export__(fn):
             print 'Error: failed to make directory: ' + ILL_folder
             return
     
-#    df.datasets.clear()
-#    export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)
-#    df.datasets.clear()
-#    export.ILL_export(df, input_path, ILL_folder, int(exp_id), get_prof_value)
-
     df.datasets.clear()
     try:
         export.graffiti_export(df, input_path, exp_folder, int(exp_id), get_prof_value)

@@ -1,5 +1,6 @@
 # Script control setup area
 # script info
+from Experiment.lib import export
 __script__.title = 'HMM Intensity Exporter'
 __script__.version = '1.0'
 
@@ -48,8 +49,7 @@ def batch_export():
         ds = df[str(loc)]
 #        count = int(fsn[3:10])
 #        new_fname = 'TAIPAN_exp' + ('%(value)04d' % {'value':eid}) + '_scan' + ('%(value)04d' % {'value':count}) + '.dat'
-        export.HMM_intensity_export(ds, ds['bm1_counts'], HMM_folder, eid, get_pref_value, )
-        ds, bm1_counts, exp_folder, eid, get_prof_value, masks
+        export.HMM_intensity_export(ds, ds['bm1_counts'], ds.detector_time, HMM_folder, eid, get_pref_value)
     print 'done'
         
 
