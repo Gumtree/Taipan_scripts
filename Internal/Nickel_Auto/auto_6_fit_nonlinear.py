@@ -106,8 +106,8 @@ def nonlinear_fit():
 def offset_s2():
     ic = confirm('Please confirm the s2 and m2 offset')
     if ic :
-        slog('setpos s2 ' + str(two_theta_off.value) + ' 0')
-        sics.setpos('s2', two_theta_off.value, 0)
+        slog('setpos s2 ' + str(-two_theta_off.value) + ' 0')
+        sics.setpos('s2', -two_theta_off.value, 0)
     else:
         raise Exception, 'S2 offset not accepted'
     

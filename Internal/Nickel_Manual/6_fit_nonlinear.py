@@ -125,8 +125,8 @@ def nonlinear_fit():
     slog('two-theta_offset = ' + str(s2_offset.value))
     
 def offset_s2():
-    slog('setpos s2 ' + str(s2_offset.value) + ' 0')
-    sics.setpos('s2', s2_offset.value, 0)
+    slog('setpos s2 ' + str(-s2_offset.value) + ' 0')
+    sics.setpos('s2', -s2_offset.value, 0)
     
 G3 = Group('m1 and m2 Zero Offsets')
 m1_old = Par('float', sics.getValue('m1').getFloatData())

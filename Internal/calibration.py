@@ -1286,8 +1286,8 @@ def offset_s2():
         slog('no calibration result available')
     else :
         cal_model.use(s2_change = s2_offset.value)
-        slog('setpos s2 ' + str(s2_offset.value) + ' 0')
-        sics.setpos('s2', s2_offset.value, 0)
+        slog('setpos s2 ' + str(-s2_offset.value) + ' 0')
+        sics.setpos('s2', -s2_offset.value, 0)
         act3.enabled = False
         cal_model.s2_changed = True
         cal_model.export()

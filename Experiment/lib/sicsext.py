@@ -239,3 +239,23 @@ def runCommand(cmd):
         raise Exception, 'time out in running the command'
     return __status__
 
+def get_raw_value(comm, dtype = float):
+    global __time_out__
+    __count__ = 0
+    comm_str = str(comm)
+    while __count__ < __time_out__:
+        try:
+            item = run_command(comm_str)
+            if dtype is str:
+                return str(item)
+            elif dtype is float:
+                return float(item)
+            elif dtype is int:
+                return int(float(item))
+            else:
+                return item
+        except:
+            __count__ += 0.2
+            time.sleep(0.2)
+    logger.log('time out in running ' + comm_str)
+    return None

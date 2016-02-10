@@ -186,13 +186,23 @@ def graffiti_export(df, input_path, exp_folder, eid, get_prof_value):
                     text += ('%(item)12s' % {'item' : (('%(value)' + fmt) % {'value' : axis[i]})})
             for tit in config.MULTI_ITEMS:
                 if not axes_titles.__contains__(tit[0]) :
-                    try:
-                        if ds.size == 1:
-                            text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]]})})
-                        else:
-                            text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
-                    except:
-                        text += ('%(item)12s' % {'item' : '0.0000'})
+                    if str(tit[0]).endswith('_err') :
+                        try:
+                            if ds.size == 1:
+                                print tit[0]
+                                text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : math.sqrt(ds[tit[1]])})})
+                            else:
+                                text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : math.sqrt(ds[tit[1]][i])})})
+                        except:
+                            text += ('%(item)12s' % {'item' : '0.0000'})
+                    else:
+                        try:
+                            if ds.size == 1:
+                                text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]]})})
+                            else:
+                                text += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
+                        except:
+                            text += ('%(item)12s' % {'item' : '0.0000'})
             if pol_enabled :
                 for tit in config.POLARISER_ITEMS:
                     if not axes_titles.__contains__(tit[0]) :
@@ -497,13 +507,22 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
                     line += ('%(item)12s' % {'item' : (('%(value)' + fmt) % {'value' : axis[i]})})
             for tit in config.MULTI_ITEMS:
                 if not axes_titles.__contains__(tit[0]) :
-                    try:
-                        if ds.size == 1:
-                            line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]]})})
-                        else:
-                            line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
-                    except:
-                        line += ('%(item)12s' % {'item' : '0.0000'})
+                    if tit[0].endswith('_err') :
+                        try:
+                            if ds.size == 1:
+                                line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : math.sqrt(ds[tit[1]])})})
+                            else:
+                                line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : math.sqrt(ds[tit[1]][i])})})
+                        except:
+                            line += ('%(item)12s' % {'item' : '0.0000'})
+                    else :
+                        try:
+                            if ds.size == 1:
+                                line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]]})})
+                            else:
+                                line += ('%(item)12s' % {'item' : (('%(value)' + tit[2]) % {'value' : ds[tit[1]][i]})})
+                        except:
+                            line += ('%(item)12s' % {'item' : '0.0000'})
             for comp in comps:
                 data = comp.getData()
                 line += ('%(item)16.4f' % {'item' : data.getFloat(data.getIndex().set(i))})
