@@ -1,0 +1,122 @@
+
+
+
+hset /sics/tc1/heater/heaterRange 5
+hset /sics/tc1/sensor/setpoint1 70
+wait 1200
+
+title "(011) 70K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 70K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 70K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 70K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 70K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1.5 1.5) 70K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+
+
+title "(1/2 1.5 1.5) 70K"
+drive qh 0.45  qk 1.45  ql 1.45
+mscan qh 0.45 0.002 qk 1.45 0.002 ql 1.45 0.002 51 monitor 240000
+
+
+
+hset /sics/tc1/heater/heaterRange 5
+hset /sics/tc1/sensor/setpoint1 80
+wait 600
+
+title "(011) 80K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 80K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 80K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 80K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 80K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1.5 1.5) 80K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+
+
+title "(1/2 1.5 1.5) 80K"
+drive qh 0.45  qk 1.45  ql 1.45
+mscan qh 0.45 0.002 qk 1.45 0.002 ql 1.45 0.002 51 monitor 240000
+
+
+hset /sics/tc1/heater/heaterRange 5
+hset /sics/tc1/sensor/setpoint1 90
+wait 600
+
+title "(011) 90K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 90K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 90K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 90K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 90K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1.5 1.5) 90K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+
+
+title "(1/2 1.5 1.5) 90K"
+drive qh 0.45  qk 1.45  ql 1.45
+mscan qh 0.45 0.002 qk 1.45 0.002 ql 1.45 0.002 51 monitor 240000
+
+
+
+
+
+
