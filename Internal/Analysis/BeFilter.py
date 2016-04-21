@@ -702,7 +702,7 @@ def process(ds):
                 data[i] = 0
         for i in xrange(axis.size):
             if math.fabs(axis[i]) > 1e8:
-                axis[i] = 0
+                axis[i] = float('NaN')
     ds2 = Dataset(data, axes=[axis])
     ds2.title = ds.id
     Plot1.set_dataset(ds2)
