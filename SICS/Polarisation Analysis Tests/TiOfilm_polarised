@@ -1,0 +1,85 @@
+
+#repeat the following 4 for each s2 and each s1 scan
+#replace (to peak), (from), (to), (n-steps)
+#(from), (to), (n-steps) are the same in all 4
+
+drive s2 -60.3
+
+#SET 1
+he3 polariser/spin 1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin -1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin -1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin 1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+
+#SET 2
+he3 polariser/spin 1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin -1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin -1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin 1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+
+#SET 3
+he3 polariser/spin 1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin -1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin -1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+he3 polariser/spin 1
+wait 5
+he3 polariser/spin 0
+wait 5
+runscan s1 -65 -95 61 time 5
+
+

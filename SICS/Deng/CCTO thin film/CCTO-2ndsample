@@ -1,0 +1,41 @@
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2
+
+
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2
+
+
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2
+
+
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2
+
+
+
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2
+
+
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2
+
+
+drive s2 -49.98
+runscan s1 54.6  56.6 41 time 2
+
+mscan s1 54.6 0.1 s2 -51.98 0.2 21 time 2

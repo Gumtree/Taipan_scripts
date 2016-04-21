@@ -127,6 +127,7 @@ ILL_ITEMS = [['M1', 'm1', 4],
 HISTORY_KEY_WORDS = ['drive',
                      'run'
                      'runscan', 
+                     'mscan', 
                      'bmonscan', 
                      'Scan start',
                      'ERROR', 

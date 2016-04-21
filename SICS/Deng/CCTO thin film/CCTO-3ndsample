@@ -1,0 +1,116 @@
+
+
+title "two pg and RT"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 time 5
+
+drive qh 1.95  qk 1.95  ql 1.95
+mscan qh 1.95 0.002 qk 1.95 0.002 ql 1.95 0.002 51 time 5
+
+
+wait 300
+
+title "two pg and RT"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 time 5
+
+drive qh 1.95  qk 1.95  ql 1.95
+mscan qh 1.95 0.002 qk 1.95 0.002 ql 1.95 0.002 51 time 5
+
+
+
+wait 300
+
+title "two pg and RT"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 time 5
+
+drive qh 1.95  qk 1.95  ql 1.95
+mscan qh 1.95 0.002 qk 1.95 0.002 ql 1.95 0.002 51 time 5
+
+
+
+wait 300
+
+title "two pg and RT"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 time 5
+
+drive qh 1.95  qk 1.95  ql 1.95
+mscan qh 1.95 0.002 qk 1.95 0.002 ql 1.95 0.002 51 time 5
+
+
+
+wait 300
+
+title "two pg and RT"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 time 5
+
+drive qh 1.95  qk 1.95  ql 1.95
+mscan qh 1.95 0.002 qk 1.95 0.002 ql 1.95 0.002 51 time 5
+
+wait 300
+
+title "two pg and RT"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 time 5
+
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 time 5
+
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 time 5
+
+drive qh 1.95  qk 1.95  ql 1.95
+mscan qh 1.95 0.002 qk 1.95 0.002 ql 1.95 0.002 51 time 5
+
+

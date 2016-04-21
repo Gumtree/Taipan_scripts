@@ -1,0 +1,60 @@
+
+
+title "(011) 10K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 10K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 10K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 10K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 10K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 0 0) 10K"
+drive qh 0.45  qk 0  ql 0
+mscan qh 0.45 0.002  51 monitor 240000
+
+
+title "(0 1/2 1/2) 10K"
+drive qh 0  qk 0.45  ql 0.45
+mscan qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1 1/2 1/2) 10K"
+drive qh 1  qk 0.45  ql 0.45
+mscan qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+title "(2 1/2 1/2) 10K"
+drive qh 2  qk 0.45  ql 0.45
+mscan qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1 1) 10K"
+drive qh 0.45  qk 1  ql 1
+mscan qh 0.45 0.002 51 monitor 240000
+
+title "(1/2 1.5 1.5) 10K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+title "(1.5 1/2 1/2) 10K"
+drive qh 1.45  qk 0.45  ql 0.45
+mscan qh 1.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+
+
+

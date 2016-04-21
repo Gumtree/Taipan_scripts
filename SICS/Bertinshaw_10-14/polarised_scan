@@ -1,0 +1,49 @@
+#To set polariser state to spin +
+he3 polariser/spin 1
+wait 2
+he3 polariser/spin 0
+wait 2
+
+
+#To set polariser state to spin -
+he3 polariser/spin -1
+wait 2
+he3 polariser/spin 0
+wait 2
+
+
+#To show polariser status
+he3 polariser/spin 0
+wait 2
+
+
+#To set analyser state to spin +
+he3 analyser/spin 1
+wait 2
+he3 analyser/spin 0
+wait 2
+
+#To set analyser state to spin -
+he3 analyser/spin -1
+wait 2
+he3 analyser/spin 0
+wait 2
+
+#To record analyser status
+he3 analyser/spin 0
+wait 2
+
+#Note 1: 
+#Roughly every hour, measure Al peak ++ +- 
+
+#Note 2: 
+#To reduce systematic error due to 3He polarisation decay
+#measure +-, -+, -+, +- for the same peak
+#Likewise, measure ++, --, --, ++ for the same peak
+
+
+#XYZ coil field is set manually at this point. 
+sct_he3 send "magnet_xyz B theta phi"
+
+
+

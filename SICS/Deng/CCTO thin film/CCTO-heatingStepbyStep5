@@ -1,0 +1,128 @@
+
+
+
+hset /sics/tc1/heater/heaterRange 5
+hset /sics/tc1/sensor/setpoint1 140
+wait 600
+
+title "(011) 140K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 140K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 140K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 140K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 140K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1.5 1.5) 140K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+title "(1.5 1/2 1/2) 140K"
+drive qh 1.45  qk 0.45  ql 0.45
+mscan qh 1.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+title "(1/2 1.5 1.5) 140K"
+drive qh 0.45  qk 1.45  ql 1.45
+mscan qh 0.45 0.002 qk 1.45 0.002 ql 1.45 0.002 51 monitor 240000
+
+
+
+hset /sics/tc1/heater/heaterRange 5
+hset /sics/tc1/sensor/setpoint1 150
+wait 600
+
+title "(011) 150K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 150K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 150K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 150K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 150K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1.5 1.5) 150K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+title "(1.5 1/2 1/2) 150K"
+drive qh 1.45  qk 0.45  ql 0.45
+mscan qh 1.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+title "(1/2 1.5 1.5) 150K"
+drive qh 0.45  qk 1.45  ql 1.45
+mscan qh 0.45 0.002 qk 1.45 0.002 ql 1.45 0.002 51 monitor 240000
+
+
+hset /sics/tc1/heater/heaterRange 5
+hset /sics/tc1/sensor/setpoint1 160
+wait 600
+
+title "(011) 160K"
+drive qh 0  qk 0.95  ql 0.95
+mscan qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+
+title "(100) 160K"
+drive qh 0.95  qk 0  ql 0
+mscan qh 0.95 0.002 51 monitor 60000
+
+
+title "(111) 160K"
+drive qh 0.95  qk 0.95  ql 0.95
+mscan qh 0.95 0.002 qk 0.95 0.002 ql 0.95 0.002 51 monitor 60000
+
+title "(200) 160K"
+drive qh 1.95  qk 0  ql 0
+mscan qh 1.95 0.002  51 monitor 60000
+
+title "(1/2 1/2 1/2) 160K"
+drive qh 0.45  qk 0.45  ql 0.45
+mscan qh 0.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+
+title "(1/2 1.5 1.5) 160K"
+drive qh 0.45  qk 1.5  ql 1.5
+mscan qh 0.45 0.002 51 monitor 240000
+
+title "(1.5 1/2 1/2) 160K"
+drive qh 1.45  qk 0.45  ql 0.45
+mscan qh 1.45 0.002 qk 0.45 0.002 ql 0.45 0.002 51 monitor 240000
+
+title "(1/2 1.5 1.5) 160K"
+drive qh 0.45  qk 1.45  ql 1.45
+mscan qh 0.45 0.002 qk 1.45 0.002 ql 1.45 0.002 51 monitor 240000
+
+
+
+
+
+
