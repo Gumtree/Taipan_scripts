@@ -16,11 +16,28 @@ __script__.version = ''
 previous_file = '4_s2_att.py'
 next_file = '6_fit_nonlinear.py'
 
-npeak = 6
-hkl = array.Array([0.75, 1, 2, 2.75, 3, 4])
-twod = array.instance([npeak])
-peaks = array.instance([npeak])
-peak_res = array.instance([npeak], init = float('nan'))
+npeak = 0
+hkl_30 = [[0.5, 0.5, 0.5], 
+          [1, 0, 0], 
+          [1, 1, 0], 
+          [1.5, 0.5, 0.5], 
+          [1, 1, 1], 
+          [2, 0, 0]]
+h2k2l2_30 = array.Array([0.75, 1, 2, 2.75, 3, 4])
+h2k2l2 = h2k2l2_30
+hkl_50 = [[1, 1, 1], 
+          [2, 0, 0], 
+          [2, 2, 0], 
+          [3, 1, 1], 
+          [2, 2, 2]]
+h2k2l2_50 = array.Array([3, 4, 8, 11, 12])
+hkl_160 = [[1, 1, 1], 
+          [2, 0, 0], 
+          [2, 2, 0], 
+          [3, 1, 1], 
+          [3, 3, 1],
+          [4, 2, 0]]
+h2k2l2_160 = array.Array([3, 4, 8, 11, 19, 20])
 a = 3.5238
 m = 1.67492861e-027
 h = 6.626068e-034
@@ -28,11 +45,31 @@ eV = 1.60217646e-019
 pl = 1.0e10
 #l = h * pl * 100 / math.sqrt(linear_slope.value * eV * 20 * m)
 
+twod = []
+peaks= []
+peak_res = []
+
+def init():
+    global npeak
+    global twod
+    global peaks
+    global peak_res
+    if Ei.value < 30:
+        npeak = 6
+    elif Ei.value < 50:
+        npeak = 5
+    else:
+        npeak = 6
+    twod = array.instance([npeak])
+    peaks = array.instance([npeak])
+    peak_res = array.instance([npeak], init = float('nan'))
+    
 
 pact = Act('previous_step()', '<- Previous Step')
 
 sics.getDeviceController('ei').getValue(True)
-Ei = Par('float', sics.getValue('ei').getFloatData(), command = 'calc_peaks()')
+ei_val = sics.getValue('ei').getFloatData()
+Ei = Par('float', ei_val, command = 'calc_peaks()')
 ei_old = Ei.value
 lmd = Par('float', 0)
 act_all = Act('run_all()', 'Scan All 6 Peaks Automatically')
@@ -82,27 +119,61 @@ G6.add(peak_6, scan_6, act6, found_6)
 __scan_filenames__ = [None] * 6
 def calc_peaks():
     global npeak
+    global h2k2l2
+    init()
     J = 0.001 * Ei.value * eV
     inte = math.sqrt(2 * J / m)
     lmd.value = h / (m * inte) * pl
-    for i in xrange(npeak):
-        d = math.sqrt(a * a / hkl[i])
-        twod[i] = 2 * d
-        sv = lmd.value/twod[i]
-        if sv <= 1:
-            peaks[i] = - (2 * math.asin(sv) * 180 / math.pi)
-        else:
-            peaks[i] = - (2 * (math.pi / 2 + math.asin(sv - 1)) * 180 / math.pi)
-        exec('peak_' + str(i + 1) + '.value = ' + str(peaks[i]))
-        if i < 3:
-            exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 2) + ', -0.1, 41, \'timer\', 1"')
-        elif i == 3:
-            exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 2.5) + ', -0.1, 61, \'timer\', 1"')
-        elif i == 4:
+    if Ei.value < 30 :
+        npeak = 6
+        h2k2l2 = h2k2l2_30
+        for i in xrange(npeak):
+            d = math.sqrt(a * a / h2k2l2[i])
+            twod[i] = 2 * d
+            sv = lmd.value/twod[i]
+            if sv <= 1:
+                peaks[i] = - (2 * math.asin(sv) * 180 / math.pi)
+            else:
+                peaks[i] = - (2 * (math.pi / 2 + math.asin(sv - 1)) * 180 / math.pi)
+            exec('peak_' + str(i + 1) + '.value = ' + str(peaks[i]))
+            if i < 3:
+                exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 2) + ', -0.1, 41, \'timer\', 1"')
+            elif i == 3:
+                exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 2.5) + ', -0.1, 61, \'timer\', 1"')
+            elif i == 4:
+                exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 56, \'timer\', 1"')
+            elif i == 5:
+                exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 61, \'timer\', 1"')
+    elif Ei.value < 50 :
+        npeak = 5
+        h2k2l2 = h2k2l2_50
+        for i in xrange(npeak):
+            d = math.sqrt(a * a / h2k2l2[i])
+            twod[i] = 2 * d
+            sv = lmd.value/twod[i]
+            if sv <= 1:
+                peaks[i] = - (2 * math.asin(sv) * 180 / math.pi)
+            else:
+                peaks[i] = - (2 * (math.pi / 2 + math.asin(sv - 1)) * 180 / math.pi)
+            exec('peak_' + str(i + 1) + '.value = ' + str(peaks[i]))
             exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 56, \'timer\', 1"')
-        elif i == 5:
-            exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 61, \'timer\', 1"')
+        peak_6.value = float('nan')
+        scan_6.value = ''
+    else:
+        npeak = 6
+        h2k2l2 = h2k2l2_160
+        for i in xrange(npeak):
+            d = math.sqrt(a * a / h2k2l2[i])
+            twod[i] = 2 * d
+            sv = lmd.value/twod[i]
+            if sv <= 1:
+                peaks[i] = - (2 * math.asin(sv) * 180 / math.pi)
+            else:
+                peaks[i] = - (2 * (math.pi / 2 + math.asin(sv - 1)) * 180 / math.pi)
+            exec('peak_' + str(i + 1) + '.value = ' + str(peaks[i]))
+            exec('scan_' + str(i + 1) + '.value = "' + str(math.ceil(peaks[i] * 1000) / 1000 + 3) + ', -0.1, 56, \'timer\', 1"')
 try:
+    init()
     calc_peaks()
 except:
     print 'calculation is out of range.'
@@ -110,6 +181,10 @@ except:
 def scan_peak(id):
     global __scan_filenames__
     global Plot1
+    scan_arg = eval('scan_' + str(id + 1) + '.value')
+    if len(scan_arg.strip()) == 0:
+        slog('peak ' + str(id + 1) + ' is skipped')
+        return
     aname = 's2'
     try:
         if DEBUGGING :
@@ -161,9 +236,10 @@ G2.add(data_name, axis_name, axis_min, axis_max, pos_index, lact, peak_pos, fact
 def accept_peak():
     global Plot2
     global Plot3
+    global h2k2l2
     peaks[pos_index.value - 1] = peak_pos.value
     peak_res[pos_index.value - 1] = peak_pos.value
-    ds2 = Dataset(peaks, axes = [hkl]) * -1
+    ds2 = Dataset(peaks, axes = [h2k2l2]) * -1
     Plot2.set_dataset(ds2)
     Plot2.title = 'Two-Theta vs h^2+k^2+l^2'
     Plot2.x_label = 'h^2+k^2+l^2'
@@ -190,17 +266,18 @@ def load_scan():
 
 nact = Act('check_next_step()', 'Next Step ->')
 def check_next_step():
-    if not found_1.value :
+    global npeak
+    if npeak >= 1 and not found_1.value :
         print 'Error: haven\'t found peak 1 yet.'
-    elif not found_2.value :
+    elif npeak >= 2 and not found_2.value :
         print 'Error: haven\'t found peak 2 yet.'
-    elif not found_3.value :
+    elif npeak >= 3 and not found_3.value :
         print 'Error: haven\'t found peak 3 yet.'
-    elif not found_4.value :
+    elif npeak >= 4 and not found_4.value :
         print 'Error: haven\'t found peak 4 yet.'
-    elif not found_5.value :
+    elif npeak >= 5 and not found_5.value :
         print 'Error: haven\'t found peak 5 yet.'
-    elif not found_6.value :
+    elif npeak >= 6 and not found_6.value :
         print 'Error: haven\'t found peak 6 yet.'
     else:
         load_script(next_file)
