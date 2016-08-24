@@ -27,7 +27,7 @@ def linear_fit():
     for i in xrange(peak_res.size):
         if not Double.isNaN(peak_res[i]):
             valid.append(peak_res[i] * -1)
-            vaxes.append(hkl[i])
+            vaxes.append(h2k2l2[i])
     if len(valid) == 0:
         slog('Error: there is not any available peak.')
         return

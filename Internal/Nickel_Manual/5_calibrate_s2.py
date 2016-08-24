@@ -38,6 +38,7 @@ hkl_160 = [[1, 1, 1],
           [3, 3, 1],
           [4, 2, 0]]
 h2k2l2_160 = array.Array([3, 4, 8, 11, 19, 20])
+hkl = hkl_30
 a = 3.5238
 m = 1.67492861e-027
 h = 6.626068e-034
@@ -127,6 +128,7 @@ def calc_peaks():
     if Ei.value < 30 :
         npeak = 6
         h2k2l2 = h2k2l2_30
+        hkl = hkl_30
         for i in xrange(npeak):
             d = math.sqrt(a * a / h2k2l2[i])
             twod[i] = 2 * d
@@ -147,6 +149,7 @@ def calc_peaks():
     elif Ei.value < 50 :
         npeak = 5
         h2k2l2 = h2k2l2_50
+        hkl = hkl_50
         for i in xrange(npeak):
             d = math.sqrt(a * a / h2k2l2[i])
             twod[i] = 2 * d
@@ -162,6 +165,7 @@ def calc_peaks():
     else:
         npeak = 6
         h2k2l2 = h2k2l2_160
+        hkl = hkl_160
         for i in xrange(npeak):
             d = math.sqrt(a * a / h2k2l2[i])
             twod[i] = 2 * d
