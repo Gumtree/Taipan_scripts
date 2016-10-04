@@ -14,9 +14,34 @@ __script__.version = ''
 previous_file = '5_calibrate_s2.py'
 next_file = '7_align_a1a2.py'
 PG002d = 3.35416
+Cu200d = 1.808
+D_space = PG002d
 
 pact = Act('previous_step()', '<- Previous Step')
     
+par_mono = Par('string', 'PG', options = ['PG', 'Cu'], command = 'chg_mono()')
+par_mono.title = 'confirm monochromator type'
+def chg_mono():
+    global D_space, PG002d, Cu200d
+    if (str(par_mono.value) == 'Cu') :
+        D_space = Cu200d
+    else:
+        D_space = PG002d
+    if (lambda_fit.value != 0) :
+        m1_new.value = math.asin(lambda_fit.value / 2 / D_space) * 180 / math.pi
+        m2_new.value = 2 * m1_new.value
+try:
+    cm1 = sics.getValue('m1').getFloatData()
+    d = lmd.value / 2 / math.sin(cm1 * math.pi / 180)
+    print d
+    if d < 2:
+        par_mono.value = 'Cu'
+    else:
+        par_mono.value = 'PG'
+    chg_mono()
+except:
+    pass
+
 G1 = Group('Linear Fit')
 act1 = Act('linear_fit()', 'Linear fit')
 linear_slope = Par('float', 0)
@@ -29,7 +54,7 @@ def linear_fit():
             valid.append(peak_res[i] * -1)
             vaxes.append(h2k2l2[i])
     if len(valid) == 0:
-        slog('Error: there is not any available peak.')
+        slog('Error: there is no available peak.')
         return
     ds2 = Dataset(valid, axes=[vaxes])
     Plot2.set_dataset(ds2)
@@ -117,7 +142,7 @@ def nonlinear_fit():
 #    lambda_fit.value = fitting.k1
 #    s2_offset.value = fitting.k2 * 180 / math.pi
 #    fit_quality.value = fitting.fitter.getQuality()
-    m1_new.value = math.asin(lambda_fit.value / 2 / PG002d) * 180 / math.pi
+    m1_new.value = math.asin(lambda_fit.value / 2 / D_space) * 180 / math.pi
     m2_new.value = 2 * m1_new.value
     slog('Chi2 = ' + str(fit_quality.value))
     slog('lambda = ' + str(lambda_fit.value))
