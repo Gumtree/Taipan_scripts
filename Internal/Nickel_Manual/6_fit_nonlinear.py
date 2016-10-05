@@ -31,16 +31,25 @@ def chg_mono():
         m1_new.value = math.asin(lambda_fit.value / 2 / D_space) * 180 / math.pi
         m2_new.value = 2 * m1_new.value
 try:
-    cm1 = sics.getValue('m1').getFloatData()
-    d = lmd.value / 2 / math.sin(cm1 * math.pi / 180)
-    print d
-    if d < 2:
+    md = sics.get_raw_value('mono_mode', 'str')
+    if md == 'cu':
         par_mono.value = 'Cu'
     else:
         par_mono.value = 'PG'
     chg_mono()
 except:
-    pass
+    try:
+        cm1 = sics.getValue('m1').getFloatData()
+        d = lmd.value / 2 / math.sin(cm1 * math.pi / 180)
+        print d
+        if d < 2:
+            par_mono.value = 'Cu'
+        else:
+            par_mono.value = 'PG'
+        chg_mono()
+    except:
+        pass
+
 
 G1 = Group('Linear Fit')
 act1 = Act('linear_fit()', 'Linear fit')
