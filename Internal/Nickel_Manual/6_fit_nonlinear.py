@@ -32,16 +32,17 @@ def chg_mono():
         m2_new.value = 2 * m1_new.value
 try:
     md = sics.get_raw_value('mono_mode', 'str')
-    if md == 'cu':
+    if md == 'cu' :
         par_mono.value = 'Cu'
-    else:
+    elif md == 'pg' :
         par_mono.value = 'PG'
+    else:
+        raise Exception
     chg_mono()
 except:
     try:
         cm1 = sics.getValue('m1').getFloatData()
         d = lmd.value / 2 / math.sin(cm1 * math.pi / 180)
-        print d
         if d < 2:
             par_mono.value = 'Cu'
         else:
