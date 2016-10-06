@@ -128,12 +128,18 @@ def nonlinear_fit():
     eV = 1.60217646e-019
     pl = 1.0e10
     l = h * pl * 100 / math.sqrt(linear_slope.value * eV * 20 * m)
-    if lambda_fit.value == 0 and s2_offset.value == 0:
-        fitting.set_param('k1', l)
-        fitting.set_param('k2', 0)
-    else:
-        fitting.set_param('k1', lambda_fit.value)
+#    if lambda_fit.value == 0 and s2_offset.value == 0:
+#        fitting.set_param('k1', 0)
+##        fitting.set_param('k2', 0)
+#    else:
+#        fitting.set_param('k1', lambda_fit.value)
 #        fitting.set_param('k2', s2_offset.value)
+    try:
+        v_lmd = lmd.value
+    except:
+        v_lmd = 0
+    fitting.set_param('k1', v_lmd)
+    fitting.set_param('k2', 0)
     fitting.fitter.setResolutionMultiple(10)
 #    fitting.fitter.getRawFitter().fitParameterSettings("k1").setStepSize(0.00001);
 #    fitting.fitter.getRawFitter().fitParameterSettings("k2").setStepSize(0.00001);
