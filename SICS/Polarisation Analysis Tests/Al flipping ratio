@@ -1,0 +1,4 @@
+#polariser Mol05, 74.06%, finish 20:54; analyser Mol01, 73.73% finish 18:04
+title polariser Mol05 depolarised, 74.06%, finish 20:54
+runscan s2 -58.5 -62.5 21 time 20
+runscan s2 -69 -73 21 time 20

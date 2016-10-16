@@ -125,6 +125,24 @@ tc_sensor2 = $entry/sample/tc3/sensor/sensorValueB
 tc_sensor3 = $entry/sample/tc3/sensor/sensorValueC
 tc_sensor4 = $entry/sample/tc3/sensor/sensorValueD
 
+dtemp_s01 = $entry/instrument/detector/dtemp/sensor_01
+dtemp_s02 = $entry/instrument/detector/dtemp/sensor_02
+dtemp_s03 = $entry/instrument/detector/dtemp/sensor_03
+dtemp_s04 = $entry/instrument/detector/dtemp/sensor_04
+dtemp_s05 = $entry/instrument/detector/dtemp/sensor_05
+dtemp_s06 = $entry/instrument/detector/dtemp/sensor_06
+dtemp_s07 = $entry/instrument/detector/dtemp/sensor_07
+dtemp_s08 = $entry/instrument/detector/dtemp/sensor_08
+dtemp_s09 = $entry/instrument/detector/dtemp/sensor_09
+dtemp_s10 = $entry/instrument/detector/dtemp/sensor_10
+dtemp_s11 = $entry/instrument/detector/dtemp/sensor_11
+dtemp_s12 = $entry/instrument/detector/dtemp/sensor_12
+dtemp_s13 = $entry/instrument/detector/dtemp/sensor_13
+dtemp_s14 = $entry/instrument/detector/dtemp/sensor_14
+dtemp_s15 = $entry/instrument/detector/dtemp/sensor_15
+dtemp_s16 = $entry/instrument/detector/dtemp/sensor_16
+
+
 DilutTempReading =  $entry/sample/magnetic/DilutTempReading
 magnetic_field = $entry/sample/magnetic/fieldSetPoint
 

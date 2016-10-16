@@ -1,0 +1,12 @@
+title "RuCl3 En scan (0.5 5) @ Q(0.45, 0, 0)  @base"
+mscan qh 0.45 0 qk 0 0 ql 0 0 en 0.5 0.25 19 monitor 1800000
+title "RuCl3 En scan (0.5 6) @ Q(0.55, 0, 0)  @base"
+mscan qh 0.55 0 qk 0 0 ql 0 0 en 0.5 0.25 23 monitor 1800000
+title "RuCl3 En scan (0.5 6) @ Q(0.6, 0, 0)  @base"
+mscan qh 0.6 0 qk 0 0 ql 0 0 en 0.5 0.25 23 monitor 1800000
+title "RuCl3 En scan (0.5 7) @ Q(0.7, 0, 0)  @base"
+mscan qh 0.7 0 qk 0 0 ql 0 0 en 0.5 0.25 27 monitor 1800000
+title "RuCl3 En scan (0.5 8) @ Q(0.8, 0, 0)  @base"
+mscan qh 0.8 0 qk 0 0 ql 0 0 en 0.5 0.25 31 monitor 1800000
+title "RuCl3 En scan (0.5 8) @ Q(0.9, 0, 0)  @base"
+mscan qh 0.9 0 qk 0 0 ql 0 0 en 0.5 0.25 31 monitor 1800000

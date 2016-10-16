@@ -1,0 +1,34 @@
+
+
+drive   qh  0.486  qk  0.486 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.488  qk  0.488 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.490  qk  0.490 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.492  qk  0.492 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.494  qk  0.494 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.496  qk  0.496 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.498  qk  0.498 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.500  qk  0.500 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.502  qk  0.502 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.504  qk  0.504 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.506  qk  0.506 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.508  qk  0.508 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.510  qk  0.510 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.512  qk  0.512 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+drive   qh  0.514  qk  0.514 ql 0
+runscan ql -0.05 0.05 26  monitor 200000
+
+

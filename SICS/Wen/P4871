@@ -1,0 +1,48 @@
+
+drive ef 8.07
+
+title "RuCl3 Qh scan at 1meV Q(0.5, 0, 1)  @ base"
+mscan qh 0.2 0.02 qk 0 0 ql 1 0 en 1 0 36 monitor 1800000
+
+title "RuCl3 Qh scan at 3meV Q(0.5, 0, 1)  @ base"
+mscan qh 0.4 0.02 qk 0 0 ql 1 0 en 3 0 26 monitor 1800000
+
+title "RuCl3 En scan (-1 7) @ Q(0.7, 0, 1)  @ base"
+mscan qh 0.7 0 qk 0 0 ql 1 0 en -1 0.25 33 monitor 1800000
+
+
+
+drive ef 14.87
+
+title Bragg peak (0.5, 0, 1) H scan @base
+mscan qh 0.35 0.01 qk 0 0 ql 1 0 en 0 0 31 monitor 100000
+title Bragg peak (0.5, 0, 1) L scan @base
+mscan qh 0.5 0 qk 0 0 ql 0 0.05 en 0 0 61 monitor 100000
+title Bragg peak (0.5, 0, 1.5) @base
+mscan qh 0.35 0.01 qk 0 0 ql 1.5 0 en 0 0 31 monitor 100000
+
+drive ef 8.07
+
+title "RuCl3 En scan (-1 8) @ Q(0.9, 0, 1)  @ base"
+mscan qh 0.9 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 Qh scan at 1meV Q(1.5, 0, 1)  @ base"
+mscan qh 1.1 0.02 qk 0 0 ql 1 0 en 1 0 41 monitor 1800000
+
+title "RuCl3 Qh scan at 3meV Q(1.5, 0, 1)  @ base"
+mscan qh 1.1 0.02 qk 0 0 ql 1 0 en 3 0 41 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.5, 0, 1)  @ base"
+mscan qh 1.5 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.4, 0, 1)  @ base"
+mscan qh 1.4 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.3, 0, 1)  @ base"
+mscan qh 1.3 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.2, 0, 1)  @ base"
+mscan qh 1.2 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.1, 0, 1)  @ base"
+mscan qh 1.1 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000

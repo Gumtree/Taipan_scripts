@@ -1,0 +1,13 @@
+
+
+title QL scan @ E=4.5meV 5K
+mscan qh 1.05 0 qk 0 0 ql -2.5 0.1 en 4.5 0 5 monitor 1200000
+
+title QL scan @ E=4.5meV 5K
+mscan qh 1.05 0 qk 0 0 ql 1.9 0.1 en 4.5 0 7 monitor 1200000
+
+title QL scan @ E=5.0meV 5K
+mscan qh 1.05 0 qk 0 0 ql -2.5 0.1 en 5.0 0 51 monitor 1200000
+
+title QL scan @ E=5.5meV 5K
+mscan qh 1.05 0 qk 0 0 ql -2.5 0.1 en 5.5 0 51 monitor 1200000

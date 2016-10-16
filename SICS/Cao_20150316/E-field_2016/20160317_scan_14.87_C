@@ -1,0 +1,26 @@
+
+title "E scan @ (1 0 0) ql=0.4"
+mscan qh 1.0 0 qk 0 0 ql 0.4 0 en -1 0.25 41 monitor 600000
+
+
+title "E scan @ (1 0 0) ql=1.7"
+mscan qh 1.7 0 qk 0 0 ql 0 0 en -1 0.25 41 monitor 600000
+
+
+title "E scan @ (1 0 0) ql=1.8"
+mscan qh 1.8 0 qk 0 0 ql 0 0 en -1 0.25 41 monitor 600000
+
+
+title "E scan @ (1 0 0) ql=1.9"
+mscan qh 1.9 0 qk 0 0 ql 0 0 en -1 0.25 41 monitor 600000
+
+
+title "E scan @ (1 0 0) ql=2.0"
+mscan qh 2.0 0 qk 0 0 ql 0 0 en -1 0.25 41 monitor 600000
+
+
+
+
+
+title "E scan @ (1 0 0) ql=-2.0"
+mscan qh 1.0 0 qk 0 0 ql -2.0 0 en -1 0.25 41 monitor 600000

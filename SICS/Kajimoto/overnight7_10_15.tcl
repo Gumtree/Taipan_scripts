@@ -38,10 +38,10 @@ runscan qk 1.3 1.6 61 time 10
 #~2 hours to here
 
 drive qh 1 qk 0 ql 0 en 2
-runscan qk -1.0 1.0 51 monitor 756000
+runscan qk -1.0 1.0 51 monitor 550000
 
 drive qh 0 qk 1 ql 0 en 2
-runscan qh -1.0 1.0 51 monitor 756000
+runscan qh -1.0 1.0 51 monitor 550000
 #~5 hours for these two scans above
 
 # T dependence of Bragg peak

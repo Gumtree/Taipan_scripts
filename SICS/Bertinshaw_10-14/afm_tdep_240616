@@ -1,0 +1,76 @@
+hset /sics/tc1/sensor/setpoint1 150
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.495 0.00025 qk 0.495 0.00025 ql -0.505 0.00025 41 monitor 100000
+mscan qh 0.49 0.0005 qk 0.49 0.0005 ql -0.49 0.0005 41 monitor 100000
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.491 0.00025 qk 0.491 0.00025 ql  0.495  0.00025 41 monitor 400000
+
+
+
+hset /sics/tc1/sensor/setpoint1 200
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 250
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 300
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.495 0.00025 qk 0.495 0.00025 ql -0.505 0.00025 41 monitor 100000
+mscan qh 0.49 0.0005 qk 0.49 0.0005 ql -0.49 0.0005 41 monitor 100000
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.491 0.00025 qk 0.491 0.00025 ql  0.495  0.00025 41 monitor 400000
+
+hset /sics/tc1/sensor/setpoint1 350
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 400
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 450
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 500
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 550
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 600
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+
+
+hset /sics/tc1/sensor/setpoint1 650
+wait 300
+drive qh 0.5 qk 0.5 ql -0.5
+mscan qh 0.495 0.00025 qk 0.495 0.00025 ql -0.505 0.00025 41 monitor 100000
+mscan qh 0.49 0.0005 qk 0.49 0.0005 ql -0.49 0.0005 41 monitor 100000
+mscan qh 0.477 0.00025 qk 0.477 0.00025 ql -0.51  0.0005 41 monitor 400000
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.491 0.00025 qk 0.491 0.00025 ql  0.495  0.00025 41 monitor 400000

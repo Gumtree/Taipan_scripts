@@ -1,0 +1,70 @@
+
+
+title Bragg peak (0.5, 0, 1) @ base
+mscan qh 0.35  0.01 qk 0 0 ql 1 0 en 0 0 31 monitor 100000
+title Bragg peak (0.5, 0, 1.5) @ base
+mscan qh 0.35  0.01 qk 0 0 ql 1.5 0 en 0 0 31 monitor 100000
+
+title Bragg peak (1.5, 0, 1) @ base
+mscan qh 1.35  0.01 qk 0 0 ql 1 0 en 0 0 31 monitor 100000
+
+
+
+
+title "RuCl3 Qh scan at 2meV Q(0.5, 0, 1)  @ base"
+mscan qh 0.2 0.02 qk 0 0 ql 1 0 en 2 0 36 monitor 1800000
+
+title "RuCl3 Qh scan at 4meV Q(0.5, 0, 1)  @ base"
+mscan qh 0.4 0.02 qk 0 0 ql 1 0 en 4 0 26 monitor 1800000
+
+
+title "RuCl3 En scan (-1 5) @ Q(0.5, 0, 1)  @ base"
+mscan qh 0.5 0 qk 0 0 ql 1 0 en -1 0.25 25 monitor 1800000
+
+title "RuCl3 En scan (-1 6) @ Q(0.6, 0, 1)  @ base"
+mscan qh 0.6 0 qk 0 0 ql 1 0 en -1 0.25 29 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(0.8, 0, 1)  @ base"
+mscan qh 0.8 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+
+
+
+title "RuCl3 Qh scan at 2meV Q(1.5, 0, 1)  @ base"
+mscan qh 1.1 0.02 qk 0 0 ql 1 0 en 2 0 41 monitor 1800000
+
+title "RuCl3 Qh scan at 4meV Q(1.5, 0, 1)  @ base"
+mscan qh 1.1 0.02 qk 0 0 ql 1 0 en 4 0 41 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.5, 0, 1)  @ base"
+mscan qh 1.5 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.4, 0, 1)  @ base"
+mscan qh 1.4 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan (-1 8) @ Q(1.2, 0, 1)  @ base"
+mscan qh 1.2 0 qk 0 0 ql 1 0 en -1 0.25 37 monitor 1800000
+
+
+
+
+
+
+title "RuCl3 Qh scan at 2meV Q(0.5, 0, 3)  @ base"
+mscan qh 0.1 0.02 qk 0 0 ql 3 0 en 2 0 41 monitor 1800000
+
+title "RuCl3 Qh scan at 4meV Q(0.5, 0, 3)  @ base"
+mscan qh 0.1 0.02 qk 0 0 ql 3 0 en 4 0 41 monitor 1800000
+
+
+title "RuCl3 En scan (-1 8) @ Q(0.5, 0, 3)  @ base"
+mscan qh 0.5 0 qk 0 0 ql 3 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan  (-1 8) @  Q(0.6, 0, 3)  @ base"
+mscan qh 0.6 0 qk 0 0 ql 3 0 en -1 0.25 37 monitor 1800000
+
+title "RuCl3 En scan  (-1 8) @  Q(0.8, 0, 3) @ base"
+mscan qh 0.8 0 qk 0 0 ql 3 0 en -1 0.25 37 monitor 1800000
+
+
+

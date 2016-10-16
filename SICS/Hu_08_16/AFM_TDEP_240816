@@ -1,0 +1,83 @@
+
+hset /sics/tc1/sensor/setpoint1 80
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 100
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 120
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 140
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 160
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 180
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 200
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 220
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 230
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 240
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 250
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 260
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+hset /sics/tc1/sensor/setpoint1 270
+drive qh 0.5 qk 0.5 ql 0.5
+mscan qh 0.488 0.001 qk 0.488 0.001 34 monitor 250000
+drive qh 0 qk 0 ql 1
+runscan ql 0.976 1.046 36 monitor 250000
+
+drive qh 0.5 qk 0.5 ql 0
+mscan qh 0.485 0.002 qk 0.485 0.002 34 monitor 250000
+drive qh 0 qk 0 ql 0.5
+runscan ql 0.476 0.53 28 monitor 250000

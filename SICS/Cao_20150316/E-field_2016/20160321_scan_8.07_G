@@ -1,0 +1,44 @@
+title " QH scan @ E=1.5meV"
+mscan qh 0.5 0.04 qk 0 0 ql 0.1 0 en 1.5 0 26 monitor 600000
+
+title " QH scan @ E=2.0meV"
+mscan qh 0.5 0.04 qk 0 0 ql 0.1 0 en 2.0 0 26 monitor 600000
+
+title " QH scan @ E=2.5meV"
+mscan qh 0.5 0.04 qk 0 0 ql 0.1 0 en 2.5 0 26 monitor 600000
+
+
+title " QH scan @ E=3meV"
+mscan qh 0.5 0.04 qk 0 0 ql 0.1 0 en 3 0 26 monitor 600000
+
+
+title " QH scan @ E=3meV"
+mscan qh 0.5 0.04 qk 0 0 ql 0.1 0 en 3 0 26 monitor 600000
+
+
+title "E scan @ (1 0 0) ql=1.2"
+mscan qh 1.2 0 qk 0 0 ql 0 0 en 0.4 0.2 39 monitor 600000
+
+title "E scan @ (1 0 0) ql=1.2"
+mscan qh 1.2 0 qk 0 0 ql 0 0 en 0.4 0.2 39 monitor 600000
+
+
+title "E scan @ (1 0 0) ql=1.1"
+mscan qh 1.1 0 qk 0 0 ql 0 0 en 0.4 0.2 39 monitor 600000
+
+title "E scan @ (1 0 0) ql=1.1"
+mscan qh 1.1 0 qk 0 0 ql 0 0 en 0.4 0.2 39 monitor 600000
+
+
+
+title "E scan @ (1 0 0) ql=1.0"
+mscan qh 1.0 0 qk 0 0 ql 1.0 0 en 0.4 0.2 39 monitor 600000
+
+title "E scan @ (1 0 0) ql=1.0"
+mscan qh 1.0 0 qk 0 0 ql 1.0 0 en 0.4 0.2 39 monitor 600000
+
+title "E scan @ (1 0 0) ql=0.8"
+mscan qh 1.0 0 qk 0 0 ql 0.8 0 en 0.4 0.2 39 monitor 600000
+
+title "E scan @ (1 0 0) ql=0.8"
+mscan qh 1.0 0 qk 0 0 ql 0.8 0 en 0.4 0.2 39 monitor 600000

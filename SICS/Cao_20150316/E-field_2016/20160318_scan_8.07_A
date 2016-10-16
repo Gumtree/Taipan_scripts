@@ -1,0 +1,30 @@
+
+
+
+title  Bragg Peak (004)  efield=0
+mscan qh 0.9 0.01 qk 0 0 ql 0 0 en 0 0 31 time 1
+
+title  Bragg Peak (004)  efield=0
+mscan qh 1 0 qk 0 0 ql 1.85 0.01 en 0 0 31 time 1
+
+
+title "E scan @ (1 0 1.5) efield=0"
+mscan qh 1.0 0 qk 0 0 ql 1.5 0 en -1 0.25 41 monitor 1200000
+
+
+title "E scan @ (1 0 1.6)  efield=0"
+mscan qh 1.0 0 qk 0 0 ql 1.6 0 en -1 0.25 41 monitor 1200000
+
+
+title "E scan @ (1 0 1.7)  efield=0"
+mscan qh 1.0 0 qk 0 0 ql 1.7 0 en -1 0.25 41 monitor 1200000
+
+title "E scan @ (1 0 1.8)  efield=0"
+mscan qh 1.0 0 qk 0 0 ql 1.8 0 en -1 0.25 41 monitor 1200000
+
+
+title "E scan @ (1 0 1.9)  efield=0"
+mscan qh 1.0 0 qk 0 0 ql 1.9 0 en -1 0.25 41 monitor 1200000
+
+title "E scan @ (1 0 2.0)  efield=0"
+mscan qh 1.0 0 qk 0 0 ql 2.0 0 en -1 0.25 41 monitor 1200000

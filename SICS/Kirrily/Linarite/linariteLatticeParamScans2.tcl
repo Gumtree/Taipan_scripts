@@ -2,8 +2,8 @@
 drive qh 0 qk 0 ql 1 en 0
 runscan ql 0.9 1.1 31 time 1
 
-drive qh 0 qk 0 ql 3 en 0
-runscan ql 2.9 3.1 21 time 1
+drive qh 3 qk 0 ql 0 en 0
+runscan qh 2.9 3.1 21 time 1
 
 drive qh 0 qk 2 ql 0 en 0
 runscan qk 1.92 2.08 31 time 1
