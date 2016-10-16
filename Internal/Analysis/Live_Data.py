@@ -187,7 +187,10 @@ def import_to_plot2():
                         to_remove.options = rlist
                         break
         dname = str(data_name.value)
-        data = ds[dname]
+        if len(ds) > 1:
+            data = ds[dname]
+        else:
+            data = SimpleData([ds[dname]])
         if dname == 'bm1_counts':
             tname = 'bm1_time'
         else:
@@ -199,7 +202,10 @@ def import_to_plot2():
             if niter.next() <= 0:
                 niter.set_curr(1)
             data = data / norm * avg
-        axis = ds[str(axis_name.value)]
+        if len(ds) > 1:
+            axis = ds[str(axis_name.value)]
+        else:
+            axis = SimpleData([ds[str(axis_name.value)]])
         if data.size > axis.size:
             data = data[:axis.size]
         ds2 = Dataset(data, axes=[axis])
