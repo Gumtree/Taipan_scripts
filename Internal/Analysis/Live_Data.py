@@ -27,6 +27,8 @@ g3 = Group('Plot3')
 data_name = Par('string', 'bm2_counts', \
                options = ['bm1_counts', 'bm2_counts', 'total_counts'])
 normalise = Par('bool', False)
+normalise_name = Par('string', 'default', \
+                options = ['default', 'bm1_counts', 'bm1_time', 'bm2_time', 'detector_time'])
 axis_name = Par('string', 'suid')
 axis_lock = Par('bool', False, command = 'lock_axis()')
 auto_fit = Par('bool', False)
@@ -34,7 +36,8 @@ pause = Par('bool', not __newfile_enabled__, command = 'set_newfile_enabled()')
 def set_newfile_enabled():
     global __newfile_enabled__
     __newfile_enabled__ = not pause.value
-g1.add(data_name, axis_name, axis_lock, normalise, auto_fit, pause)
+g1.numColumns = 2
+g1.add(data_name, pause, axis_name, axis_lock, normalise_name, normalise, auto_fit)
 
 fit_min = Par('float', 'NaN')
 fit_max = Par('float', 'NaN')
