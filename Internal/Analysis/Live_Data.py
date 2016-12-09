@@ -191,17 +191,22 @@ def import_to_plot2():
             data = ds[dname]
         else:
             data = SimpleData([ds[dname]])
-        if dname == 'bm1_counts':
-            tname = 'bm1_time'
-        else:
-            tname = 'bm2_time'
-        norm = ds[tname]
-        if normalise.value and norm != None and hasattr(norm, '__len__'):
-            avg = norm.sum() / len(norm)
-            niter = norm.item_iter()
-            if niter.next() <= 0:
-                niter.set_curr(1)
-            data = data / norm * avg
+        if normalise.value :
+            if normalise_name.value == 'default':
+                if dname == 'bm1_counts':
+                    tname = 'bm1_time'
+                else:
+                    tname = 'bm2_time'
+            else:
+                tname = str(normalise_name.value) 
+            norm = ds[tname]
+            if norm != None and hasattr(norm, '__len__'):
+                log('normalised against ' + str(tname))
+                avg = norm.sum() / len(norm)
+                niter = norm.item_iter()
+                if niter.next() <= 0:
+                    niter.set_curr(1)
+                data = data / norm * avg
         if len(ds) > 1:
             axis = ds[str(axis_name.value)]
         else:
@@ -359,17 +364,22 @@ def __run_script__(dss):
             ds = df[fn]
             dname = str(data_name.value)
             data = ds[dname]
-            if dname == 'bm1_counts':
-                tname = 'bm1_time'
-            else:
-                tname = 'bm2_time'
-            norm = ds[tname]
-            if normalise.value and norm != None and hasattr(norm, '__len__'):
-                avg = norm.sum() / len(norm)
-                niter = norm.item_iter()
-                if niter.next() <= 0:
-                    niter.set_curr(1)
-                data = data / norm * avg
+            if normalise.value :
+                if normalise_name.value == 'default':
+                    if dname == 'bm1_counts':
+                        tname = 'bm1_time'
+                    else:
+                        tname = 'bm2_time'
+                else:
+                    tname = str(normalise_name.value) 
+                norm = ds[tname]
+                if norm != None and hasattr(norm, '__len__'):
+                    log('normalised against ' + str(tname))
+                    avg = norm.sum() / len(norm)
+                    niter = norm.item_iter()
+                    if niter.next() <= 0:
+                        niter.set_curr(1)
+                    data = data / norm * avg
 #            if not ds.axes is None and len(ds.axes) > 0: 
 #                if not axis_lock.value:
 #                    axis_name.value = ds.axes[0].name
