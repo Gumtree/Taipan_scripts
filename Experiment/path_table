@@ -56,6 +56,10 @@ mhfocus = $entry/instrument/crystal/mhfocus
 mtilt = $entry/instrument/crystal/mtilt
 mtrans = $entry/instrument/crystal/mtrans
 mvfocus = $entry/instrument/crystal/mvfocus
+pghf = $entry/instrument/crystal/pghf
+pgvf = $entry/instrument/crystal/pgvf
+cuhf = $entry/instrument/crystal/cuhf
+cuvf = $entry/instrument/crystal/cuvf
 
 collimator = $entry/instrument/collimator/collimator
 
