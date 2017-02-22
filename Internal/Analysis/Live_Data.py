@@ -47,6 +47,8 @@ FWHM = Par('float', 'NaN')
 fit.add(fit_min, fit_max, act1, peak_pos, FWHM)
 
 allow_duplication = Par('bool', False)
+normalise_all = Par('bool', True)
+normalise_all.title = 'Normalise All Curves'
 act2 = Act('import_to_plot2()', text = 'Import Data Files to Plot2')
 to_remove = Par('string', '', options=[])
 act3 = Act('remove_curve()', 'Remove selected curve')
@@ -57,7 +59,7 @@ plot2_peak_pos = Par('float', 'NaN')
 plot2_FWHM = Par('float', 'NaN')
 act_reset = Act('reset_fitting_plot2()', 'Remove Fitting')
 act_remove_all = Act('remove_all_curves()', 'Remove All Curves')
-g2.add(allow_duplication, act2, to_remove, act3, plot2_fit_min, plot2_fit_max, 
+g2.add(allow_duplication, normalise_all, act2, to_remove, act3, plot2_fit_min, plot2_fit_max, 
        plot2_act1, plot2_peak_pos, plot2_FWHM, act_reset, act_remove_all)
 
 act4 = Act('put_peak_pos_to_plot3()', text = 'Add peak position to Plot3')
@@ -194,22 +196,42 @@ def import_to_plot2():
             data = ds[dname]
         else:
             data = SimpleData([ds[dname]])
-        if normalise.value :
-            if normalise_name.value == 'default':
-                if dname == 'bm1_counts':
-                    tname = 'bm1_time'
-                else:
-                    tname = 'bm2_time'
+        
+        if normalise_all.value :
+            if normalise_name.value == None or normalise_name.value == 'default':
+                tname = 'bm1_counts'
             else:
                 tname = str(normalise_name.value) 
+        else :
+            tname = None
+        norm = None
+        if not tname is None:
             norm = ds[tname]
-            if norm != None and hasattr(norm, '__len__'):
-                log('normalised against ' + str(tname))
-                avg = norm.sum() / len(norm)
-                niter = norm.item_iter()
-                if niter.next() <= 0:
-                    niter.set_curr(1)
-                data = data / norm * avg
+        if normalise_all.value and tname != None and norm != None and hasattr(norm, '__len__'):
+            logln('normalised with ' + str(tname))
+            avg = norm.sum() / len(norm)
+            niter = norm.item_iter()
+            if niter.next() <= 0:
+                niter.set_curr(1)
+#            data = data / norm * avg
+            data = data / norm
+            
+#        if normalise.value :
+#            if normalise_name.value == 'default':
+#                if dname == 'bm1_counts':
+#                    tname = 'bm1_time'
+#                else:
+#                    tname = 'bm2_time'
+#            else:
+#                tname = str(normalise_name.value) 
+#            norm = ds[tname]
+#            if norm != None and hasattr(norm, '__len__'):
+#                log('normalised against ' + str(tname))
+#                avg = norm.sum() / len(norm)
+#                niter = norm.item_iter()
+#                if niter.next() <= 0:
+#                    niter.set_curr(1)
+#                data = data / norm * avg
         if len(ds) > 1:
             axis = ds[str(axis_name.value)]
         else:
