@@ -12,22 +12,21 @@ from gumpy.commons import sics
 from Experiment.lib import export
 import math
 import traceback
-import sys
+import time
 
 # Script control setup area
 # script info
-__script__.title = 'Be Filter Analysis'
+__script__.title = 'Be Filter Live Data'
 __script__.version = '2.0'
 __script__.numColumns = 1
+
+DatasetFactory.__cache_enabled__ = False
+Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
 
 SAVED_MASK_PRFN = 'BeFilter.savedMasks'
 SAVED_INC_MASK_PRFN = 'BeFilter.savedIncMasks'
 SAVED_EXC_MASK_PRFN = 'BeFilter.savedExcMasks'
 EXPERIMENT_ID_PNAME = 'taipan.experiment.id'
-
-DatasetFactory.__cache_enabled__ = False
-Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-
 DS = None
 __new_xAxis__ = simpledata.arange(-0.5, 30, 1, float)
 
@@ -35,6 +34,13 @@ __mask_updated__ = False
 
 __newfile_enabled__ = True
 
+#print 'Waiting for SICS connection'
+#while sics.getSicsController() == None:
+#    time.sleep(0.5)
+#
+#time.sleep(1)
+#print 'SICS connected'
+    
 class RegionEventListener(MaskEventListener):
     
     def __init__(self):
@@ -190,9 +196,7 @@ pause = Par('bool', not __newfile_enabled__, command = 'set_newfile_enabled()')
 def set_newfile_enabled():
     global __newfile_enabled__
     __newfile_enabled__ = not pause.value
-g1.numColumns = 2
-g1.add(data_name, pause, axis_name, axis_lock, \
-       normalise_factor, normalise, auto_fit)
+g1.add(data_name, axis_name, axis_lock, normalise, normalise_factor, auto_fit, pause)
 
 fit_min = Par('float', 'NaN')
 fit_max = Par('float', 'NaN')
@@ -475,7 +479,7 @@ def import_to_plot2():
         if not tname is None:
             norm = ds[tname]
         if normalise_all.value and tname != None and norm != None and hasattr(norm, '__len__'):
-            logln('normalised with ' + str(tname))
+            logln('normalised with ' + tname)
             avg = norm.sum() / len(norm)
             niter = norm.item_iter()
             if niter.next() <= 0:
@@ -783,4 +787,4 @@ def check_eq():
     else:
         print 'False'
         
-logln('Analysis ' + str(__script_model_id__))
+logln( 'live ' + str(__script_model_id__))
