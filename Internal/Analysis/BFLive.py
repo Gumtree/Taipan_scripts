@@ -23,6 +23,7 @@ __script__.numColumns = 1
 DatasetFactory.__cache_enabled__ = False
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
 
+
 SAVED_MASK_PRFN = 'BeFilter.savedMasks'
 SAVED_INC_MASK_PRFN = 'BeFilter.savedIncMasks'
 SAVED_EXC_MASK_PRFN = 'BeFilter.savedExcMasks'
@@ -34,13 +35,7 @@ __mask_updated__ = False
 
 __newfile_enabled__ = True
 
-#print 'Waiting for SICS connection'
-#while sics.getSicsController() == None:
-#    time.sleep(0.5)
-#
-#time.sleep(1)
-#print 'SICS connected'
-    
+
 class RegionEventListener(MaskEventListener):
     
     def __init__(self):
@@ -673,11 +668,11 @@ def process(ds):
             norm = ds[tname]
         if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
             logln('normalised with ' + tname)
-            avg = norm.sum() / len(norm)
+            avg = norm.sum() / (1.0 * len(norm))
             niter = norm.item_iter()
             if niter.next() <= 0:
                 niter.set_curr(1)
-            data = data / norm * avg
+            data = data * avg / norm
         if not ds.axes is None and len(ds.axes) > 0: 
             if not axis_lock.value:
                 axis_name.value = ds.axes[0].name
@@ -787,4 +782,3 @@ def check_eq():
     else:
         print 'False'
         
-logln( 'live ' + str(__script_model_id__))

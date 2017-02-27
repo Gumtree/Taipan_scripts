@@ -783,4 +783,3 @@ def check_eq():
     else:
         print 'False'
         
-logln('Analysis ' + str(__script_model_id__))
