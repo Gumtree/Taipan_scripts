@@ -47,7 +47,7 @@ FWHM = Par('float', 'NaN')
 fit.add(fit_min, fit_max, act1, peak_pos, FWHM)
 
 allow_duplication = Par('bool', False)
-normalise_all = Par('bool', True)
+normalise_all = Par('bool', False)
 normalise_all.title = 'Normalise All Curves'
 act2 = Act('import_to_plot2()', text = 'Import Data Files to Plot2')
 to_remove = Par('string', '', options=[])

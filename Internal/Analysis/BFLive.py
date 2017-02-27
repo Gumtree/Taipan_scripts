@@ -17,7 +17,7 @@ import time
 # Script control setup area
 # script info
 __script__.title = 'Be Filter Live Data'
-__script__.version = '2.0'
+__script__.version = ''
 __script__.numColumns = 1
 
 DatasetFactory.__cache_enabled__ = False
