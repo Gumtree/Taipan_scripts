@@ -407,8 +407,11 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
         text.append('PARAM: AX=' + sax + '\t, AY=' + say + '\t, AZ=' + saz + '\t' + '\n')
         text.append('PARAM: BX=' + sbx + '\t, BY=' + sby + '\t, BZ=' + sbz + '\t' + '\n')
         if ds.size > 1:
-            text.append('VARIA: M1=' + format(ds['m1'][0], 2, 7) + ', M2=' + format(ds['m2'][0], 2, 7) + ', S1=' + format(ds['s1'][0], 2, 7) + ', S2=' + format(ds['s2'][0], 2, 7) + '\n')
-            text.append('VARIA: A1=' + format(ds['a1'][0], 2, 7) + ', A2=' + format(ds['a2'][0], 2, 7) + ', RM=\t, RA=\t' + '\n')
+            try:
+                text.append('VARIA: M1=' + format(ds['m1'][0], 2, 7) + ', M2=' + format(ds['m2'][0], 2, 7) + ', S1=' + format(ds['s1'][0], 2, 7) + ', S2=' + format(ds['s2'][0], 2, 7) + '\n')
+                text.append('VARIA: A1=' + format(ds['a1'][0], 2, 7) + ', A2=' + format(ds['a2'][0], 2, 7) + ', RM=\t, RA=\t' + '\n')
+            except:
+                pass
         else:
             try:
                 text.append('VARIA: M1=' + format(ds['m1'], 2, 7) + ', M2=' + format(ds['m2'], 2, 7) + ', S1=' + format(ds['s1'], 2, 7) + ', S2=' + format(ds['s2'], 2, 7) + '\n')
@@ -430,13 +433,16 @@ def ILL_export(df, input_path, exp_folder, eid, get_prof_value):
             text.append('ZEROS: A1=\t0.0, A2=\t0.0, A3=\t0.0, A4=0.0\n')
             text.append('ZEROS: A5=\t0.0, A6=\t0.0, RM=\t, RA=\t' + '\n')
         text.append('ZEROS: TD=\t' + '\n')
-        mode = ds['bm_mode']
-        if str(mode) == 'Timer':
-            mode = 'TI'
-        else:
-            mode = 'MO'
-        preset = ds['bm_preset']
-        text.append('PARAM: ' + mode + '=' + format(preset, 2, 10) + '\n')
+        try:
+            mode = ds['bm_mode']
+            if str(mode) == 'Timer':
+                mode = 'TI'
+            else:
+                mode = 'MO'
+            preset = ds['bm_preset']
+            text.append('PARAM: ' + mode + '=' + format(preset, 2, 10) + '\n')
+        except:
+            pass
         try:
             text.append('PARAM: TT=' + format(ds['tc1_ctrl1'][0], 2, 7) + ', RT=\t, TT2=\t, RT2=\t, MAG=\t' + '\n')
         except:
