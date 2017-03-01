@@ -29,6 +29,7 @@ DatasetFactory.__cache_enabled__ = False
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
 
 DS = None
+_TUBE_DS_ = None
 __new_xAxis__ = simpledata.arange(-0.5, 30, 1, float)
 
 __mask_updated__ = False
@@ -167,6 +168,7 @@ def mask2str(masks):
 
 # arguments for demostration purpose
 g1 = Group('Plot1')
+gt = Group('Plot1 - Tube Intensity vs Scan Variable')
 fit = Group('Fitting')
 g2 = Group('Plot2')
 g3 = Group('Plot3')
@@ -193,6 +195,16 @@ def set_newfile_enabled():
 g1.numColumns = 2
 g1.add(data_name, pause, axis_name, axis_lock, \
        normalise_factor, normalise, auto_fit)
+
+tube_idx = Par('int', 0, options = [0], command='select_tube()')
+tube_idx.title = 'Select Tube Index'
+tube_show = Act('show_tube()', 'Plot Tube Intensity in Plot 1')
+#tube_idx.colspan = 2
+tube_left = Act('move_tube_left()', '<')
+tube_right = Act('move_tube_right()', '>')
+#tube_show.colspan = 2
+gt.add(tube_idx, tube_show, tube_left, tube_right)
+gt.numColumns = 2
 
 fit_min = Par('float', 'NaN')
 fit_max = Par('float', 'NaN')
@@ -327,6 +339,105 @@ def lock_axis():
     else:
         axis_name.enabled = True
     
+def show_tube():
+    global __inc_masks__, __exc_masks__
+    global _TUBE_DS_
+    global Plot1
+    dss = __DATASOURCE__.getSelectedDatasets()
+    if len(dss) == 0:
+        log('Error: please select at least one file.')
+        return
+    ds = df[str(dss[0].getLocation())]
+    if reg_enabled.value and len(__inc_masks__) + len(__exc_masks__) > 0:
+        if len(__exc_masks__) > 0:
+            res = copy(ds.get_reduced())
+            for mask in __exc_masks__:
+                res[:, mask[2]:mask[3], mask[0]:mask[1]] = 0
+        else :
+            res = ds.get_reduced()
+        if len(__inc_masks__) > 0:
+            r = dataset.instance(res.shape, dtype=int)
+            for mask in __inc_masks__:
+                r[:, mask[2]:mask[3], mask[0]:mask[1]] = res[:, mask[2]:mask[3], mask[0]:mask[1]]
+        else :
+            r = res
+    else:
+        r = ds.get_reduced()
+    data = r.intg(1)
+#    tname = None
+#    tname = str(normalise_factor.value)
+#    norm = None
+#    if not tname is None:
+#        norm = ds[tname]
+#    if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
+#        logln('normalised with ' + tname)
+#        avg = norm.sum() / len(norm)
+#        niter = norm.item_iter()
+#        if niter.next() <= 0:
+#            niter.set_curr(1)
+#        data = data / norm * avg
+    if not ds.axes is None and len(ds.axes) > 0: 
+        if not axis_lock.value:
+            axis_name.value = ds.axes[0].name
+    axis0 = ds[str(axis_name.value)]
+    axis1 = ds.axes[-1]
+    _TUBE_DS_ = Dataset(data, axes = [axis0, axis1])
+    if len(tube_idx.options) != _TUBE_DS_.shape[-1] :
+        tube_idx.options = range(_TUBE_DS_.shape[-1])
+    idx = tube_idx.value
+    if idx < 0:
+        idx = 0
+    if idx > _TUBE_DS_.shape[-1]:
+        idx = _TUBE_DS_.shape[-1]
+    tube_ds = _TUBE_DS_[:, idx].get_reduced()
+    tube_ds.title = str(ds.id) + '_' + str(idx)
+    Plot1.set_dataset(tube_ds)
+    Plot1.title = 'Tube ' + str(idx) + ': Intensity vs ' + axis0.name
+#    Plot1.x_label = axis_name.value
+    Plot1.y_label = 'Tube Total Counts'
+
+def select_tube():
+    global _TUBE_DS_
+    if _TUBE_DS_ is None:
+        show_tube()
+    else:
+        idx = tube_idx.value
+        if idx < 0:
+            idx = 0
+        if idx > _TUBE_DS_.shape[-1]:
+            idx = _TUBE_DS_.shape[-1]
+        tube_ds = _TUBE_DS_[:, idx].get_reduced()
+        tube_ds.title = str(ds.id) + '_' + str(idx)
+        Plot1.set_dataset(tube_ds)
+        Plot1.title = 'Tube ' + str(idx) + ': Intensity vs ' + _TUBE_DS_.axes[0].name
+        Plot1.y_label = 'Tube Total Counts'
+
+def move_tube_left():
+    global _TUBE_DS_
+    if _TUBE_DS_ is None:
+        log('please click on \'Plot Tube Intensity in Plot 1\' first.');
+        return
+    idx = tube_idx.value
+    if idx <= 0:
+        return
+    if idx >= _TUBE_DS_.shape[-1] :
+        tube_idx.value = _TUBE_DS_.shape[-1] - 1
+    else :
+        tube_idx.value -= 1
+
+def move_tube_right():
+    global _TUBE_DS_
+    if _TUBE_DS_ is None:
+        log('please click on \'Plot Tube Intensity in Plot 1\' first.');
+        return
+    idx = tube_idx.value
+    if idx >= _TUBE_DS_.shape[-1] - 1 :
+        return
+    if idx < 0 :
+        tube_idx.value = 0
+    else :
+        tube_idx.value += 1
+            
 def fit_curve():
     global Plot1
     ds = Plot1.ds
