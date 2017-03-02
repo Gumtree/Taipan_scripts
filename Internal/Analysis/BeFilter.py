@@ -394,7 +394,10 @@ def show_tube():
     tube_ds.title = str(ds.id) + '_' + str(idx)
     Plot1.set_dataset(tube_ds)
     Plot1.title = 'Tube ' + str(idx) + ': Intensity vs ' + axis0.name
-#    Plot1.x_label = axis_name.value
+    xl = axis_name.value
+    if axis0.units != None:
+        xl += ' (' + str(axis0.units) + ')'
+    Plot1.x_label = xl
     Plot1.y_label = 'Tube Total Counts'
 
 def select_tube():
