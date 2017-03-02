@@ -382,6 +382,7 @@ def show_tube():
     axis0 = ds[str(axis_name.value)]
     axis1 = ds.axes[-1]
     _TUBE_DS_ = Dataset(data, axes = [axis0, axis1])
+    _TUBE_DS_.id = ds.id
     if len(tube_idx.options) != _TUBE_DS_.shape[-1] :
         tube_idx.options = range(_TUBE_DS_.shape[-1])
     idx = tube_idx.value
@@ -407,7 +408,7 @@ def select_tube():
         if idx > _TUBE_DS_.shape[-1]:
             idx = _TUBE_DS_.shape[-1]
         tube_ds = _TUBE_DS_[:, idx].get_reduced()
-        tube_ds.title = str(ds.id) + '_' + str(idx)
+        tube_ds.title = str(_TUBE_DS_.id) + '_' + str(idx)
         Plot1.set_dataset(tube_ds)
         Plot1.title = 'Tube ' + str(idx) + ': Intensity vs ' + _TUBE_DS_.axes[0].name
         Plot1.y_label = 'Tube Total Counts'
