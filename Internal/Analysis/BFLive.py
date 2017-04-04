@@ -24,9 +24,9 @@ DatasetFactory.__cache_enabled__ = False
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
 
 
-SAVED_MASK_PRFN = 'BeFilter.savedMasks'
-SAVED_INC_MASK_PRFN = 'BeFilter.savedIncMasks'
-SAVED_EXC_MASK_PRFN = 'BeFilter.savedExcMasks'
+SAVED_MASK_PRFN = 'BeLive.savedMasks'
+SAVED_INC_MASK_PRFN = 'BeLive.savedIncMasks'
+SAVED_EXC_MASK_PRFN = 'BeLive.savedExcMasks'
 EXPERIMENT_ID_PNAME = 'taipan.experiment.id'
 DS = None
 __new_xAxis__ = simpledata.arange(-0.5, 30, 1, float)
