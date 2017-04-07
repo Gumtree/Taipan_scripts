@@ -81,6 +81,7 @@ sample_name = $entry/sample/name
 sample_description = $entry/sample/description
 ef = $entry/sample/ef
 ei = $entry/sample/ei
+vei = $entry/sample/vei
 en = $entry/sample/en
 kf = $entry/sample/kf
 ki = $entry/sample/ki
