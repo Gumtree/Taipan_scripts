@@ -36,6 +36,8 @@ __mask_updated__ = False
 
 __newfile_enabled__ = True
 
+__plot2_normalise_factor__ = 0
+
 class RegionEventListener(MaskEventListener):
     
     def __init__(self):
@@ -530,16 +532,17 @@ def reset_fitting_plot2():
     plot2_FWHM.value = Double.NaN
     
 def remove_all_curves():
-    global Plot2
+    global Plot2, __plot2_normalise_factor__
     Plot2.clear()
     plot2_fit_min.value = Double.NaN
     plot2_fit_max.value = Double.NaN
     plot2_peak_pos.value = Double.NaN
     plot2_FWHM.value = Double.NaN
     to_remove.options = []
+    __plot2_normalise_factor__ = 0
     
 def import_to_plot2():
-    global Plot2
+    global Plot2, __plot2_normalise_factor__
     from Experiment import config
     dss = __DATASOURCE__.getSelectedDatasets()
     for dinfo in dss:
@@ -591,12 +594,13 @@ def import_to_plot2():
             norm = ds[tname]
         if normalise_all.value and tname != None and norm != None and hasattr(norm, '__len__'):
             logln('normalised with ' + str(tname))
-            avg = norm.sum() / len(norm)
+            if __plot2_normalise_factor__ == 0 :
+                __plot2_normalise_factor__ = norm.sum() / len(norm)
             niter = norm.item_iter()
             if niter.next() <= 0:
                 niter.set_curr(1)
 #            data = data / norm * avg
-            data = data / norm
+            data = data / norm * __plot2_normalise_factor__
         axis = ds[str(axis_name.value)]
         if data.size > axis.size:
             data = data[:axis.size]
@@ -628,7 +632,7 @@ def import_to_plot2():
 #    curve_fit.options = rlist
     
 def remove_curve():
-    global Plot2
+    global Plot2, __plot2_normalise_factor__
     if Plot2.ds is None :
         return
     if to_remove.value is None or to_remove.value == '':
@@ -639,6 +643,8 @@ def remove_curve():
             rlist = copy(to_remove.options)
             rlist.remove(to_remove.value)
             to_remove.options = rlist
+            if len(rlist) == 0 :
+                __plot2_normalise_factor__ = 0
             break
 
 #def remove_fitting_curve():
