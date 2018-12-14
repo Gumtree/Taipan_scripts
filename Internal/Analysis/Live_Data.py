@@ -24,8 +24,8 @@ fit = Group('Fitting')
 g2 = Group('Plot2')
 g3 = Group('Plot3')
 #g4 = Group('Plot4')
-data_name = Par('string', 'bm2_counts', \
-               options = ['bm1_counts', 'bm2_counts', 'total_counts'])
+data_name = Par('string', 'bm2_counts (detector)', \
+               options = ['bm1_counts (monitor)', 'bm2_counts (detector)', 'total_counts (Be filter detector)'])
 normalise = Par('bool', False)
 normalise_name = Par('string', 'default', \
                 options = ['default', 'bm1_counts', 'bm1_time', 'bm2_time', 'detector_time'])
@@ -192,6 +192,8 @@ def import_to_plot2():
                         to_remove.options = rlist
                         break
         dname = str(data_name.value)
+        if '(' in dname:
+            dname = dname.split('(')[0].strip()
         if len(ds) > 1:
             data = ds[dname]
         else:
@@ -242,7 +244,7 @@ def import_to_plot2():
         ds2.title = ds.id
         Plot2.add_dataset(ds2)
         Plot2.x_label = axis_name.value
-        Plot2.y_label = dname
+        Plot2.y_label = str(data_name.value)
         Plot2.title = 'Overlay'
         rlist = copy(to_remove.options)
         rlist.append(str(ds2.title))
@@ -388,6 +390,8 @@ def __run_script__(dss):
             df.datasets.clear()
             ds = df[fn]
             dname = str(data_name.value)
+            if '(' in dname:
+                dname = dname.split('(')[0].strip()
             data = ds[dname]
             if normalise.value :
                 if normalise_name.value == 'default':
@@ -428,7 +432,7 @@ def __run_script__(dss):
             ds2.title = ds.id
             Plot1.set_dataset(ds2)
             Plot1.x_label = axis_name.value
-            Plot1.y_label = dname
+            Plot1.y_label = str(data_name.value)
             Plot1.title = dname + ' vs ' + axis_name.value
             fit_min.value = ds2.axes[0].min()
             fit_max.value = ds2.axes[0].max()
