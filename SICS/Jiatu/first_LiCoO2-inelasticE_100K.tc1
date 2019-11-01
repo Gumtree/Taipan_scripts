@@ -1,0 +1,42 @@
+
+
+hset /sics/tc1/sensor/setpoint1 100
+hset /sics/tc1/sensor/setpoint2 100
+
+
+hset /sics/tc2/sensor/setpoint1 90
+hset /sics/tc2/sensor/setpoint2 90
+wait 1800
+
+
+title " Energy Scan Q (-0.1 0 6)   100K"
+drive qh -0.1 qk 0 ql 6 en -2
+runscan en -2 16 19 monitor 1000000
+
+
+title " Energy Scan Q (-0.2 0 6)   100K"
+drive qh -0.2 qk 0 ql 6 en 5
+runscan en 5 25 21 monitor 1000000
+
+
+title " Energy Scan Q (-0.3 0 6)   100K"
+drive qh -0.3 qk 0 ql 6 en 8
+runscan en 8 28 21 monitor 1000000
+
+
+
+title " Energy Scan Q (-0.4 0 6)  100K"
+drive qh -0.4 qk 0 ql 6 en 12
+runscan en 8 32 25 monitor 2000000
+
+
+title " Energy Scan Q (-0.5 0 6)   100K"
+drive qh -0.5 qk 0 ql 6 en 12
+runscan en 10 36 27 monitor 2000000
+
+
+title " Energy Scan Q (-0.6 0 6)   100K"
+drive qh -0.6 qk 0 ql 6 en 12
+runscan en 10 36 27 monitor 2000000
+
+

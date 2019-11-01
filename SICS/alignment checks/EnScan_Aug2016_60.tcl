@@ -35,7 +35,7 @@ s2 fixed 1
 drive ei 14.87 
 drive ef 14.87
 tasub const kf
-srunscan en 2 -2 21 monitor 40000
+runscan en 2 -2 21 monitor 40000
 
 s2 fixed -1
 drive s2 -60

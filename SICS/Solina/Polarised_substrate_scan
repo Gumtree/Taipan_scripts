@@ -1,0 +1,20 @@
+title Substrate peak MgO (002) spin--
+broadcast Substrate peak MgO (002) spin--
+he3 polariser/spin -1
+wait 2
+he3 analyser/spin -1
+wait 2
+broadcast MgO (002) --
+drive s2 -67.66
+runscan s1 -10.6 -12.6 21 time 1
+
+title Substrate peak MgO (002) spin-+
+broadcast Substrate peak MgO (002) spin-+
+he3 polariser/spin -1
+wait 2
+he3 analyser/spin 1
+wait 2
+broadcast MgO (002) -+
+drive s2 -67.66
+runscan s1 -10.6 -12.6 21 time 1
+

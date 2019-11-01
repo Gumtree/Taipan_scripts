@@ -1,0 +1,8 @@
+
+title Bragg peak (0.5, 0, -1) L scan @base
+mscan qh 2 0 qk 0 0 ql 0 -0.05 en 0 0 61 monitor 100000
+title Bragg peak (0.5, 0, -1.5) H scan @base
+mscan qh 0.35 0.01 qk 0 0 ql -1.5 0 en 0 0 31 monitor 100000
+
+title "LiFeSe Qh scan at 1meV Q(0.5, 0, -1)  @base"
+mscan qh 0.4 0.02 qk 0 0 ql -1 0 en 2 0 26 monitor 1800000

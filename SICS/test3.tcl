@@ -1,5 +1,18 @@
-drive dummy_motor 1
 
-runscan dummy_motor 0 3 4 time 1 savetype save force true
+#sampledescription NASICON parent
+#
+#autofocus enable
+#
+# 3rd scan PG mono
+#
+#selmono pg
+#eiscan 30 10 101 1400000 MONITOR_1
+#eiscan 32 10 111 100
+#runscan ei  32 10 111 time 100
+#runscan ei  32 10 221 time 100
+#selmono cu
+#drive ei 70
+#
 
-drive dummy_motor 2
+wait 2
+wait 4

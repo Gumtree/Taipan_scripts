@@ -1,0 +1,1 @@
+dynskan 500 hmscan m2 20 67 0.1

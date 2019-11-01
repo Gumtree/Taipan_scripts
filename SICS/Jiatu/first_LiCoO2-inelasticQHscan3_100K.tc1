@@ -1,0 +1,36 @@
+
+
+
+title " Qh Scan E=16meV   100K"
+drive qh -0.5 qk 0 ql 6 en 18
+runscan qh -0.5 0  21 monitor 2000000
+
+
+
+
+title " Energy Scan Q (-0.3 0 6)"
+drive qh -0.3 qk 0 ql 6 en 14
+runscan en 14 34 11 monitor 2000000
+
+
+title " Energy Scan Q (-0.35 0 6)"
+drive qh -0.35 qk 0 ql 6 en 14
+runscan en 14 34 11 monitor 2000000
+
+
+
+title " Energy Scan Q (-0.4 0 6)"
+drive qh -0.4 qk 0 ql 6 en 14
+runscan en 14 34 11 monitor 2000000
+
+
+title " Energy Scan Q (-0.45 0 6)"
+drive qh -0.45 qk 0 ql 6 en 14
+runscan en 14 34 11 monitor 2000000
+
+
+title " Energy Scan Q (-0.5 0 6)"
+drive qh -0.5 qk 0 ql 6 en 14
+runscan en 14 34 11 monitor 2000000
+
+

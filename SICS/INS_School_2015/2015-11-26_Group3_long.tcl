@@ -1,3 +1,7 @@
+#tasub cell 4.05 4.05 4.05 90 90 90
+#200 has s2 = -70.78
+#111 has s2 = -60.20
+#220 has s2 = -109.97
 
 
 tasub const kf

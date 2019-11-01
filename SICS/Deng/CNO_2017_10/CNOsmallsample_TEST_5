@@ -1,0 +1,35 @@
+
+
+
+
+drive ef 8.07
+
+
+
+
+
+title " E scan @ ql=1.4"
+mscan qh 1.0 0 qk 0  0 ql 1.4 0 en 2 0.2 33 monitor  1000000
+
+
+title " E scan @ ql=1.5"
+mscan qh 1.0 0 qk 0  0 ql 1.5 0 en 2 0.2 33 monitor  1000000
+
+
+title " E scan @ ql=1.6"
+mscan qh 1.0 0 qk 0  0 ql 1.6 0 en 2 0.2 33 monitor  1000000
+
+
+
+title " E scan @ ql=1.7"
+mscan qh 1.0 0 qk 0  0 ql 1.7 0 en 2 0.2 33 monitor  1000000
+
+title " E scan @ ql=1.8"
+mscan qh 1.0 0 qk 0  0 ql 1.8 0 en 2 0.2 33 monitor  1000000
+
+title " E scan @ ql=1.9"
+mscan qh 1.0 0 qk 0  0 ql 1.9 0 en 2 0.2 33 monitor  1000000
+
+title " E scan @ ql=2.0"
+mscan qh 1.0 0 qk 0  0 ql 2.0 0 en 2 0.2 33 monitor  1000000
+

@@ -1,0 +1,32 @@
+setvolt 0.001
+
+
+
+drive ef 8.07
+
+
+
+
+
+
+title " E scan @ qh=1.0  in field"
+mscan qh 1.0 0 qk 0  0 ql 0 0 en -0.4 0.2 27 monitor  2000000
+
+
+title " E scan @ qh=1.1  in field"
+mscan qh 1.1 0 qk 0  0 ql 0 0 en -0.4 0.2 27 monitor  2000000
+
+title " E scan @ ql=0.1 in field "
+mscan qh 1.0 0 qk 0  0 ql 0.1 0 en -0.4 0.2 35 monitor  2000000
+
+
+title " E scan @ ql=1.0 in field "
+mscan qh 1.0 0 qk 0  0 ql 1.0 0 en -0.4 0.2 35 monitor  2000000
+
+title " E scan @ ql=1.5 in field"
+mscan qh 1.0 0 qk 0  0 ql 1.5 0 en -0.4 0.2 35 monitor  2000000
+
+title " E scan @ ql=2 in field "
+mscan qh 1.0 0 qk 0  0 ql 2.0 0 en -0.4 0.2 35 monitor  2000000
+
+

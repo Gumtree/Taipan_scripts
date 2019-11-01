@@ -1,0 +1,13 @@
+#
+# Empty sample can scans on PG
+#
+sampletitle La2Zr2O7 @base
+#
+drive ei 14.87
+pdrive collimator fifteen
+runscan m1 18.5 22.5 21 time 5
+#
+airscan ei 70 8 156 time 80  datatype {HISTOGRAM_XYT RAW_TOTAL_HISTOGRAM_XE}
+#
+drive ei 14.87
+pdrive collimator open

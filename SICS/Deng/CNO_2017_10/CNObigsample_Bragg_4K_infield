@@ -1,0 +1,10 @@
+
+
+
+title " Bragg (100) 4K 2000V"
+mscan qh 0.95 0.0025 qk 0  0 ql 0 0 en 0 0 41 time 1
+
+title " Bragg (200) 4K 2000V"
+mscan qh 1.95 0.0025 qk 0  0 ql 0 0 en 0 0 41 time 1
+
+

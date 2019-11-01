@@ -1,0 +1,1 @@
+runscan ei 60 10 251 time 100 datatype {HISTOGRAM_XYT RAW_TOTAL_HISTOGRAM_XE}

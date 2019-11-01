@@ -1,0 +1,38 @@
+
+title " Qh Scan E=4meV   100K"
+drive qh -0.3 qk 0 ql 6 en 4
+runscan qh -0.25 0.35  13 monitor 1000000
+
+title " Qh Scan E=8meV   100K"
+drive qh -0.4 qk 0 ql 6 en 8
+runscan qh -0.35 0.45  17 monitor 1000000
+
+
+title " Qh Scan E=12meV   100K"
+drive qh -0.4 qk 0 ql 6 en 12
+runscan qh -0.35 0.0  8 monitor 1000000
+
+
+title " Qh Scan E=16meV   100K"
+drive qh -0.5 qk 0 ql 6 en 16
+runscan qh -0.5 0  21 monitor 1000000
+
+
+
+title " Qh Scan E=4meV   100K"
+drive qh -0.3 qk 0 ql 6 en 2
+runscan qh -0.3 0.3  25 monitor 1000000
+
+title " Qh Scan E=8meV   100K"
+drive qh -0.4 qk 0 ql 6 en 6
+runscan qh -0.4 0.4  33 monitor 1000000
+
+
+title " Qh Scan E=12meV   100K"
+drive qh -0.4 qk 0 ql 6 en 10
+runscan qh -0.4 0.0  17 monitor 1000000
+
+
+title " Qh Scan E=16meV   100K"
+drive qh -0.5 qk 0 ql 6 en 14
+runscan qh -0.5 0  21 monitor 1000000

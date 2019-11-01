@@ -82,6 +82,7 @@ sample_description = $entry/sample/description
 ef = $entry/sample/ef
 ei = $entry/sample/ei
 vei = $entry/sample/vei
+vei_1 = $entry/sample/vei_1
 en = $entry/sample/en
 kf = $entry/sample/kf
 ki = $entry/sample/ki

@@ -1,0 +1,14 @@
+#
+# RT
+#
+sampledescription YSZ
+sampletitle RT
+runscan ei 70 20 251 time 150
+drive ei 14.87
+
+s2 fixed -1
+drive s2 -90
+s2 fixed 1
+runscan ei 140 70 36 time 200
+runscan ei 70 40 31 time 200
+runscan ei 40 25 16 time 200

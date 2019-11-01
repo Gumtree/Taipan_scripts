@@ -1,0 +1,45 @@
+## 300K
+
+drive qh 1 qk 1 ql 0
+mscan qh 0.96 0.001 qk 0.96 0.001 81 monitor 31000 
+
+drive qh 1 qk 1 ql 0
+runscan ql -0.04 0.04 81 monitor 31000
+
+drive qh 0 qk 0 ql 1
+runscan ql 0.96 1.04 81 monitor 186000
+
+drive qh 1 qk 1 ql 1
+runscan qh 0.96 1.04 0.001 81 monitor 3100
+
+drive qh 0.5 qk 0.5 ql 0.5
+runscan ql 0.45 0.55 101 monitor 186000
+
+drive qh 0.5 qk 0.5 ql 0
+runscan ql -0.05 0.05 101 monitor 186000
+
+## Go down to 5 K
+
+drive qh 0.5 qk 0.5 ql 0.495
+run tc1_driveable 5
+runscan dummy_motor 1 120 121 monitor 186000
+
+## 5K
+
+drive qh 1 qk 1 ql 0
+mscan qh 0.96 0.001 qk 0.96 0.001 81 monitor 31000 
+
+drive qh 1 qk 1 ql 0
+runscan ql -0.04 0.04 81 monitor 31000
+
+drive qh 1 qk 1 ql 1
+runscan qh 0.96 1.04 0.001 81 monitor 3100
+
+drive qh 0 qk 0 ql 1
+runscan ql 0.96 1.04 81 monitor 186000
+
+drive qh 0.5 qk 0.5 ql 0.5
+runscan ql 0.45 0.55 101 monitor 186000
+
+drive qh 0.5 qk 0.5 ql 0
+runscan ql -0.05 0.05 101 monitor 186000

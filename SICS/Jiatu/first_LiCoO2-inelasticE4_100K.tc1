@@ -1,0 +1,31 @@
+
+title " Energy Scan Q (0 0 5.5)   100K"
+drive qh 0 qk 0 ql 5.5 en 14
+runscan en 14 29 16 monitor 2000000
+
+title " Energy Scan Q (0 0 5.4)   100K"
+drive qh 0 qk 0 ql 5.4 en -2
+runscan en 21 30 10 monitor 2000000
+
+
+
+title " Energy Scan Q (0 0 5.3)   100K"
+drive qh 0 qk 0 ql 5.3 en -2
+runscan en 8 26 17 monitor 2000000
+
+
+
+title " Energy Scan Q (0 0 5.1)   100K"
+drive qh 0 qk 0 ql 5.1 en 10
+runscan en 10 28 19 monitor 2000000
+
+title " Energy Scan Q (0 0 4.8)   100K"
+drive qh 0 qk 0 ql 4.8 en 10
+runscan en 10 30 21 monitor 2000000
+
+
+
+title " Energy Scan Q (0 0 4.6)   100K"
+drive qh 0 qk 0 ql 4.6 en 10
+runscan en 10 30 21 monitor 2000000
+

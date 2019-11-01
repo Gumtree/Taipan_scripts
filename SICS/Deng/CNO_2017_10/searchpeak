@@ -1,0 +1,21 @@
+drive s2 -38.9
+
+drive sgu 0
+runscan s1 -70 20 181 time 1
+
+
+
+drive sgu 4
+runscan s1 -70 20 181 time 1
+
+
+drive sgu -4
+runscan s1 -70 20 181 time 1
+
+
+drive sgu -7
+runscan s1 -70 20 181 time 1
+
+
+drive sgu 7
+runscan s1 -70 20 181 time 1
