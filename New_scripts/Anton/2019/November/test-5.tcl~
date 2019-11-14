@@ -1,0 +1,7 @@
+#
+# Script to test a tcl for loop in SICS.
+#
+for {set x 0} {$x<10} {incr x} {
+    puts "x is $x"
+    sampletitle this is $x
+}
