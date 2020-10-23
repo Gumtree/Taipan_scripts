@@ -1298,7 +1298,11 @@ Gas.numColumns = 7
 Gas.colspan = __script__.numColumns
 as2 = Par('float', sics.getValue('s2').getFloatData())
 as2.title = 's2'
-aatrans = Par('float', sics.getValue('atrans').getFloatData())
+aatrans = Par('float', 0)
+try:
+    aatrans.value = sics.getValue('atrans').getFloatData()
+except:
+    pass
 aatrans.title = 'atrans'
 act_s2 = Act('drive_s2()', 'Drive s2 to -50 and atrans to 0')
 act_s2.colspan = 5

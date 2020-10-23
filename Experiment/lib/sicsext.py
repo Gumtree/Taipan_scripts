@@ -7,6 +7,100 @@ from org.gumtree.gumnix.sics.control import ServerStatus
 import traceback
 import sys
 
+def mscan(v1_name, v1_start, v1_increment, v2_name, v2_start, v2_increment, \
+          NP, mode, preset, channel = 'scan', comm = None, ref_rate = 3):
+    clearInterrupt()
+#    scan_variable = 'dummy_motor'
+    cpath = '/commands/scan/bmonscan'
+    sicsController = getSicsController()
+    scanController = sicsController.findComponentController(cpath)
+    
+#    execute('hset ' + cpath + '/scan_variable ' + str(scan_variable))
+#    execute('hset ' + cpath + '/scan_start ' + str(scan_start))
+#    execute('hset ' + cpath + '/scan_increment ' + str(scan_increment))
+#    execute('hset ' + cpath + '/NP ' + str(NP))
+#    execute('hset ' + cpath + '/mode ' + mode)
+#    execute('hset ' + cpath + '/preset ' + str(preset))
+#    execute('hset ' + cpath + '/channel ' + str(channel))
+    execute('bmonscan clear', channel)
+    execute('bmonscan add {} {} {}'.format(v1_name, v1_start, v1_increment), channel)
+    execute('bmonscan add {} {} {}'.format(v2_name, v2_start, v2_increment), channel)
+
+    # Monitor status
+    while(scanController.getCommandStatus().equals(CommandStatus.BUSY)):
+        # Don't do anything before scan is ready
+        time.sleep(0.1)
+    
+    # Wait 1 sec to make the setting settle
+#    time.sleep(1)
+    
+    # Run scan
+    print 'Scan started'
+#    scanController.asyncExecute()
+#    execute('hset ' + cpath + ' start')
+    execute('bmonscan run {} {} {}'.format(NP, mode, preset), channel)
+    
+    # Monitor initial status change
+    try:
+        timeOut = False
+        counter = 0;
+        while (scanController.getCommandStatus().equals(CommandStatus.IDLE)):
+            time.sleep(0.1)
+            print 'IDLE'
+            counter += 0.1
+            if (counter >= 10):
+                timeOut = True
+                print 'Time out on running scan'
+                break
+                
+        # Enter into normal sequence
+        if (timeOut == False):
+            scanpoint = -1;
+            scanPointController = sicsController.findComponentController(scanController, '/feedback/scanpoint')
+            countsController = sicsController.findComponentController(scanController, '/feedback/counts')
+            print '  NP  ' + '\t' + ' Counts'
+            while (scanController.getCommandStatus().equals(CommandStatus.BUSY)):
+                try:
+                    currentPoint = scanPointController.getValue().getIntData()
+                except:
+                    time.sleep(0.1)
+                    continue
+                if ((scanpoint == -1 and  currentPoint == 0) or (scanpoint != -1 and currentPoint != scanpoint)):
+                    scanpoint = currentPoint
+                    if currentPoint > 0 and comm != None:
+                        try:
+                            print '%4d \t %d' % (scanpoint, countsController.getValue().getIntData())
+                        except:
+                            pass
+                        try:
+                            if (float(scanpoint) / ref_rate) == (int(scanpoint) / ref_rate) :
+                                exec(comm)
+                                print '\tupdate plot'
+                        except:
+                            traceback.print_exc(file = sys.stdout)
+                time.sleep(0.1)
+            if comm != None:
+                try:
+                    exec(comm)
+                    print '\tupdate plot'
+                except:
+                    pass
+            try:
+                print '%4d \t %d' % (scanpoint + 1, countsController.getValue().getIntData())
+            except:
+                pass
+            logger.log('Scan completed')
+        handleInterrupt()
+    except Exception, e:
+        if e.message == 'SICS interrupted!':
+            raise e
+        else:
+            traceback.print_exc(file = sys.stdout)
+            raise Exception, 'failed to run the scan'
+    except:
+        traceback.print_exc(file = sys.stdout)
+        raise Exception, 'failed to run the scan'
+    
 def runbmonscan(scan_variable, scan_start, scan_increment, NP, mode, preset, channel, comm = None, ref_rate = 3):
     simplescan('bmonscan', scan_variable, scan_start, scan_increment, NP, mode, preset, channel, comm, ref_rate)
 
