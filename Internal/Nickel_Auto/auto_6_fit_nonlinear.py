@@ -4,6 +4,7 @@ import math
 import time
 from gumpy.nexus.fitting import Fitting, GAUSSIAN_FITTING, LINEAR_FITTING, UndefinedFitting
 from gumpy.commons import sics
+from Experiment.lib import sicsext
 # Script control setup area
 # script info
 __script__.title = 'Fit Two-Theta Curves'
@@ -129,6 +130,8 @@ def offset_m2m1():
         slog('setpos m2 ' + str(m2_old.value) + ' ' + str(m2_new.value))
         sics.setpos('m2', m2_old.value, m2_new.value)
         sics.drive('m2', m2_old.value)
+        sicsext.sync_softzero('m1')
+        sicsext.sync_softzero('m2')
         offset_done.value = True
 
 nact = Act('next_step()', 'Continue ->')

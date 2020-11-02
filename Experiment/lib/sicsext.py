@@ -353,3 +353,30 @@ def get_raw_value(comm, dtype = float):
             time.sleep(0.2)
     logger.log('time out in running ' + comm_str)
     return None
+
+def get_mono_mode():
+    mode = sics.get_raw_value('mono_mode', str)
+    if mode != 'cu' and mode != 'pg':
+        return None
+    else:
+        return mode
+    
+def get_instrument_cfg():
+    cfg = sics.get_raw_value('tcl: set ::INSTRUMENT_CFG', str)
+    if cfg != 'tas' and cfg != 'bef':
+        return None
+    else:
+        return cfg
+    
+def sync_softzero(dev):
+    zero = sics.get_raw_value('{} softzero'.format(dev))
+    mode = get_mono_mode()
+    cfg = get_instrument_cfg()
+    if cfg == 'bef':
+        cfg = 'bef_'
+    else:
+        cfg = ''
+    if mode != None:
+        cmd = '{}{}_{}_zero {}'.format(cfg, dev, mode, zero)
+        logger.log(cmd)
+        sics.execute(cmd)

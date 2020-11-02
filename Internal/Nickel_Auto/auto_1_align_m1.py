@@ -102,6 +102,7 @@ def offset_m1():
         sics.drive(aname, peak_pos.value)
         slog('set peak position to ' + str(m1.value))
         sics.setpos(aname, peak_pos.value, m1.value)
+        sicsext.sync_softzero('m1')
         offset_done.value = True
     
 nact = Act('next_step()', 'Next Step ->')
