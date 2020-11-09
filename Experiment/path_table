@@ -67,6 +67,8 @@ a2 = $entry/instrument/detector/a2
 
 VS_left = $entry/instrument/slits/VS_left
 VS_right = $entry/instrument/slits/VS_right
+vs_left = $entry/instrument/slits/VS_left
+vs_right = $entry/instrument/slits/VS_right
 pa_bottom = $entry/instrument/slits/pa_bottom
 pa_left = $entry/instrument/slits/pa_left
 pa_top = $entry/instrument/slits/pa_top
