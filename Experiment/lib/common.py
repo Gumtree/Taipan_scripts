@@ -1,7 +1,7 @@
 import math
 
 def __get_axis_name__(axes):
-    if len(axes) == 0:
+    if axes is None or len(axes) == 0:
         return None
     name = axes[0].name
     if len(axes) > 1:
