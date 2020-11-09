@@ -1,0 +1,41 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+TITLE: Notes
+#+DATE: /date
+#+AUTHOR: Anton P.J. Stampfl
+#+EMAIL: aps@ansto.gov.au
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.2 (Org mode 9.1.9)
+* Monday $17^{th}$ August
+- Tested both new sets of slits. Pre-sample, ps, and pre-analyser, pa.
+- All slits appear to move correctly and by the correct amount. Wasn't able to measure distances because of the radiation zone in the instrument area due to the mono shielding being removed.
+- Ran Kirrily's script and all went well.
+- Setup for an overnight scan consisting of mcans on pa_top and pa_bottom and mscans of pa_right and pa_left. See 17b.tcl. I iterated over these two scans five hundred times.
+* Thursday $20^{th}$ August
+- The script took 11 hours and 14 minutes to complete. Although there was an error in the for loop statement that I will check.
+- Looks like also that someone tried to position pa_left and pa_right after the script had finished. I will check now whether any problem exists.
+- The for loop structure is fine as I ran a for loop on a dummy scan without problem. Checked the datafiles and the last scan started created a file at 8.51am in the morning on Tuesday $18^{th}$ but was not completed. So it looks like to me that the motors were shut off. Would have been nice to know that this had been done. I will check tomorrow.
+* Monday $28^{th}$ September
+Stopped the script after 12:50 minutes of scanning on ps. I will look through the files today.
+* Tuesday $29^{th}$ September
+- selmono cu works
+- sap in: sap2=0, sap3=0
+- pdrive sap2 out sap3 out
+- sap2=98, sap3=-101
+- pdrive sap2 in sap3 in
+- sap2=0, sap3=0
+- back to pg. Looks fine.
+- drive ei 45(m2=23.2) to 8(m2=57) meV fine
+- on Cu drive ei 28 meV (m2=56.4) and 150 meV (23.6)
+* Thursday $1^{st}$ October
+- monitor and detector both working
+- m1 softzero offset way off
+- mhfocus not working. Seems to be stuck at ~130
+- m1 scan double hump structure. Centered around ~$29.1^{\circ}$
+  - virtual slits wide open
+  - 

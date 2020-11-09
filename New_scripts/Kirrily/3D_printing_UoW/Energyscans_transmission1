@@ -1,0 +1,9 @@
+s2 fixed -1
+drive a1 0 a2 0 atrans 19 s2 0
+
+a1 fixed 1
+a2 fixed 1
+s2 fixed 1
+
+title  Ni on PG mono
+runscan ei 70 10 161 monitor 20000
