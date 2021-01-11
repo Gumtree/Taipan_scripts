@@ -641,7 +641,8 @@ def __run_script__(dss):
         for fn in dss:
             df.datasets.clear()
             ds = df[fn]
-            ds.axes[2] = __new_yAxis__
+            if ds.shape[2] == 1024:
+                ds.axes[2] = __new_yAxis__
             ds.axes[3] = __new_xAxis__
             DS = ds
             process(DS)
