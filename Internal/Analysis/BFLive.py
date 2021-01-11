@@ -30,6 +30,7 @@ SAVED_EXC_MASK_PRFN = 'BeLive.savedExcMasks'
 EXPERIMENT_ID_PNAME = 'taipan.experiment.id'
 DS = None
 __new_xAxis__ = simpledata.arange(-0.5, 30, 1, float)
+__new_yAxis__ = simpledata.arange(-0.5, 1024, 1, float)
 
 __mask_updated__ = False
 
@@ -633,13 +634,14 @@ def __run_script__(dss):
     global Plot2
     global Plot3
     global DS
-    global __new_xAxis__
+    global __new_xAxis__, __new_yAxis__
     if (dss is None or len(dss) == 0) :
         log('no input datasets\n')
     else :
         for fn in dss:
             df.datasets.clear()
             ds = df[fn]
+            ds.axes[2] = __new_yAxis__
             ds.axes[3] = __new_xAxis__
             DS = ds
             process(DS)
