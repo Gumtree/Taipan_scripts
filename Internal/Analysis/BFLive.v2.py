@@ -182,7 +182,7 @@ normalise.title = 'Enable Normalization'
 normalise_factor = Par('string', 'bm1_counts', options = ['detector_time', \
                             'bm1_counts', 'bm1_time', 'bm2_time'])
 normalise_factor.title = 'Normalisation Factor'
-normalise_scale = Par('float', 10000)
+normalise_scale = Par('float', 1000000)
 normalise_scale.title = 'Normalisation Scale'
 def enable_normalise():
     normalise_factor.enabled = normalise.value
