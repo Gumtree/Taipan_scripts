@@ -1,4 +1,4 @@
-drive qh 2 qk 0 ql 0 en 0
+drive qh 1 qk 0 ql 0 en 0
 
 #initial field
 OxfordSetHS on
@@ -10,15 +10,16 @@ runscan dummy_motor 0 100 7 time 100
 OxfordSetRate 0.22
 OxfordSetField 5
 #wait  900
-runscan dummy_motor 0 100 9 time 100
+runscan dummy_motor 0 100 10 time 100
 OxfordSetRate 0.47
 OxfordSetField 0
 #wait  700
-runscan dummy_motor 0 100 7 time 100
+runscan dummy_motor 0 100 9 time 100
 OxfordSetHS off
 wait 60
 
 #runscan dummy_motor 0 100 61 time 100
+#2800 seconds = 3/4 hour
 
 
 

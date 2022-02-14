@@ -181,7 +181,9 @@ normalise = Par('bool', True, command = 'enable_normalise()')
 normalise.title = 'Enable Normalization'
 normalise_factor = Par('string', 'bm1_counts', options = ['detector_time', \
                             'bm1_counts', 'bm1_time', 'bm2_time'])
-normalise_factor.title = 'Normalization Factor'
+normalise_factor.title = 'Normalisation Factor'
+normalise_scale = Par('float', 1000000)
+normalise_scale.title = 'Normalisation Scale'
 def enable_normalise():
     normalise_factor.enabled = normalise.value
 axis_name = Par('string', 'suid')
@@ -193,7 +195,8 @@ pause = Par('bool', not __newfile_enabled__, command = 'set_newfile_enabled()')
 def set_newfile_enabled():
     global __newfile_enabled__
     __newfile_enabled__ = not pause.value
-g1.add(data_name, axis_name, axis_lock, normalise, normalise_factor, auto_fit, pause)
+g1.add(data_name, axis_name, axis_lock, normalise, 
+       normalise_factor, normalise_scale, auto_fit, pause)
 
 fit_min = Par('float', 'NaN')
 fit_max = Par('float', 'NaN')
@@ -479,13 +482,13 @@ def import_to_plot2():
         if normalise_all.value and tname != None and norm != None and hasattr(norm, '__len__'):
             logln('normalised with ' + tname)
 #            avg = norm.sum() / len(norm)
-            if __plot2_normalise_factor__ == 0 :
-                __plot2_normalise_factor__ = norm.sum() / (1.0 * len(norm))
+#            if __plot2_normalise_factor__ == 0 :
+#                __plot2_normalise_factor__ = norm.sum() / (1.0 * len(norm))
             niter = norm.item_iter()
             if niter.next() <= 0:
                 niter.set_curr(1)
 #            data = data / norm * avg
-            data = data / norm * __plot2_normalise_factor__
+            data = data * normalise_scale.value / norm
         axis = ds[str(axis_name.value)]
         if data.size > axis.size:
             data = data[:axis.size]
@@ -677,11 +680,11 @@ def process(ds):
             norm = ds[tname]
         if normalise.value and tname != None and norm != None and hasattr(norm, '__len__'):
             logln('normalised with ' + tname)
-            avg = norm.sum() / (1.0 * len(norm))
+#            avg = norm.sum() / (1.0 * len(norm))
             niter = norm.item_iter()
             if niter.next() <= 0:
                 niter.set_curr(1)
-            data = data * avg / norm
+            data = data * normalise_scale.value / norm
         if not ds.axes is None and len(ds.axes) > 0: 
             if not axis_lock.value:
                 axis_name.value = ds.axes[0].name

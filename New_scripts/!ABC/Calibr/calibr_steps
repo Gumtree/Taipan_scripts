@@ -1,0 +1,40 @@
+# (1) check instrument (hard ware)
+#     Collimation: C2 and C3
+#     PG is removed?
+#     Fixed apertures is removed (at least small one)
+#     Ni sample is on the stage
+#     slits: -30 30, -15 15ps
+
+# (2) check instrument (soft ware)
+#    mono_mode   (see if pg mode)
+#    selmono pg  (if it is not pg )
+#    autofocus status
+#    vs_left, vs_right
+#    m1, m2, mtilt, mtrans, mhfocus, mvfocus
+#    a1, a2, atitl, atrans, ahfocus, avfocus
+#    ps_left,ps_right, ps_top, ps_bottom
+#    pa_left,pa_right, pa_top, pa_bottom
+#    ei=14.87: mvfocus:56;mhfocus:48; avfocus:145: ahfocus:88;
+
+# (3) scans 
+#    drive a1 0 a2 0 atrans 19  (2 axis mode) 
+#    scan m1, drive to peak position
+#   runscan m1 19.465 21.465 21 time 2
+#   drive m1 (peak position)
+
+# (4) nickle s2 scans
+
+title "Ni powder, VS=20, Mono_Dfocus, slit=15,15,30,30"
+runscan s2 -32.0 -36.0 41 time 2
+runscan s2 -38 -42 41 time 2
+runscan s2 -55 -59 41 time 2
+runscan s2 -65 -70 51 time 2
+runscan s2 -69 -74 51 time 2
+runscan s2 -80.0 -86.00 61 time 2
+
+
+# (5) fitting to the nickle peaks
+#
+# (6) nonlinear fit to have the m1 m2 position and s2 offset
+#
+# (7)
