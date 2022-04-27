@@ -27,10 +27,10 @@ __fit_focus__ = dict()
 NaN = float('nan')
 
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-__data_folder__ = 'W:/data/current'
+__data_folder__ = System.getProperty('sics.data.path', 'W:/data/current')
 #__data_folder__ = 'Y:/testing/taipan'
-__export_folder__ = 'W:/data/current/reports'
-__pickle_file__ = __export_folder__ + '/CalibrationModel_' + strftime("%y%m%d%H%M%S") + '.pkl'
+__cal_export_folder__ = __data_folder__ + '/reports'
+__pickle_file__ = __cal_export_folder__ + '/CalibrationModel_' + strftime("%y%m%d%H%M%S") + '.pkl'
 #System.setProperty('sics.data.path', __data_folder__)
 npeak = 6
 hkl = array.Array([0.75, 1, 2, 2.75, 3, 4])
@@ -185,13 +185,13 @@ class CalibrationModel:
     def __repr__(self):
         return self.__str__()
     
-__buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
-fi = File(__buffer_log_file__)
+__cal_buffer_log_file__ = __cal_export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
+fi = File(__cal_buffer_log_file__)
 if not fi.exists():
     if not fi.mkdirs():
-        print 'Error: failed to make directory: ' + __buffer_log_file__
-__buffer_log_file__ += '/LogCalib.txt'
-__buffer_logger__ = open(__buffer_log_file__, 'a')
+        print 'Error: failed to make directory: ' + __cal_buffer_log_file__
+__cal_buffer_log_file__ += '/LogCalib.txt'
+__cal_buffer_logger__ = open(__cal_buffer_log_file__, 'a')
     
 print 'Waiting for SICS connection'
 while sics.getSicsController() == None:
@@ -239,7 +239,7 @@ def add_dataset():
     try:
         __DATASOURCE__.addDataset(__file_to_add__, True)
     except:
-        slog('error in adding dataset: ' + __file_to_add__)
+        cal_log('error in adding dataset: ' + __file_to_add__)
     
 class __SaveCountListener__(DynamicControllerListenerAdapter):
     
@@ -261,13 +261,13 @@ class __SaveCountListener__(DynamicControllerListenerAdapter):
                 checkFile = File(__data_folder__ + "/" + checkFile.getName());
                 __file_to_add__ = checkFile.getAbsolutePath();
                 if not checkFile.exists():
-                    slog("The target file :" + __file_to_add__ + " can not be found")
+                    cal_log("The target file :" + __file_to_add__ + " can not be found")
                     return
                 runnable = __Display_Runnable__()
                 runnable.run = add_dataset
                 Display.getDefault().asyncExec(runnable)
             except: 
-                slog('failed to add dataset ' + __file_to_add__)
+                cal_log('failed to add dataset ' + __file_to_add__)
                     
 __saveCountListener__ = __SaveCountListener__()
 __save_count_node__.addComponentListener(__saveCountListener__)
@@ -312,7 +312,7 @@ def __std_run_script__(fns):
     
     # check if a list of file names has been given
     if (fns is None or len(fns) == 0) :
-        slog('no input datasets')
+        cal_log('no input datasets')
     else :
         for fn in fns:
             # load dataset with each file name
@@ -353,7 +353,7 @@ def __std_fit_curve__():
     global Plot1
     ds = Plot1.ds
     if ds is None or len(ds) == 0:
-        slog('Error: no curve to fit in Plot1.')
+        cal_log('Error: no curve to fit in Plot1.')
         return
     for d in ds:
         if d.title == 'fitting':
@@ -366,13 +366,13 @@ def __std_fit_curve__():
         res.var[:] = 0
         res.title = 'fitting'
         Plot1.add_dataset(res)
-        slog(str(fitting.params))
+        cal_log(str(fitting.params))
         mean = fitting.mean
-        slog('POS_OF_PEAK=' + str(mean))
-        slog('FWHM=' + str(2.35482 * math.fabs(fitting.params['sigma'])))
+        cal_log('POS_OF_PEAK=' + str(mean))
+        cal_log('FWHM=' + str(2.35482 * math.fabs(fitting.params['sigma'])))
         peak_pos.value = mean
     except:
-        slog('failed to fit with Gaussian curve.')
+        cal_log('failed to fit with Gaussian curve.')
         traceback.print_exc(file = sys.stdout)
         return
 
@@ -388,10 +388,10 @@ def __dispose_all__(event):
     global __scan_status_node__
     global __save_count_node__
     global __saveCountListener__
-    global __buffer_log_file__
+    global __cal_buffer_log_file__
     __save_count_node__.removeComponentListener(__saveCountListener__)
-    if __buffer_log_file__ != None :
-        __buffer_log_file__.close()
+    if __cal_buffer_log_file__ != None :
+        __cal_buffer_log_file__.close()
 
 __dispose_listener__ = __Dispose_Listener__()
 __dispose_listener__.widgetDisposed = __dispose_all__
@@ -419,12 +419,12 @@ def __dataset_selected__(datasets):
         des += '\n'
         __INFOTEXT__.appendText(des)
     
-def slog(text):
-    global __buffer_logger__
+def cal_log(text):
+    global __cal_buffer_logger__
     try:
         tsmp = strftime("[%Y-%m-%d %H:%M:%S]", localtime())
-        __buffer_logger__.write(tsmp + ' ' + text + '\n')
-        __buffer_logger__.flush()
+        __cal_buffer_logger__.write(tsmp + ' ' + text + '\n')
+        __cal_buffer_logger__.flush()
     except:
         print 'failed to log'
     logln(text)
@@ -442,7 +442,7 @@ pa_bottom.title = ' Slit Bottom'
 #sp.colspan = 2
 #act1 = Act('run_slit()', 'Drive Slits') 
 def run_slits():
-    slog('drive pa_left ' + str(pa_left.value)\
+    cal_log('drive pa_left ' + str(pa_left.value)\
         + ' pa_right ' + str(pa_right.value)\
         + ' pa_top ' + str(pa_top.value)\
         + ' pa_bottom ' + str(pa_bottom.value))
@@ -451,7 +451,7 @@ def run_slits():
                      'pa_top': pa_top.value,
                      'pa_bottom': pa_bottom.value}
                     )
-    slog('done')
+    cal_log('done')
 
 Gp = Group('Preparation - please mount Nickel sample ' + \
         'and set proper attenuation')
@@ -477,7 +477,7 @@ def line_up():
     if confirm('Please mount Nickel sample and set proper attenuation. '\
                + 'Press on \'OK\' to continue.'):
         run_slits()
-        slog('drive m2 ' + str(pm2.value)\
+        cal_log('drive m2 ' + str(pm2.value)\
              + ' s2 ' + str(ps2.value)\
              + ' a1 ' + str(pa1.value)\
              + ' a2 ' + str(pa2.value)\
@@ -486,7 +486,7 @@ def line_up():
         sics.multiDrive({'m2':pm2.value, 's2':ps2.value, \
                          'a1':pa1.value, 'a2':pa2.value, \
                          'atrans':patrans.value})
-        slog('done')
+        cal_log('done')
     else:
         raise Exception, 'User cancelled the task.'
         
@@ -499,10 +499,10 @@ def line_up():
 #def zero_offset():
 #    dev = device_name.value
 #    if dev != None and dev != '':
-#        slog('set zero offset for ' + dev)
+#        cal_log('set zero offset for ' + dev)
 #        cur_value = sics.getValue(dev).getFloatData()
 #        sics.setpos(dev, cur_value, visual_value.value)
-#        slog('drive ' + dev + ' ' + str(cur_value))
+#        cal_log('drive ' + dev + ' ' + str(cur_value))
 #        sics.drive(dev, cur_value)
 
 Gr = Group('Straight Line Alignment')
@@ -518,7 +518,7 @@ def drive_Ei():
     sics.execute('tasub outofplane 0')
     sics.execute('samplename Ni')
     sics.execute('sampledescription Nickel calibration')
-    slog('fix s1, s2, a1 and a2')
+    cal_log('fix s1, s2, a1 and a2')
     sics.execute('s1 fixed 1')
     sics.execute('s2 fixed 1')
     sics.execute('a1 fixed 1')
@@ -529,7 +529,7 @@ def drive_Ei():
     sics.drive('sgu', 0)
     sics.execute('sgl fixed 1')
     sics.execute('sgu fixed 1')
-    slog('drive Ei ' + str(rEi.value))
+    cal_log('drive Ei ' + str(rEi.value))
     sics.execute('tasub update')
     time.sleep(1)
     try:
@@ -545,7 +545,7 @@ def drive_Ei():
 #    rscan_m1.value = str(math.ceil((m1 - 2) * 1000) / 1000) + ', ' + str(math.ceil((m1 + 2) * 1000) / 1000) + ', 41, \'time\', 1'
     rscan_m1.value = str(math.ceil((m1 - 2) * 1000) / 1000) + ', 0.1, 41, \'timer\', 1'
     sics.execute('tasub update')
-    slog('unfix sgu, sgl, s1, s2, a1 and a2')
+    cal_log('unfix sgu, sgl, s1, s2, a1 and a2')
     sics.execute('s2 fixed -1')
     sics.execute('s1 fixed -1')
     sics.execute('a1 fixed -1')
@@ -586,7 +586,7 @@ def find_m1():
     reset_fit()
     rm1_offset.enabled = True
     sicsext.call_back = __load_experiment_data__
-    slog('scan ' + aname + ', ' + rscan_m1.value)
+    cal_log('scan ' + aname + ', ' + rscan_m1.value)
     sics.execute('title straight line align m1')
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + rscan_m1.value + ', 0, \'call_back()\', ref_rate = 1)')
 #    exec('sicsext.runscan(\'' + aname + '\', ' + rscan_m1.value + ', 0, \'call_back()\')')
@@ -609,13 +609,13 @@ def offset_rm1():
         pass
     peak = rm1_peak.value
     if math.isnan(peak) :
-        slog('no peak found in m1 scan')
+        cal_log('no peak found in m1 scan')
         raise Exception, 'no peak found in m1 scan'
     else:
         m1 = sicsext.getStableValue('m2').getFloatData() / 2
-        slog('drive ' + aname + ' ' + str(peak))
+        cal_log('drive ' + aname + ' ' + str(peak))
         sics.drive(aname, peak)
-        slog('set peak position to ' + str(peak))
+        cal_log('set peak position to ' + str(peak))
         dif = math.fabs(peak - m1)
         if dif > 2 :
             confirmed = confirm('The new offset is ' + str(dif) + 
@@ -638,7 +638,7 @@ def load_rm1_file():
         __fit_focus__['filename'] = rm1file.value
         view_file(rm1file.value.strip())
     else:
-        slog('no available file')
+        cal_log('no available file')
       
 #rs2 = Par('float', 0)
 #rs2.title = 's2'
@@ -663,7 +663,7 @@ def find_rs2():
     reset_fit()
     rs2_offset.enabled = True
     sicsext.call_back = __load_experiment_data__
-    slog('scan ' + aname + ', ' + rscan_s2.value)
+    cal_log('scan ' + aname + ', ' + rscan_s2.value)
     sics.execute('title straight line align s2')
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + rscan_s2.value + ', 0, \'call_back()\', ref_rate = 1)')
     rs2file.value = get_filename()
@@ -685,7 +685,7 @@ def offset_rs2():
         pass
     peak = rs2_peak.value
     if math.isnan(peak) :
-        slog('no peak found in s2 scan')
+        cal_log('no peak found in s2 scan')
         raise Exception, 'no peak found in s2 scan'
     else:
         dif = math.fabs(peak)
@@ -696,9 +696,9 @@ def offset_rs2():
         else:
             confirmed = True
         if confirmed:
-            slog('drive ' + aname + ' ' + str(peak))
+            cal_log('drive ' + aname + ' ' + str(peak))
             sics.drive(aname, peak)
-            slog('set peak position to ' + str(peak))
+            cal_log('set peak position to ' + str(peak))
             cal_model.pre_s2_scan.use(peak)
             sics.setpos(aname, peak, 0)
             cal_model.export()
@@ -713,7 +713,7 @@ def load_rs2_file():
         __fit_focus__['filename'] = rs2file.value
         view_file(rs2file.value.strip())
     else:
-        slog('no file available')
+        cal_log('no file available')
 
 rscan_a2 = Par('string', '-2.5, 0.5, 11, \'timer\', 1')
 rscan_a2.title = 'align a2'
@@ -735,7 +735,7 @@ def find_ra2():
     reset_fit()
     ra2_offset.enabled = True
     sicsext.call_back = __load_experiment_data__
-    slog('scan ' + aname + ', ' + rscan_a2.value)
+    cal_log('scan ' + aname + ', ' + rscan_a2.value)
     sics.execute('title straight line align a2')
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + rscan_a2.value + ', 0, \'call_back()\', ref_rate = 1)')
     ra2file.value = get_filename()
@@ -757,7 +757,7 @@ def offset_ra2():
         pass
     peak = ra2_peak.value
     if math.isnan(peak) :
-        slog('no peak found in a2 scan')
+        cal_log('no peak found in a2 scan')
         raise Exception, 'no peak found in a2 scan'
     else:
         dif = math.fabs(peak)
@@ -768,9 +768,9 @@ def offset_ra2():
         else:
             confirmed = True
         if confirmed:
-            slog('drive ' + aname + ' ' + str(peak))
+            cal_log('drive ' + aname + ' ' + str(peak))
             sics.drive(aname, peak)
-            slog('set peak position to ' + str(peak))
+            cal_log('set peak position to ' + str(peak))
             cal_model.pre_a2_scan.use(peak)
             sics.setpos(aname, peak, 0)
             cal_model.export()
@@ -786,7 +786,7 @@ def load_ra2_file():
         __fit_focus__['filename'] = ra2file.value
         view_file(ra2file.value.strip())
     else:
-        slog('no file available')
+        cal_log('no file available')
 
 Gr.add(rEi, raEi, rscan_m1, ram1, rm1file, ram1file, rm1_peak, rm1_offset, rscan_s2, ras2, \
        rs2file, ras2file, rs2_peak, rs2_offset, rscan_a2, raa2, ra2file, raa2file, ra2_peak, ra2_offset)
@@ -814,10 +814,10 @@ cpa_bottom.title = ' slit bottom:'
 cas2 = Act('drive_s2_away()', 'Drive s2 and Slits')
 cas2.colspan = 1
 def drive_s2_away():
-    slog('drive pa_left -15 pa_right -15 pa_top -30 pa_bottom -30')
+    cal_log('drive pa_left -15 pa_right -15 pa_top -30 pa_bottom -30')
     sics.execute('sampledescription Nickel calibration')
     if cs2_away.value :
-        slog('drive s2 -33')
+        cal_log('drive s2 -33')
         sics.multiDrive({'pa_left': pa_left.value, 
                      'pa_right': pa_right.value,
                      'pa_top': pa_top.value,
@@ -1008,10 +1008,10 @@ def scan_peak(id):
         exec('fit_min.value=' + 'scan_peak' + sid + '.value-3')
         exec('fit_max.value=' + 'scan_peak' + sid + '.value+3')
     sicsext.call_back = __load_experiment_data__
-    slog('scan on ' + aname)
-    slog('target peak ' + sid + ' at: ' + str(eval('scan_peak' + sid + '.value')))
+    cal_log('scan on ' + aname)
+    cal_log('target peak ' + sid + ' at: ' + str(eval('scan_peak' + sid + '.value')))
     spara = eval('scan_arg' + sid + '.value')
-    slog('scan ' + aname + ', ' + spara)
+    cal_log('scan ' + aname + ', ' + spara)
     sics.execute('title Calibration scan s2 peak ' + sid)
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + spara + ', 0, \'call_back()\', ref_rate = 1)')
     time.sleep(2)
@@ -1062,7 +1062,7 @@ def accept_peak(id):
             ds = df[str(fn)]
         except:
             ds = None
-            slog('failed to load ' + fn)
+            cal_log('failed to load ' + fn)
         if not ds is None:
             data = ds['bm2_counts']
             axis = ds['s2']
@@ -1105,7 +1105,7 @@ def accept_peak(id):
 #            valid.append(peak_res[i] * -1)
 #            vaxes.append(hkl[i])
 #    if len(valid) == 0:
-#        slog('Error: there is not any available peak.')
+#        cal_log('Error: there is not any available peak.')
 #        return
 #    ds2 = Dataset(valid, axes=[vaxes])
 #    Plot2.set_dataset(ds2)
@@ -1126,7 +1126,7 @@ def linear_fit():
             valid.append(peak_res[i] * -1)
             vaxes.append(hkl[i])
     if len(valid) == 0:
-        slog('Error: no peak found, please run s2 calibration scan again.')
+        cal_log('Error: no peak found, please run s2 calibration scan again.')
         return
     ds2 = Dataset(valid, axes=[vaxes])
 #    Plot2.set_dataset(ds2)
@@ -1150,7 +1150,7 @@ def linear_fit():
 #    Plot2.add_dataset(res)
 #    linear_slope.value = l_fitter.a
     __linear_slope__ = l_fitter.a
-    slog(str(l_fitter.params))
+    cal_log(str(l_fitter.params))
     
 nl_fit = Act('nonlinear_fit()', 'Nonlinear Fit')
 load_s2 = Act('load_s2_files()', 'Reload s2 Scan Files')
@@ -1192,13 +1192,13 @@ def load_s2_files():
 
 def offset_m2m1():
     if math.isnan(m1_new.value) or math.isnan(m2_new.value):
-        slog('no calibration result available')
+        cal_log('no calibration result available')
     else:
         cal_model.use(m1_old.value - m1_new.value, m2_old.value - m2_new.value)
-        slog('setpos m1 ' + str(m1_old.value) + ' ' + str(m1_new.value))
+        cal_log('setpos m1 ' + str(m1_old.value) + ' ' + str(m1_new.value))
         sics.setpos('m1', m1_old.value, m1_new.value)
         sics.drive('m1', m1_old.value)
-        slog('setpos m2 ' + str(m2_old.value) + ' ' + str(m2_new.value))
+        cal_log('setpos m2 ' + str(m2_old.value) + ' ' + str(m2_new.value))
         sics.setpos('m2', m2_old.value, m2_new.value)
         sics.drive('m2', m2_old.value)
         act4.enabled = False
@@ -1218,13 +1218,13 @@ def nonlinear_fit():
             valid.append(peak_res[i] * -1)
             vaxes.append(twod[i])
     if len(valid) == 0:
-        slog('Error: no available peaks.')
+        cal_log('Error: no available peaks.')
         return
     ds3 = Dataset(valid, axes=[vaxes])
     Plot2.set_dataset(ds3)
     ds = Plot2.ds
     if len(ds) == 0:
-        slog('Error: no curve to fit in Plot2')
+        cal_log('Error: no curve to fit in Plot2')
         return
     for d in ds:
         if d.title == 'nonlinear_fit':
@@ -1276,17 +1276,17 @@ def nonlinear_fit():
     cal_model.m2_new = m2_new.value
     cal_model.export()
     nl_fit.tool_tip = None
-    slog('Chi2 = ' + str(nl_fitter.fitter.getQuality()))
-    slog('lambda = ' + str(lambda_fit.value))
-    slog('meV = ' + str((h * pl / lambda_fit.value / m) ** 2 * m * 500 / eV))
-    slog('two-theta_offset = ' + str(s2_offset.value))
+    cal_log('Chi2 = ' + str(nl_fitter.fitter.getQuality()))
+    cal_log('lambda = ' + str(lambda_fit.value))
+    cal_log('meV = ' + str((h * pl / lambda_fit.value / m) ** 2 * m * 500 / eV))
+    cal_log('two-theta_offset = ' + str(s2_offset.value))
     
 def offset_s2():
     if math.isnan(s2_offset.value):
-        slog('no calibration result available')
+        cal_log('no calibration result available')
     else :
         cal_model.use(s2_change = s2_offset.value)
-        slog('setpos s2 ' + str(-s2_offset.value) + ' 0')
+        cal_log('setpos s2 ' + str(-s2_offset.value) + ' 0')
         sics.setpos('s2', -s2_offset.value, 0)
         act3.enabled = False
         cal_model.s2_changed = True
@@ -1307,12 +1307,12 @@ aatrans.title = 'atrans'
 act_s2 = Act('drive_s2()', 'Drive s2 to -50 and atrans to 0')
 act_s2.colspan = 5
 def drive_s2():
-    slog('drive s2 away to -50 and atrans to 0')
+    cal_log('drive s2 away to -50 and atrans to 0')
     sics.multiDrive({'s2': -50, 'atrans':0})
     as2.value = sics.getValue('s2').getFloatData()
     aatrans.value = sics.getValue('atrans').getFloatData()
     sics.execute('s2 fixed 1')
-    slog('Please check if s2 is fixed!')
+    cal_log('Please check if s2 is fixed!')
     try:
         drive_a1_a2()
     except :
@@ -1320,8 +1320,8 @@ def drive_s2():
         sics.execute('s2 fixed -1')
     
 def drive_a1_a2():
-    slog('drive a2 ' + str(m2_old.value))
-    slog('drive a1 ' + str(m1_old.value))
+    cal_log('drive a2 ' + str(m2_old.value))
+    cal_log('drive a1 ' + str(m1_old.value))
     sics.multiDrive({'a1':m1_old.value, 'a2':m2_old.value})
     aa1.value = sics.getValue('a1').getFloatData()
     aa2.value = sics.getValue('a2').getFloatData()
@@ -1330,8 +1330,8 @@ def drive_a1_a2():
     
 #act1 = Act('drive_a1_a2()', 'Drive a1 to m1, a2 to m2')
 #def drive_a1_a2():
-#    slog('drive a2 ' + str(m2.value))
-#    slog('drive a1 ' + str(m1.value))
+#    cal_log('drive a2 ' + str(m2.value))
+#    cal_log('drive a1 ' + str(m1.value))
 #    sics.multiDrive({'a1':m1.value, 'a2':m2.value})
 #    a1.value = sics.getValue('a1').getFloatData()
 #    a2.value = sics.getValue('a2').getFloatData()
@@ -1378,7 +1378,7 @@ def find_a1():
 #    offset.text = 'Set ' + aname + ' Zero Offset'
 #    offset_done.value = False
     sicsext.call_back = __load_experiment_data__
-    slog('scan ' + aname + ', ' + ascan_a1.value)
+    cal_log('scan ' + aname + ', ' + ascan_a1.value)
     sics.execute('title Calibration align a1')
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + ascan_a1.value + ', 0, \'call_back()\', ref_rate = 1)')
     time.sleep(2)
@@ -1400,7 +1400,7 @@ def offset_aa1():
         pass
     peak = aa1_peak.value
     if math.isnan(peak) :
-        slog('no peak found in a1 scan')
+        cal_log('no peak found in a1 scan')
         raise Exception, 'no peak found in a1 scan'
     else:
         dif = math.fabs(peak - aa1.value)
@@ -1411,9 +1411,9 @@ def offset_aa1():
         else:
             confirmed = True
         if confirmed:
-            slog('drive ' + aname + ' ' + str(peak))
+            cal_log('drive ' + aname + ' ' + str(peak))
             sics.drive(aname, peak)
-            slog('set peak position to ' + str(peak))
+            cal_log('set peak position to ' + str(peak))
             cal_model.a1_scan.use(peak - aa1.value)
             sics.setpos(aname, peak, aa1.value)
             cal_model.export()
@@ -1428,7 +1428,7 @@ def load_aa1_file():
         __fit_focus__['filename'] = aa1file.value
         view_file(aa1file.value.strip())
     else:
-        slog('no available file')
+        cal_log('no available file')
       
 def find_a2():
     aname = 'a2'
@@ -1443,7 +1443,7 @@ def find_a2():
 #    offset.text = 'Set ' + aname + ' Zero Offset'
 #    offset_done.value = False
     sicsext.call_back = __load_experiment_data__
-    slog('scan ' + aname + ', ' + ascan_a2.value)
+    cal_log('scan ' + aname + ', ' + ascan_a2.value)
     sics.execute('title Calibration align a2')
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + ascan_a2.value + ', 0, \'call_back()\', ref_rate = 1)')
     time.sleep(2)
@@ -1465,7 +1465,7 @@ def offset_aa2():
         pass
     peak = aa2_peak.value
     if math.isnan(peak) :
-        slog('no peak found in a2 scan')
+        cal_log('no peak found in a2 scan')
         raise Exception, 'no peak found in a2 scan'
     else:
         dif = math.fabs(peak - aa2.value)
@@ -1476,9 +1476,9 @@ def offset_aa2():
         else:
             confirmed = True
         if confirmed:
-            slog('drive ' + aname + ' ' + str(peak))
+            cal_log('drive ' + aname + ' ' + str(peak))
             sics.drive(aname, peak)
-            slog('set peak position to ' + str(peak))
+            cal_log('set peak position to ' + str(peak))
             cal_model.a2_scan.use(peak - aa2.value)
             sics.setpos(aname, peak, aa2.value)
             cal_model.export()
@@ -1494,7 +1494,7 @@ def load_aa2_file():
         __fit_focus__['filename'] = aa2file.value
         view_file(aa2file.value.strip())
     else:
-        slog('no available file')
+        cal_log('no available file')
 
 Gas.add(as2, aatrans, act_s2, aa1, ascan_a1, aact2, aa1file, aaa1file, aa1_peak, aa1_offset, \
         aa2, ascan_a2, aact3, aa2file, aaa2file, aa2_peak, aa2_offset)
@@ -1539,8 +1539,8 @@ Gas.add(as2, aatrans, act_s2, aa1, ascan_a1, aact2, aa1file, aaa1file, aa1_peak,
 #        Plot1.add_dataset(res)
 #        mean = fitting.params['mean']
 #        fwhm = 2.35482 * math.fabs(fitting.params['sigma'])
-#        slog('POS_OF_PEAK=' + str(mean))
-#        slog('FWHM=' + str(fwhm))
+#        cal_log('POS_OF_PEAK=' + str(mean))
+#        cal_log('FWHM=' + str(fwhm))
 #        peak_pos.value = fitting.mean
 #        FWHM.value = fwhm
 #        if __fit_focus__.has_key('widget') and __fit_focus__.has_key('filename') \
@@ -1823,7 +1823,7 @@ en_peak.title = 'peak:'
 try:
     calc_peaks()
 except:
-    slog('calculation is out of range.')
+    cal_log('calculation is out of range.')
 
 def scan_en():
     aname = 'en'
@@ -1834,10 +1834,10 @@ def scan_en():
         pass
     axis_name.value = aname
     reset_fit()
-    slog('tasub const ' + en_mode.value)
+    cal_log('tasub const ' + en_mode.value)
     sics.execute('tasub const ' + en_mode.value)
     sicsext.call_back = __load_experiment_data__
-    slog('scan ' + aname + ', ' + en_scan.value)
+    cal_log('scan ' + aname + ', ' + en_scan.value)
     sics.execute('s2 fixed 1')
     sics.execute('title Calibration test scan on En')
     exec('sicsext.runbmonscan(\'' + aname + '\', ' + en_scan.value + ', 0, \'call_back()\', ref_rate = 1)')
@@ -1858,7 +1858,7 @@ def load_en_file():
         __fit_focus__['filename'] = en_file.value
         view_file(en_file.value.strip())
     else:
-        slog('no available file')
+        cal_log('no available file')
     
 Gen.add(en_mode, en_scan, en_act, en_file, en_afile, en_peak)
 
@@ -1881,9 +1881,9 @@ def load_model():
     finally:
         file.close()
     if model is None:
-        slog('failed to load model from file ' + str(model_file.value))
+        cal_log('failed to load model from file ' + str(model_file.value))
         return
-    slog('model loaded from file ' + str(model_file.value))
+    cal_log('model loaded from file ' + str(model_file.value))
     if not cal_model is None and not cal_model.path is None:
         model.path = cal_model.path
     cal_model = model
@@ -2032,7 +2032,7 @@ def export_model():
         if not fp.makedirs():
             print 'Error: failed to make directory: ' + path
             return
-    slog('model exported to ' + path)
+    cal_log('model exported to ' + path)
     cal_model.export(path)
     
 def run_cali_only():
@@ -2049,7 +2049,7 @@ def run_cali_only():
         run_action(act3)
         run_action(act4)
     else:
-        slog('m1, m2 and s2 zero offsets are NOT changed.')
+        cal_log('m1, m2 and s2 zero offsets are NOT changed.')
         raise Exception, 'User stopped the calibration task.'
         
 def run_all():
@@ -2075,7 +2075,7 @@ def run_all():
         run_action(act3)
         run_action(act4)
     else:
-        slog('m1, m2 and s2 zero offsets are NOT changed.')
+        cal_log('m1, m2 and s2 zero offsets are NOT changed.')
         raise Exception, 'User stopped the calibration task.'
 
     run_action(act_s2)

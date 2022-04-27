@@ -6,6 +6,7 @@ from org.eclipse.swt.events import DisposeListener
 from org.eclipse.swt.widgets import TypedListener
 #from org.gumtree.util.messaging import EventHandler
 from gumpy.nexus.fitting import Fitting, GAUSSIAN_FITTING
+from gumpy.commons import sics
 from au.gov.ansto.bragg.nbi.ui.scripting import ConsoleEventHandler
 from org.eclipse.swt.widgets import Display
 from java.lang import Runnable
@@ -17,33 +18,24 @@ from java.io import File
 from time import strftime, localtime
 import traceback
 import math
+from Internal.Experiment.logger import *
 
 __script__.title = 'Initialised'
 __script__.version = ''
 #__script__.dict_path = get_absolute_path('/Experiment/path_table')
 DatasetFactory.__cache_enabled__ = False
 Dataset.__dicpath__ = get_absolute_path('/Experiment/path_table')
-__data_folder__ = 'W:/data/current'
+__data_folder__ = System.getProperty('sics.data.path', 'W:/data/current')
 #__data_folder__ = 'Z:/testing/taipan'
-__export_folder__ = 'W:/data/current/reports'
 __diffscan_device__ = None
 __diffscan_range__ = []
-System.setProperty('sics.data.path', __data_folder__)
+#System.setProperty('sics.data.path', __data_folder__)
+init_logger(get_pref_value('taipan.experiment.id'))
 
 try:
     __dispose_all__(None)
 except:
     pass
-
-__buffer_log_file__ = __export_folder__ + '/exp' + get_prof_value('taipan.experiment.id')
-fi = File(__buffer_log_file__)
-if not fi.exists():
-    if not fi.mkdirs():
-        print 'Error: failed to make directory: ' + __buffer_log_file__
-__history_log_file__ = __buffer_log_file__ + '/History.txt'
-__buffer_log_file__ += '/LogFile.txt'
-__buffer_logger__ = open(__buffer_log_file__, 'a')
-__history_logger__ = open(__history_log_file__, 'a')
 
 print 'Waiting for SICS connection'
 while sics.getSicsController() == None:
@@ -493,20 +485,6 @@ def previous_step():
 def next_step():
     load_script(next_file)
 
-def logBook(text):
-    from Experiment.config import HISTORY_KEY_WORDS
-    global __buffer_logger__
-    try:
-        tsmp = strftime("[%Y-%m-%d %H:%M:%S]", localtime())
-        __buffer_logger__.write(tsmp + ' ' + text + '\n')
-        __buffer_logger__.flush()
-        for item in HISTORY_KEY_WORDS:
-            if text.startswith(item):
-                __history_logger__.write(tsmp + ' ' + text + '\n')
-                __history_logger__.flush()
-    except:
-        print 'failed to log'
-    
 def slog(text):
     logln(text + '\n')
     logBook(text)

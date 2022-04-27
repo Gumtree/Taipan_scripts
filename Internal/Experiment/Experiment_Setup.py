@@ -191,6 +191,6 @@ def create_new():
         experiment_id.value += 1
         apply_values()
         creation_status.value = True
-        update_buffer_log_folder()
+        update_buffer_log_folder(str(experiment_id.value))
         print 'New experiment created.'
         
