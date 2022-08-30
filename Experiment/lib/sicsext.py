@@ -158,6 +158,7 @@ def simplescan(type, scan_variable, scan_start, scan_increment, NP, mode, preset
             while (scanController.getCommandStatus().equals(CommandStatus.BUSY)):
                 try:
                     currentPoint = scanPointController.getValue().getIntData()
+#                    print str(currentPoint) + " : " + str(scanpoint)
                 except:
                     time.sleep(0.1)
                     continue
@@ -289,7 +290,21 @@ def runscan(scan_variable, scan_start, scan_stop, numpoints, mode, preset, chann
         raise Exception, 'failed to run the scan'
         
 def getBaseFilename():
-    return os.path.basename(str(getFilename()))
+#    return os.path.basename(str(getFilename()))
+    fn = None
+    timeout = 5
+    count = 0
+    while fn is None and count < timeout :
+        try:
+            fn = getValue('/experiment/file_name', False)
+        except SicsError:
+            raise
+        except:
+            time.sleep(0.5)
+            count += 0.5
+    if fn is None:
+        fn = getValue('/experiment/file_name', False)
+    return os.path.basename(str(fn))
 
 def getStableValue(dev):
     val = None
