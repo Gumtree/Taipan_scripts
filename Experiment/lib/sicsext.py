@@ -67,6 +67,8 @@ def mscan(v1_name, v1_start, v1_increment, v2_name, v2_start, v2_increment, \
                     continue
                 if ((scanpoint == -1 and  currentPoint == 0) or (scanpoint != -1 and currentPoint != scanpoint)):
                     scanpoint = currentPoint
+                    if currentPoint == 1:
+                        fn = getFilename()
                     if currentPoint > 0 and comm != None:
                         try:
                             print '%4d \t %d' % (scanpoint, countsController.getValue().getIntData())
