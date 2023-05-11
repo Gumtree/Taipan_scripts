@@ -61,7 +61,7 @@ def update_buffer_log_folder(exp_id):
 
 
 def log_all(text):
-    global __buffer_logger__
+    global __buffer_logger__, __buffer_log_file__
     try:
         __buffer_logger__.write(text + '\n')
         __buffer_logger__.flush()
@@ -125,6 +125,7 @@ def logBook(text):
 #                __history_logger__.write(tsmp + ' ' + text + '\n')
 #                __history_logger__.flush()
                 log_his(tsmp + ' ' + text)
+                break
     except:
         print 'failed to log'
     

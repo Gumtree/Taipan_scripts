@@ -152,11 +152,18 @@ class __SaveListener__(DynamicControllerListenerAdapter):
         try:
 #            new_status = str(__scan_status_node__.getValue().getStringData())
             new_status = newValue.getStringData()
-            __file_name__ = str(__file_name_node__.getValue().getStringData())
 #            if new_status == 'BUSY':
 #                __file_name__ = str(__file_name_node__.getValue().getStringData())
             if __cur_status__ == 'BUSY' and new_status == 'IDLE':
-#                __file_status__ = str(__file_status_node__.getValue().getStringData())
+                __file_name__ = str(__file_name_node__.getValue().getStringData())
+                checkFile = File(__file_name__)
+                checkFile = File(__data_folder__ + "/" + checkFile.getName())
+                __file_status__ = str(__file_status_node__.getValue().getStringData())
+                ct_ = 0
+                while (__file_status__ == 'SAVING' or __file_status__ == 'OPEN' or not checkFile.exists()) and ct_ < 2:
+                    ct_ += 0.1
+                    time.sleep(0.1)
+                    __file_status__ = str(__file_status_node__.getValue().getStringData())
                 try:
                     __export__(__file_name__)
                     slog('Exported: ' + __file_name__)
@@ -193,7 +200,7 @@ def add_dataset():
     try:
         __DATASOURCE__.addDataset(__file_to_add__, True)
     except:
-        print 'error in adding dataset: ' + __file_to_add__
+        slog('error in adding dataset: ' + __file_to_add__)
     
 class __SaveCountListener__(DynamicControllerListenerAdapter):
     
@@ -213,15 +220,22 @@ class __SaveCountListener__(DynamicControllerListenerAdapter):
             try:
                 checkFile = File(__file_name_node__.getValue().getStringData());
                 checkFile = File(__data_folder__ + "/" + checkFile.getName());
+                __file_status__ = str(__file_status_node__.getValue().getStringData())
+                ct_ = 0
+                while (__file_status__ == 'SAVING' or __file_status__ == 'OPEN' or not checkFile.exists()) and ct_ < 2:
+                    ct_ += 0.1
+                    time.sleep(0.1)
+                    __file_status__ = str(__file_status_node__.getValue().getStringData())
+
                 __file_to_add__ = checkFile.getAbsolutePath();
                 if not checkFile.exists():
-                    print "The target file :" + __file_to_add__ + " can not be found";
+                    slog( "The target file :" + __file_to_add__ + " can not be found")
                     return
                 runnable = __Display_Runnable__()
                 runnable.run = add_dataset
                 Display.getDefault().asyncExec(runnable)
             except: 
-                print 'failed to add dataset ' + __file_to_add__
+                slog( 'failed to add dataset ' + __file_to_add__)
                     
 __saveCountListener__ = __SaveCountListener__()
 __save_count_node__.addComponentListener(__saveCountListener__)
