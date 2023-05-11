@@ -19,6 +19,7 @@ from time import strftime, localtime
 import traceback
 import math
 from Internal.Experiment.logger import *
+from Internal.Experiment import logger as _logger
 
 __script__.title = 'Initialised'
 __script__.version = ''
@@ -247,7 +248,8 @@ def __export__(fn):
         fn = items[-1]
     input_path = __data_folder__ + '/' + fn
     exp_id = get_prof_value('taipan.experiment.id')
-    exp_folder = __export_folder__ + '/exp' + exp_id
+#    exp_folder = __export_folder__ + '/exp' + exp_id
+    exp_folder = _logger.__report_folder__ + '/exp' + exp_id
     fi = File(exp_folder)
     if not fi.exists():
         if not fi.mkdirs():
