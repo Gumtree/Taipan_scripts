@@ -1,0 +1,38 @@
+
+
+
+
+hset /sics/tc1/sensor/setpoint1 1
+hset /sics/tc2/sensor/setpoint1 1
+wait 900
+
+
+
+title QH scan (QH 0 3) at E=3 meV Ba0.2K0.8Fe2As2 at 30K
+drive qh 0.5 qk 0 ql 3 en 3
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+title QH scan (QH 0 3) at E=5 meV Ba0.2K0.8Fe2As2 at 30K
+drive qh 0.5 qk 0 ql 3 en 5
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+
+title QH scan (QH 0 3) at E=7 meV Ba0.2K0.8Fe2As2 at 30K
+drive qh 0.5 qk 0 ql 3 en 7
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+
+title QH scan (QH 0 3) at E=9 meV Ba0.2K0.8Fe2As2 at 30K
+drive qh 0.5 qk 0 ql 3 en 9
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+
+
+
+#hset /sics/tc1/sensor/setpoint1 1
+#hset /sics/tc2/sensor/setpoint1 1
+#wait 900

@@ -105,9 +105,9 @@ def fit_curve():
         mean_err = fitting.errors['mean']
         FWHM.value = 2.35482 * math.fabs(fitting.params['sigma'])
         FWHM_err = 5.54518 * math.fabs(fitting.errors['sigma'])
-        log('POS_OF_PEAK=' + str(mean) + ' +/- ' + str(mean_err))
-        log('FWHM=' + str(FWHM.value) + ' +/- ' + str(FWHM_err))
-        log('Chi2 = ' + str(fitting.fitter.getQuality()))
+        log('POS_OF_PEAK = ' + "{:.6f}".format(mean) + ' +/- ' + "{:.6f}".format(mean_err))
+        log('FWHM        = ' + "{:.6f}".format(FWHM.value) + ' +/- ' + "{:.6f}".format(FWHM_err))
+        log('Chi2        = ' + "{:.6f}".format(fitting.fitter.getQuality()))
         peak_pos.value = fitting.mean
 #        print fitting.params
     except:

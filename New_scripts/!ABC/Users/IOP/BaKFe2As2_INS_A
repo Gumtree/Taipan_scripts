@@ -1,0 +1,25 @@
+
+title Ba08K02Fe2As2 (0 0 3.9) Bragg  with one PG filter
+drive qh 0 qk 0 ql 4 en 0
+runscan ql 3.9 4.1 41 monitor 40000
+
+
+title Ba08K02Fe2As2 (1.95 0 0) Bragg with one PG filter
+drive qh 1.95 qk 0 ql 0 en 0
+runscan qh 1.95 2.05 21 monitor 40000
+
+
+title Ba08K02Fe2As2 (1 0 1) Escan 0.5~9meV with one PG 
+drive qh 1 qk 0 ql 1 en 0.5
+runscan en 0.5 9 18 monitor 1000000
+
+
+title Ba08K02Fe2As2 (1.4 0 1) Escan 0.5~9meV with one PG 
+drive qh 1.4 qk 0 ql 1 en 0.5
+runscan en 0.5 9 18 monitor 1000000
+
+title Ba08K02Fe2As2 (0.6 0 1) Escan 0.5~9meV with one PG 
+drive qh 0.6 qk 0 ql 1 en 0.5
+runscan en 0.5 6 12 monitor 1000000
+
+

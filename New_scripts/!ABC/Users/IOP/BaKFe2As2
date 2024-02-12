@@ -1,0 +1,8 @@
+scantitle Ba08K02Fe2As2 (0 0 3.9) Bragg
+drive qh 0 qk 0 ql 4 en 0
+runscan ql 3.9 4.1 41 monitor 35000
+
+
+scantitle Ba08K02Fe2As2 (1.95 0 0) Bragg
+drive qh 1.95 qk 0 ql 0 en 0
+runscan ql 1.95 2.05 21 monitor 35000

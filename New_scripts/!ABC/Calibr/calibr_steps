@@ -11,10 +11,13 @@
 #    autofocus status
 #    vs_left, vs_right
 #    m1, m2, mtilt, mtrans, mhfocus, mvfocus
-#    a1, a2, atitl, atrans, ahfocus, avfocus
+#    a1, a2, atilt, atrans, ahfocus, avfocus
 #    ps_left,ps_right, ps_top, ps_bottom
 #    pa_left,pa_right, pa_top, pa_bottom
-#    ei=14.87: mvfocus:56;mhfocus:48; avfocus:145: ahfocus:88;
+#    ei=14.87: mvfocus:56;mhfocus:48; avfocus:120: ahfocus:88;
+
+#   ATTENTION: about autofocus enable will change fixed status:
+
 
 # (3) scans 
 #    drive a1 0 a2 0 atrans 19  (2 axis mode) 

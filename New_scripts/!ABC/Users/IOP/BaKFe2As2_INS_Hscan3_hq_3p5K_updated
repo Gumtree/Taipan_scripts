@@ -1,0 +1,18 @@
+
+
+
+
+
+
+title E scan 2 to 24 mev Q(1.26 0 3) Ba0.2K0.8Fe2As2 at 3.5K
+drive qh 1.18 qk 0 ql 3 en 2
+runscan en 2 24 12 monitor 1500000
+
+
+title E scan 3 to 25 mev Q(1.26 0 3) Ba0.2K0.8Fe2As2 at 3.5K
+drive qh 1.18 qk 0 ql 3 en 3
+runscan en 3 25 12 monitor 1500000
+
+title E scan 2 to 24 mev Q(1.26 0 3) Ba0.2K0.8Fe2As2 at 3.5K
+drive qh 1.18 qk 0 ql 3 en 2
+runscan en 2 24 12 monitor 1500000

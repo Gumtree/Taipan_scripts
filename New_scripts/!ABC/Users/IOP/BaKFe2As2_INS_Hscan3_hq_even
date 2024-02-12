@@ -1,0 +1,34 @@
+
+title QH scan (QH 0 3) at E=2 meV Ba0.2K0.8Fe2As2 at  3p5K
+drive qh 0.5 qk 0 ql 3 en 2
+runscan qh 0.5 1.5 26 monitor 1500000
+
+title QH scan (QH 0 3) at E=4 meV Ba0.2K0.8Fe2As2 at  3p5K
+drive qh 0.5 qk 0 ql 3 en 4
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+title QH scan (QH 0 3) at E=6 meV Ba0.2K0.8Fe2As2 at  3p5K
+drive qh 0.5 qk 0 ql 3 en 6
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+title QH scan (QH 0 3) at E=8 meV Ba0.2K0.8Fe2As2 at 3p5K
+drive qh 0.5 qk 0 ql 3 en 8
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+title QH scan (QH 0 3) at E=10 meV Ba0.2K0.8Fe2As2 at  3p5K
+drive qh 0.5 qk 0 ql 3 en 10
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+title QH scan (QH 0 3) at E=12 meV Ba0.2K0.8Fe2As2 at  3p5K
+drive qh 0.5 qk 0 ql 3 en 12
+runscan qh 0.5 1.5 26 monitor 1500000
+
+
+title QH scan (QH 0 3) at E=14 meV Ba0.2K0.8Fe2As2 at  3p5K
+drive qh 0.5 qk 0 ql 3 en 14
+runscan qh 0.5 1.5 26 monitor 1500000
+

@@ -1,0 +1,10 @@
+(110) nuclear peak: magnet_xyz 10,90,260 (mag, polar, azimuth)
+(0.5 0.5 0.5) magnetic peak: magnet_xyz 10,90,295 (mag, polar, azimuth)
+
+unpolarised cells
+nuclear peaks starting at #92668
+
+stop 92851 to depolarise cells 24-6-22
+unpolarised cells
+nuclear peaks starting at #92852
+

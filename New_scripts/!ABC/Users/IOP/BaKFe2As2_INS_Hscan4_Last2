@@ -1,0 +1,63 @@
+title = T scan 10 to 45K_10K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+drive qh 1.18 qk 0 ql 3 en 13
+
+hset /sics/tc1/sensor/setpoint1 10
+hset /sics/tc2/sensor/setpoint1 10
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+
+title = T scan 10 to 45K_15K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 15
+hset /sics/tc2/sensor/setpoint1 15
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_20K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 20
+hset /sics/tc2/sensor/setpoint1 20
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_22K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 22
+hset /sics/tc2/sensor/setpoint1 22
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_24K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 24
+hset /sics/tc2/sensor/setpoint1 24
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_26K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 26
+hset /sics/tc2/sensor/setpoint1 26
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_28K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 28
+hset /sics/tc2/sensor/setpoint1 28
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_35K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 35
+hset /sics/tc2/sensor/setpoint1 35
+wait 900
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_40K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 40
+hset /sics/tc2/sensor/setpoint1 40
+wait 600
+runscan en 13 13 1 monitor 6000000
+
+title = T scan 10 to 45K_45K Q(1.18 0 3) Ba0.2K0.8Fe2As2 at 13meV
+hset /sics/tc1/sensor/setpoint1 45
+hset /sics/tc2/sensor/setpoint1 45
+wait 600
+runscan en 13 13 1 monitor 6000000
+

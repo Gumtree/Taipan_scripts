@@ -1,0 +1,45 @@
+
+#Set to zero field and 290K to reset FePd phase
+
+OxfordSetRate 0.5
+OxfordSetHS ON
+wait 60
+OxfordSetField 0
+wait 650
+OxfordSetHS OFF
+wait 60
+
+hset /sics/tc1/pres8/setpoint 10
+hset /sics/tc1/temp6/setpoint 290 
+#vti
+hset /sics/tc1/temp7/setpoint 290 
+#sample
+wait 1800
+hset /sics/tc1/pres8/setpoint 1
+
+Title Satellite scan l=1.8 290K 0T
+
+drive qh -0.16 qk -0.16 ql 1.8 en 0
+mscan qh -0.16 0.005 qk -0.16 0.005 61 monitor 10000
+
+Title Satellite scan l=1.9 290K 0T
+
+drive qh -0.16 qk -0.16 ql 1.9 en 0
+mscan qh -0.16 0.005 qk -0.16 0.005 61 monitor 10000
+
+Title Satellite scan l=2 290K 0T
+
+drive qh -0.16 qk -0.16 ql 2 en 0
+mscan qh -0.16 0.005 qk -0.16 0.005 61 monitor 10000
+
+Title Satellite scan l=2.1 290K 0T
+
+drive qh -0.16 qk -0.16 ql 2.1 en 0
+mscan qh -0.16 0.005 qk -0.16 0.005 61 monitor 10000
+
+Title Satellite scan l=2.2 290K 0T
+
+drive qh -0.16 qk -0.16 ql 2.2 en 0
+mscan qh -0.16 0.005 qk -0.16 0.005 61 monitor 10000
+
+
